@@ -504,7 +504,7 @@ Whiskey Sour
 .75 lemon juice
 .75 simple syrup
 
-Shake all ingridients with ice.
+Shake all ingredients with ice.
 Strain into a double old-fashioned glass over 1 large ice cube.
 Garnish with a lemon wheel and a cherry.
 ---
