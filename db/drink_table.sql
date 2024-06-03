@@ -74,7 +74,7 @@ ALTER TABLE public.liquor_table ALTER COLUMN drink_id ADD GENERATED ALWAYS AS ID
 COPY public.liquor_table (drink_id, drink_name, spirit_type, spirit_amount, ingredient_1, ingredient_1_quantity, ingredient_2, ingredient_2_quantity, ingredient_3, ingredient_3_quantity, ingredient_4, ingredient_4_quantity, ingredient_5, ingredient_5_quantity, ingredient_6, ingredient_6_quantity, instructions) FROM stdin;
 1	Americano	Vermouth	1	Campari	1	Soda Water	4	\N	\N	\N	\N	\N	\N	\N	\N	Pour Campari and sweet vermouth into a glass. Add ice and soda water.
 3	Aperol Spritz	Aperol	2	Sparkling Wine	3	Seltzer	2	\N	\N	\N	\N	\N	\N	\N	\N	Pour the Aperol into a wineglass. Fill the glass with ice cubes, then pour in the sparkling wine and seltzer. Mix gently with a bar spoon. Garnish with a grapefruit wedge.
-4	Bee's Knees	Gin	2	Lemon Juice	1	Honey Syrup	1	\N	\N	\N	\N	\N	\N	\N	\N	Shake all ingredients with ice. Double strain into a chilled coupe.
+4	Bees Knees	Gin	2	Lemon Juice	1	Honey Syrup	1	\N	\N	\N	\N	\N	\N	\N	\N	Shake all ingredients with ice. Double strain into a chilled coupe.
 5	Between the Sheets	Cognac	1	White Rum	1	Cointreau	1	Lemon Juice	1	\N	\N	\N	\N	\N	\N	Shake all ingredients with ice. Double strain into a chilled coupe.
 6	Boulevardier	Bourbon	2	Sweet Vermouth	1	Campari	1	\N	\N	\N	\N	\N	\N	\N	\N	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Garnish with a cherry.
 7	Brandy Alexander	Cognac	2	Creme de Cacao	1	Heavy Cream	1	\N	\N	\N	\N	\N	\N	\N	\N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with grated nutmeg.
