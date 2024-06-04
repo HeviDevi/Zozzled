@@ -27,7 +27,12 @@ app.get("/", (req, res) => {
 // Route for drink-search
 app.get("/drink-search", (req, res) => {
   res.render("drink-search", { layout: "index" });
-})
+});
+
+// Route for drink-results
+app.get("/drink-results", (req, res) => {
+  res.render("drink-results", { layout: "index" })
+});
 
 // Start the server
 app.listen(PORT, () => {
