@@ -91,6 +91,7 @@ body {
     height: auto;
 }
 
+/* Start Button */
 .start-btn {
     display: flex;
     justify-content: center;
