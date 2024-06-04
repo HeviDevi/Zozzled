@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f4ea;
+    /* background-image: url(/assets/img/cocktailBackground2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+}
+
+.top-left-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.top-left {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.bottom-left-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottom-left {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.top-right-container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.top-right {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.bottom-right-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.bottom-right {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+.discover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.discover {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
