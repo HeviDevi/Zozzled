@@ -1,5 +1,7 @@
-const startButton = document.querySelector('.start-btn');
+// Start button script
+const startButton = document.querySelector(".start-btn");
 
-startButton.addEventListener('click', () => {
-    window.location.href = '/drink-search';
+startButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  window.location.href = "/drink-search";
 });
