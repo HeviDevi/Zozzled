@@ -1,1 +1,22 @@
-<h1>The body of the Index page</h1>
+{{!-- Logo Partial --}}
+<div class="logo">{{> logo}}</div>
+
+{{!-- Art Deco Partial --}}
+<div class="artDeco">{{> art-deco}}</div>
+
+{{!-- Discover Img --}}
+<div class="discover-container">
+  <img
+    class="discover"
+    src="/assets/img/discoverCocktail.png"
+    alt="Discover Cocktail"
+  />
+</div>
+
+{{! Start Here Button }}
+<button
+  type="button"
+  class="btn start-btn"
+  style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 4rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;" >
+  Start Here
+</button>

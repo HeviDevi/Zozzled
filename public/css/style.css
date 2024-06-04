@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f4ea;
+}
+
+.logo-container {
+    position: absolute;
+    top: 8%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    width: 75%;
+}
+
+/* Top Left Art Deco */
+.top-left-container {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.top-left {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+/* Bottom Left Art Deco */
+.bottom-left-container {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.bottom-left {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+/* Top Right Art Deco */
+.top-right-container {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.top-right {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
+
+/* Bottom Right Art Deco */
+.bottom-right-container {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+.bottom-right {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+}
