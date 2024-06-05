@@ -1,8 +1,20 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const path = require("path"); // Path module
+const bodyParser = require("body-parser"); // Body parser module
+
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+//database require
+const db = require('./config/database')
+
+//test database
+db.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err))
 
 // Set up static files
 app.use(express.static("public"));
