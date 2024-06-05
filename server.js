@@ -44,6 +44,11 @@ app.get("/drink-results", (req, res) => {
   res.render("drink-results", { layout: "index" })
 });
 
+// Route for drink-details
+app.get("/drink-details", (req, res) => {
+  res.render("drink-details", { layout: "index" })
+});
+
 // Initialize PostgreSQL database connection
 const pool = new Pool({
   user: process.env.DB_USER,
