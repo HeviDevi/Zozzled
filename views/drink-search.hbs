@@ -1,51 +1,56 @@
 {{!-- Modal --}}
 <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="modalTitle">Login</h1>
-                <button type="button" class="btn-close" aria-label="Close">&times;</button>
+        <div class="modal-content text-center">
+            <div class="modal-header border-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="modal-title fs-2" id="modalTitle">Login</h1>
+                              {{!-- <button type="button" class="btn-close" aria-label="Close">&times;</button> --}}
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-body">
                 <form id="loginForm" action="/login" method="POST">
                     <div class="form-group">
-                        <label for="loginUsername">Username</label>
-                        <input type="text" id="loginUsername" name="username" required>
+                        {{!-- <label for="loginUsername">Username</label> --}}
+                        <input type="text" class="form-control-user" id="loginUsername" placeholder=" Username" name="username" required>
                     </div>
-                    <div class="form-group">
-                        <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" name="password" required>
+                    <div class="form-group mt-3">
+                        {{!-- <label for="loginPassword">Password</label>
+                        <br> --}}
+                        <input type="password" class="form-control-user" id="loginPassword" placeholder=" Password" name="password" required>
                     </div>
-                    <div class="modal-footer align-center">
-                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn-primary">Login</button>
+                    <div class="modal-footer d-flex justify-content-center border-0 mt-4">
+                        <button type="submit" class="btn-primary modalBtn">Login</button>
                     </div>
                 </form>
                 <form id="registerForm" action="/register" method="POST" style="display: none;">
                     <div class="form-group">
-                        <label for="regUsername">Username</label>
-                        <input type="text" id="regUsername" name="username" maxlength="16" required>
+                        {{!-- <label for="regUsername">Username</label> --}}
+                        <input type="text" class="form-control-user" id="regUsername" placeholder=" Username" name="username" maxlength="16" required>
                     </div>
-                    <div class="form-group">
-                        <label for="regEmail">Email</label>
-                        <input type="email" id="regEmail" name="email" maxlength="35" required>
+                    <div class="form-group mt-2">
+                        {{!-- <label for="regEmail">Email</label> --}}
+                        <input type="email" class="form-control-user" id="regEmail" placeholder=" Email" name="email" maxlength="35" required>
                     </div>
-                    <div class="form-group">
-                        <label for="regDob">Date of Birth</label>
-                        <input type="date" id="regDob" name="dob" required>
+                    <div class="form-group mt-2">
+                        {{!-- <label for="regDob">Date of Birth</label> --}}
+                        <input type="date" class="form-control-user" id="regDob" name="dob" required>
                     </div>
-                    <div class="form-group">
-                        <label for="regPassword">Password</label>
-                        <input type="password" id="regPassword" name="password" maxlength="16" required>
-                    </div>
-                    <div class="modal-footer align-center">
-                        <button type="button" class="btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn-primary">Register</button>
+                    <div class="form-group mt-2">
+                        {{!-- <label for="regPassword">Password</label> --}}
+                        <input type="password" class="form-control-user" placeholder=" Password" id="regPassword" name="password" maxlength="16" required>
                     </div>
                 </form>
-                <div id="authFooter" class="modal-footer align-center">
-                    <button id="showRegisterBtn" class="btn-primary">Register</button>
-                    <button id="guestBtn" class="btn-secondary">Continue as Guest</button>
+                <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
+                    <button id="showRegisterBtn" class="btn-primary modalBtn">Register</button>
+                    {{!-- <button id="guestBtn" class="btn-secondary modalBtn">Continue as Guest</button> --}}
+                </div>
+                <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
+                    <a href="#" id="guestBtn" class="btn-secondary" data-bs-dismiss="modal">Continue as Guest</a>
                 </div>
             </div>
         </div>
