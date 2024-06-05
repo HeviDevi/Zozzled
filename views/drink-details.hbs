@@ -3,13 +3,15 @@
 
 <section class="drink-details">
     <div class="drink-details-container">
+        <a href="/drink/{{drink.id}}">
         <div class="drink-details-image">
-            <img src="{{image}}" alt="{{drinkName}}" />
+            <img src="{{drink.image}}" alt="{{drink.drinkName}}" />
         </div>
         <div class="drink-details-content">
-            <h2>{{drinkName}}</h2>
-            <p>{{drinkRating}}</p>
-            <p>{{drinkIngredients}}</p>
-            <p>{{drinkInstructions}}</p>
+            <h2>{{drink.drinkName}}</h2>
+            <p>{{drink.drinkRating}}</p>
+            <p>{{drink.drinkIngredients}}</p>
+            <p>{{drink.drinkInstructions}}</p>
         </div>
+    </div>
     </div>
