@@ -34,6 +34,11 @@ app.get("/drink-results", (req, res) => {
   res.render("drink-results", { layout: "index" })
 });
 
+// Route for drink-details
+app.get("/drink-details", (req, res) => {
+  res.render("drink-details", { layout: "index" })
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`App listening to port ${PORT}`);
