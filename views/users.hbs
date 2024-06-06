@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>User Drinks</title>
+<link rel="stylesheet" href="/css/style.css"></head>
 <body>
-    <h1>User Drinks</h1>
-    <ul>
-        {{#each users}}
-            <li>{{this.drinkname}} - {{this.spirittype}} - {{this.spiritamount}} - {{this.ingredients}} - {{this.instructions}}</li>
-        {{/each}}
+    <header>
+        <h2><a href="/">INPUT TEXT</a></h2>
+        <nav>
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/users">Users</a>
+                </li>
+                <li>
+                    <a href="/users/add">User Add</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    {{!-- {{#each users}}
+        <h1>{{drinkname}}</h1>
+        <ul>
+            <li>{{this.spirittype}} - {{this.spiritamount}}</li>
+            <p>{{this.ingredients}}</p>
+            <p>{{this.instructions}}</p>
+    {{else}}
+            <p>No drinks found</p>
+    {{/each}} --}}
+
+    {{#each users}}
+        <h1>Old-Fashioned</h1>
+        <ul>
+            <li>Whiskey - 2OZ</li>
+            <p></p>
+            <p>"In a mixing glass, muddle the sugar and bitters. Fill the glass with ice, then add the bourbon. Stir well and strain into a glass. Twist the orange peel over the drink and drop it in."</p>
+    {{else}}
+            <p>No drinks found</p>
+    {{/each}}
+
+
     </ul>
 </body>
 </html>
-
