@@ -37,8 +37,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Index route
-
 
 // User routes - anything that is /users will go to the users.js file
 app.use('/users', require('./routes/users')); 
