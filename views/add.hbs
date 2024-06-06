@@ -20,7 +20,42 @@
         <div class="form-wrap">
             <h1>Lets Create Your Own!!!</h1>
             <p>what creations can you come up with??</p>
-
+{{!-- Loop through the errors object and display each error in a div with a class of error. --}}
+        {{#each errors}}
+        <div class="error">
+            <p>{{text}}</p>
+        </div>
+        {{/each}}
+        <form action="/users/add" method="POST">
+            <div class="input-group">
+                <label for="drinkname">Drink Name</label>
+                <input type="text" name="drinkname" id="drinkname" class="input-box"
+                    placeholder="Ex: jack and coke, sunrise" maxlength="100" value={{drinkname}}>
+            </div>
+            <div class="input-group">
+                <label for="spirittype">Spirit Type</label>
+                <input type="text" name="spirittype" id="spirittype" class="input-box"
+                    placeholder="EX. rum, whiskey, bourbon" maxlength="100" value={{spirittype}}>
+            </div>
+            <div class="input-group">
+                <label for="spiritamount">Spirit Amount (Leave blank for unknown)</label>
+                <input type="number" name="spiritamount" id="spiritamount" class="input-box" 
+                placeholder="EX. 1, 1.5, 2" value={{spiritamount}}>
+            </div>
+            <div class="input-group">
+                <label for="ingredients">Ingredients</label>
+                <textarea name="ingredients" id="ingredients" class="input-box"
+                    placeholder="Input ingredients to drink" rows="3">{{ingredients}}</textarea>
+            </div>
+            <div class="input-group">
+                <label for="instructions">Instructions</label>
+                <textarea name="instructions" id="instructions" class="input-box"
+                    placeholder="Input instructions to drink creation!" rows="5">{{instructions}}</textarea>
+            </div>
+            <input type="submit" value="Cocktail Creation!" class="btn btn-reverse">
+        </form>
+    </div>
+</section>
 
 
 
