@@ -30,7 +30,7 @@ app.use(express.static("public"));
 const hbs = exphbs.create({
     extname: "hbs",
     layoutsDir: `${__dirname}/views/layouts`,
-    defaultLayout: "index",
+    defaultLayout: "main",
     partialsDir: `${__dirname}/views/partials`,
     runtimeOptions: {
         allowProtoPropertiesByDefault: true, // Disable warning for prototype property access
@@ -49,32 +49,32 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Route for handlebars
 app.get("/", (req, res) => {
-    res.render("main", { layout: "index" });
+    res.render("homepage", { layout: "main" });
 });
 
 // Route for drink-search
 app.get("/drink-search", (req, res) => {
-    res.render("drink-search", { layout: "index" });
+    res.render("drink-search", { layout: "main" });
 });
 
 // Route for drink-results
 app.get("/drink-results", (req, res) => {
-    res.render("drink-results", { layout: "index" })
+    res.render("drink-results", { layout: "main" })
 });
 
 // Route for drink-details
 app.get("/drink-details", (req, res) => {
-    res.render("drink-details", { layout: "index" })
+    res.render("drink-details", { layout: "main" })
 });
 
 // Route for user-profile
 app.get("/user-profile", (req, res) => {
-    res.render("user-profile", { layout: "index" })
+    res.render("user-profile", { layout: "main" })
 });
 
 // Route for user-input
 app.get("/user-input", (req, res) => {
-    res.render("user-input", { layout: "index" })
+    res.render("user-input", { layout: "main" })
 });
 
 // Route for user-favorites requirement 
@@ -129,9 +129,9 @@ function checkNotAuthenticated(req, res, next) {
     next();
 }
 
-// Route to render index page
+// Route to render main page
 app.get('/', checkNotAuthenticated, (req, res) => {
-    res.render('index', { title: 'Home' });
+    res.render('main', { title: 'Home' });
 });
 
 // Route to handle login

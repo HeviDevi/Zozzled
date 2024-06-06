@@ -44,3 +44,10 @@ searchButton.addEventListener('click', (event) => {
     event.preventDefault();
     window.location.href = '/drink-results';
 });
+
+// Continue as Guest script
+document.getElementById('guestBtn').addEventListener('click', () => {
+    const myModalEl = document.querySelector('.modal');
+    const modal = bootstrap.Modal.getInstance(myModalEl);
+    modal.hide();
+});
