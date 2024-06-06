@@ -14,34 +14,60 @@ router.get('/', async (req, res) => {
     }
 });
 
+//Display add user drink form
+router.get('/add', (req, res) => {
+    res.render('add');
+});
+
 // Add a user
-router.get('/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     console.log('Received request to /add');
-    const data = {
-        drinkname: 'Martini',
-        spirittype: 'Gin',
-        spiritamount: '2',
-        ingredients: 'Gin, Vermouth',
-        instructions: 'Shake with ice and strain into glass'
-    };
+    let { drinkname, spirittype, spiritamount, ingredients, instructions } = req.body;
+    let errors = [];
 
-    let { drinkname, spirittype, spiritamount, ingredients, instructions } = data;
+    // Validate the input
+    if (!drinkname) {
+        errors.push({ text: 'Please enter a drink name' });
+    } if (!spirittype) {
+        errors.push({ text: 'Please enter a spirit type' });
+    } if (!spiritamount) {
+        errors.push({ text: 'Please enter a valid amount' });
+    } if (!ingredients) {
+        errors.push({ text: 'Please enter a drink ingredients' });
+    } if (!instructions) {
+        errors.push({ text: 'Please enter a the instructions to make the drink' });
+    } 
 
-    try {
-        console.log('Creating user in the database');
-        const user = await User.create({
+    // If there are errors, re-render the form with the errors and with previously entered values, otherwise add the user to the database
+    if (errors.length > 0) {
+        res.render('add', {
+            errors,
             drinkname,
             spirittype,
             spiritamount,
             ingredients,
             instructions
         });
-        console.log('User created:', user);
-        res.redirect('/users'); // Redirect to the user list after adding
-    } catch (err) {
-        console.log('Error:', err);
-        res.status(500).send('Server Error');
-    }
+    } else {
+            drinkname = drinkname.toLowerCase();
+            spirittype = spirittype.toLowerCase();
+
+        try {
+            console.log('Creating user in the database');
+            const user = await User.create({
+                drinkname,
+                spirittype,
+                spiritamount,
+                ingredients,
+                instructions
+            });
+            console.log('User created:', user);
+            res.redirect('/users'); // Redirect to the user list after adding
+        } catch (err) {
+            console.log('Error:', err);
+            res.status(500).send('Server Error');
+        }
+    }  
 });
 
 
