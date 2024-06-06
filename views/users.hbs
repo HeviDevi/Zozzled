@@ -1,25 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User Drinks</title>
-<link rel="stylesheet" href="/css/style.css"></head>
-<body>
-    <header>
-        <h2><a href="/">INPUT TEXT</a></h2>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/users">Users</a>
-                </li>
-                <li>
-                    <a href="/users/add">User Add</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
     {{#each users}}
         <h1>{{dataValues.drinkname}}</h1>
         <ul>
@@ -29,6 +7,3 @@
     {{else}}
             <p>No drinks found</p>
     {{/each}}
-    </ul>
-</body>
-</html>
