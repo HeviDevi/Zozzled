@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>User Drinks</h1>
+    <ul>
+        {{#each users}}
+            <li>{{this.drink_name}} - {{this.spirit_type}} - {{this.spirit_amount}} - {{this.ingredients}} - {{this.instructions}}</li>
+        {{/each}}
+    </ul>
+    
+</body>
+</html>

@@ -1,7 +1,8 @@
 require('dotenv').config();
-const express = require("express");
+const express = require("express"); 
 const exphbs = require("express-handlebars");
 const bodyParser = require('body-parser');
+const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
@@ -13,6 +14,14 @@ const moment = require('moment');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
+
+//Bring database connection
+const db = require('./config/database');
+
+//Test database connection
+db.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err)) 
 
 // Set up static files
 app.use(express.static("public"));
@@ -65,6 +74,9 @@ app.get("/user-profile", (req, res) => {
 app.get("/user-input", (req, res) => {
   res.render("user-input", { layout: "index" })
 });
+
+// Route for user-favorites requirement 
+app.use('/users', require('./routes/users'));
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
