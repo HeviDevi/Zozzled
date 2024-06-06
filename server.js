@@ -15,6 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
 
+
+// I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
+// ANYTHING BELOW THIS LINE. - Zachary
+
 //Bring database connection
 const db = require('./config/database');
 
@@ -25,6 +29,21 @@ db.authenticate()
 
 // Set up static files
 app.use(express.static("public"));
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Index route
+
+
+// User routes - anything that is /users will go to the users.js file
+app.use('/users', require('./routes/users')); 
+
+//END OF CODE CONSOLIDATION - Zachary
 
 // Set up Handlebars engine
 const hbs = exphbs.create({
@@ -43,49 +62,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, 'views'));
 
 
-// Set up body parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Express session middleware
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Initialize PostgreSQL database connection
-const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-initializePassport(passport, pool);
-
-// Middleware to check if user is authenticated
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/');
-}
-
-// Middleware to check if user is not authenticated
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/dashboard');
-    }
-    next();
-}
-
-// Route for homepage
+// Route for handlebars
 app.get("/", (req, res) => {
     res.render("homepage", { layout: "main" });
 });
@@ -118,9 +95,55 @@ app.get("/user-input", (req, res) => {
 // Route for user-favorites requirement 
 app.use('/users', require('./routes/users'));
 
-// Route to render page
+// Initialize PostgreSQL database connection
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
+
+initializePassport(passport, pool);
+
+
+// Express session middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Serve static files from the 'public' directory
+app.use(express.static('public'));
+
+// Set up Handlebars engine
+app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
+app.set('view engine', 'hbs');
+
+// Middleware to check if user is authenticated
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}
+
+// Middleware to check if user is not authenticated
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/dashboard');
+    }
+    next();
+}
+
+// Route to render main page
 app.get('/', checkNotAuthenticated, (req, res) => {
-    res.render('/drink-search', { title: 'main' });
+    res.render('main', { title: 'Home' });
 });
 
 // Route to handle login
