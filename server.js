@@ -93,7 +93,9 @@ app.get("/user-input", (req, res) => {
 });
 
 // Route for user-favorites requirement 
-app.use('/users', require('./routes/users'));
+app.get('/users', (req, res) => {
+    res.render('users', { layout: "main" })
+});
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
