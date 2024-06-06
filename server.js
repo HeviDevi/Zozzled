@@ -15,6 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
 
+
+// I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
+// ANYTHING BELOW THIS LINE. - Zachary
+
 //Bring database connection
 const db = require('./config/database');
 
@@ -25,6 +29,21 @@ db.authenticate()
 
 // Set up static files
 app.use(express.static("public"));
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Index route
+app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
+
+// User routes - anything that is /users will go to the users.js file
+app.use('/users', require('./routes/users')); 
+
+//END OF CODE CONSOLIDATION - Zachary
 
 // Set up Handlebars engine
 const hbs = exphbs.create({
@@ -41,10 +60,6 @@ const hbs = exphbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, 'views'));
-
-
-// Set up body parser
-app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Route for handlebars
@@ -91,9 +106,6 @@ const pool = new Pool({
 
 initializePassport(passport, pool);
 
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Express session middleware
 app.use(session({
