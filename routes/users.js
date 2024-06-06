@@ -18,21 +18,21 @@ router.get('/', async (req, res) => {
 router.get('/add', async (req, res) => {
     console.log('Received request to /add');
     const data = {
-        drink_name: 'Martini',
-        spirit_type: 'Gin',
-        spirit_amount: '2 oz',
+        drinkname: 'Martini',
+        spirittype: 'Gin',
+        spiritamount: '2',
         ingredients: 'Gin, Vermouth',
         instructions: 'Shake with ice and strain into glass'
     };
 
-    let { drink_name, spirit_type, spirit_amount, ingredients, instructions } = data;
+    let { drinkname, spirittype, spiritamount, ingredients, instructions } = data;
 
     try {
         console.log('Creating user in the database');
         const user = await User.create({
-            drink_name,
-            spirit_type,
-            spirit_amount,
+            drinkname,
+            spirittype,
+            spiritamount,
             ingredients,
             instructions
         });

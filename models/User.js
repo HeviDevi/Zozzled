@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const User = db.define('userdrinks', {
-    drink_name: {
+    drinkname: {
+        type: Sequelize.STRING
+    }, 
+    spirittype: {
         type: Sequelize.STRING
     },
-    spirit_type: {
-        type: Sequelize.STRING
-    },
-    spirit_amount: {
+    spiritamount: {
         type: Sequelize.STRING
     },
     ingredients: {

@@ -33,8 +33,8 @@ const hbs = exphbs.create({
   defaultLayout: "index",
   partialsDir: `${__dirname}/views/partials`,
   runtimeOptions: {
-    allowProtoPropertiesByDefault: true, // Disables warning message allows for the use of the prototype
-    allowProtoMethodsByDefault: true,  // Disables warning message allows for the use of the prototype
+    allowProtoPropertiesByDefault: true, // Disable warning for prototype property access
+    allowProtoMethodsByDefault: true,     // Disable warning for prototype method access
   }
 });
 
@@ -89,18 +89,25 @@ const pool = new Pool({
 
 initializePassport(passport, pool);
 
+// Body parser middleware
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Express session middleware
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false
 }));
+
+// Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
 
+// Set up Handlebars engine
 app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
 app.set('view engine', 'hbs');
 
@@ -175,6 +182,7 @@ app.get('/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
+
 
 // Start the server
 app.listen(PORT, () => {
