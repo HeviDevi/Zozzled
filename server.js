@@ -15,6 +15,10 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
 
+
+// I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
+// ANYTHING BELOW THIS LINE. - Zachary
+
 //Bring database connection
 const db = require('./config/database');
 
@@ -25,6 +29,21 @@ db.authenticate()
 
 // Set up static files
 app.use(express.static("public"));
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Index route
+
+
+// User routes - anything that is /users will go to the users.js file
+app.use('/users', require('./routes/users')); 
+
+//END OF CODE CONSOLIDATION - Zachary
 
 // Set up Handlebars engine
 const hbs = exphbs.create({
@@ -41,10 +60,6 @@ const hbs = exphbs.create({
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, 'views'));
-
-
-// Set up body parser
-app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Route for handlebars
@@ -78,7 +93,9 @@ app.get("/user-input", (req, res) => {
 });
 
 // Route for user-favorites requirement 
-app.use('/users', require('./routes/users'));
+app.get('/users', (req, res) => {
+    res.render('users', { layout: "main" })
+});
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
@@ -91,9 +108,6 @@ const pool = new Pool({
 
 initializePassport(passport, pool);
 
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
 
 // Express session middleware
 app.use(session({
@@ -105,13 +119,6 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
-
-// Set up Handlebars engine
-app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
-app.set('view engine', 'hbs');
 
 // Middleware to check if user is authenticated
 function checkAuthenticated(req, res, next) {
