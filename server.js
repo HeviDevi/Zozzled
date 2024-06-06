@@ -118,13 +118,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
-
-// Set up Handlebars engine
-app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
-app.set('view engine', 'hbs');
-
 // Middleware to check if user is authenticated
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
