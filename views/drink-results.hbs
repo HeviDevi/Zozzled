@@ -1,0 +1,12 @@
+<div class="logo">{{> logo}}</div>
+<div class="artDeco">{{> art-deco}}</div>
+
+<div class="results">
+    <div class="results-container">
+        {{#each drink}}
+            {{#if @index '<' 8}}
+                {{> drink-card}}
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
