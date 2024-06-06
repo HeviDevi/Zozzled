@@ -45,9 +45,47 @@ app.set("views", path.join(__dirname, 'views'));
 
 // Set up body parser
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
+// Express session middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 
-// Route for handlebars
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Initialize PostgreSQL database connection
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
+
+initializePassport(passport, pool);
+
+// Middleware to check if user is authenticated
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}
+
+// Middleware to check if user is not authenticated
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/dashboard');
+    }
+    next();
+}
+
+// Route for homepage
 app.get("/", (req, res) => {
     res.render("homepage", { layout: "main" });
 });
@@ -80,58 +118,9 @@ app.get("/user-input", (req, res) => {
 // Route for user-favorites requirement 
 app.use('/users', require('./routes/users'));
 
-// Initialize PostgreSQL database connection
-const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-initializePassport(passport, pool);
-
-// Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// Express session middleware
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
-
-// Set up Handlebars engine
-app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
-app.set('view engine', 'hbs');
-
-// Middleware to check if user is authenticated
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/');
-}
-
-// Middleware to check if user is not authenticated
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/dashboard');
-    }
-    next();
-}
-
-// Route to render main page
+// Route to render page
 app.get('/', checkNotAuthenticated, (req, res) => {
-    res.render('main', { title: 'Home' });
+    res.render('/drink-search', { title: 'main' });
 });
 
 // Route to handle login
