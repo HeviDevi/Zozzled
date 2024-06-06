@@ -59,7 +59,8 @@ UserDrink.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'userdrink',
+    timestamps: false,
+    modelName: 'userdrinks',
     }
 );
 
