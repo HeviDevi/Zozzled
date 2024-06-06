@@ -83,8 +83,39 @@ body {
     height: auto;
 }
 
+/* Homepage */
+
+/* Discover Img */
+.discover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.discover {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
+
+/* Start Button */
+.start-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Search Page */
+
+/* modal */
 .modal {
-    background-color: #f8f4ea;
     box-shadow: 5px 5px 10px grey;
 }
 

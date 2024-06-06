@@ -37,7 +37,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 // User routes - anything that is /users will go to the users.js file
 app.use('/users', require('./routes/users')); 
 
@@ -91,7 +90,9 @@ app.get("/user-input", (req, res) => {
 });
 
 // Route for user-favorites requirement 
-app.use('/users', require('./routes/users'));
+app.get('/users', (req, res) => {
+    res.render('users', { layout: "main" })
+});
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
@@ -115,13 +116,6 @@ app.use(session({
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Serve static files from the 'public' directory
-app.use(express.static('public'));
-
-// Set up Handlebars engine
-app.engine('hbs', exphbs.engine({ extname: 'hbs' }));
-app.set('view engine', 'hbs');
 
 // Middleware to check if user is authenticated
 function checkAuthenticated(req, res, next) {
