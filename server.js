@@ -38,7 +38,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Index route
-app.get('/', (req, res) => res.render('index', { layout: 'landing' }));
+
 
 // User routes - anything that is /users will go to the users.js file
 app.use('/users', require('./routes/users')); 
