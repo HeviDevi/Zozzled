@@ -132,3 +132,4 @@ dist
 
 # Ignore Mac system files
 .DS_store
+IVIonstersPost.session.sql

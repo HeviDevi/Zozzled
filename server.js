@@ -23,10 +23,17 @@ const hbs = exphbs.create({
   layoutsDir: `${__dirname}/views/layouts`,
   defaultLayout: "index",
   partialsDir: `${__dirname}/views/partials`,
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true, // Disables warning message allows for the use of the prototype
+    allowProtoMethodsByDefault: true,  // Disables warning message allows for the use of the prototype
+  }
 });
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // Route for handlebars
