@@ -1,6 +1,9 @@
 const express = require('express'); // Import express
 const router = express.Router(); // Create a router
 const User = require('../models/User'); // Import User model
+const Drinks = require('../models/Drinks'); // Import Drinks model
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Retrieve user list
 router.get('/', async (req, res) => {
@@ -26,41 +29,22 @@ router.post('/add', async (req, res) => {
     let errors = [];
 
     // Validate the input
-    if (!drinkname) {
-        errors.push({ text: 'Please enter a drink name' });
-    } if (!spirittype) {
-        errors.push({ text: 'Please enter a spirit type' });
-    } if (!spiritamount) {
-        errors.push({ text: 'Please enter a valid amount' });
-    } if (!ingredients) {
-        errors.push({ text: 'Please enter a drink ingredients' });
-    } if (!instructions) {
-        errors.push({ text: 'Please enter a the instructions to make the drink' });
-    } 
+    if (!drinkname) errors.push({ text: 'Please enter a drink name' });
+    if (!spirittype) errors.push({ text: 'Please enter a spirit type' });
+    if (!spiritamount) errors.push({ text: 'Please enter a valid amount' });
+    if (!ingredients) errors.push({ text: 'Please enter drink ingredients' });
+    if (!instructions) errors.push({ text: 'Please enter the instructions to make the drink' });
 
     // If there are errors, re-render the form with the errors and with previously entered values, otherwise add the user to the database
     if (errors.length > 0) {
-        res.render('add', {
-            errors,
-            drinkname,
-            spirittype,
-            spiritamount,
-            ingredients,
-            instructions
-        });
+        res.render('add', { errors, drinkname, spirittype, spiritamount, ingredients, instructions });
     } else {
-            drinkname = drinkname.toLowerCase();
-            spirittype = spirittype.toLowerCase();
+        drinkname = drinkname.toLowerCase();
+        spirittype = spirittype.toLowerCase();
 
         try {
             console.log('Creating user in the database');
-            const user = await User.create({
-                drinkname,
-                spirittype,
-                spiritamount,
-                ingredients,
-                instructions
-            });
+            const user = await User.create({ drinkname, spirittype, spiritamount, ingredients, instructions });
             console.log('User created:', user);
             res.redirect('/users'); // Redirect to the user list after adding
         } catch (err) {
@@ -70,6 +54,25 @@ router.post('/add', async (req, res) => {
     }  
 });
 
+//Search for a drink route
+router.get('/search', async (req, res) => {
+    const { term } = req.query;
+    console.log('Search term:', term); // Log the search term
 
+    try {
+        const drinks = await Drinks.findAll({ 
+            where: { 
+                drink_name: { 
+                    [Op.like]: '%' + term + '%' 
+                } 
+            } 
+        });
+        console.log("Found drinks:", drinks); // Log the retrieved drinks
+        res.render('drinks', { drinks }); // Render the 'drinks' view with the drinks data
+    } catch (err) {
+        console.error("Database error:", err.message); // Log the database error message
+        res.status(500).send('Server Error');
+    }
+});
 
 module.exports = router; // Export the router

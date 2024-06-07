@@ -1,4 +1,12 @@
-    {{#each users}}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>User Added Drinks</title>
+    </head>
+    <body>
+        {{#each users}}
         <h1>{{dataValues.drinkname}}</h1>
         <ul>
             <li>{{dataValues.spirittype}} - {{dataValues.spiritamount}}</li>
@@ -7,3 +15,5 @@
     {{else}}
             <p>No drinks found</p>
     {{/each}}
+    </body>
+    </html>
