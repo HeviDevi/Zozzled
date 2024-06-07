@@ -21,6 +21,33 @@ body {
     width: 75%;
 }
 
+/* NavBar */
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav li {
+    margin: 0 10px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Top Left Art Deco */
 .top-left-container {
     position: absolute;
@@ -143,10 +170,46 @@ body {
 
 /* Cards */
 .drink-card {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #822c1c;
+    max-height: 80%;
+    max-width: 80%;
+    padding: 20px;
+    text-align: center;
+    overflow: auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: .9;
+}
+
+.drink-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+.drink-card p {
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+/* Drink Details Page */
+.drink-details {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* align-items: center; */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -162,14 +225,14 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.drink-card h2 {
+.drink-details h2 {
     margin-bottom: 10px;
     font-size: 1.5em;
     color: #fff;
     word-wrap: break-word;
 }
 
-.drink-card p {
+.drink-details p {
     margin-bottom: 5px;
     font-size: 1em;
     color: #fff;
