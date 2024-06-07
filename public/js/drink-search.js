@@ -34,9 +34,9 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Search Button script
-const searchButton = document.querySelector('.search-btn');
-
-searchButton.addEventListener('click', (event) => {
-    event.preventDefault();
-    window.location.href = '/drink-results';
+document.getElementById('searchButton').addEventListener('click', function() {
+    var searchTerm = document.getElementById('searchInput').value;
+    // Redirect to the search route with the search term as a query parameter
+    window.location.href = '/users/search?term=' + encodeURIComponent(searchTerm);
 });
+
