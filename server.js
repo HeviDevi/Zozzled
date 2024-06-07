@@ -19,7 +19,7 @@ const saltRounds = 10;
 
 
 // I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
-// ANYTHING BELOW THIS LINE. - Zachary
+// ANYTHING BELOW THIS LINE. - Zachary Testing
 
 //Bring database connection
 const db = require('./config/database');
