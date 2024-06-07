@@ -1,4 +1,4 @@
-<section class="card">
+{{!-- <section class="card">
     <a href="/userdrink/{{id}}">
         <div class="card-image">
             <img src="{{image}}" alt="{{drinkName}}" />
@@ -6,4 +6,22 @@
         <div class="card-content">
             <h2>{{drinkName}}</h2>
         </div>
-</section>
+</section> --}}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6">
+            <div class="drink-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{drink_name}}</h5>
+                    <p class="card-text">Spirit Type: {{spirit_type}}</p>
+                    <p class="card-text">Spirit Amount: {{spirit_amount}}</p>
+                    <p class="card-text">Ingredients: {{ingredients}}</p>
+                    <p class="card-text">Instructions: {{instructions}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

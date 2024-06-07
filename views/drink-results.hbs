@@ -1,7 +1,8 @@
+<div class="nav">{{> nav-bar}}</div>
 <div class="logo">{{> logo}}</div>
 <div class="artDeco">{{> art-deco}}</div>
 <body>
-<div class="results">
+{{!-- <div class="results">
     <div class="results-container">
         {{#each drinks}}
         <!-- Include other attributes as needed -->
@@ -17,4 +18,11 @@
         {{/each}}
     </div>
 </div>
-</body>
+</body> --}}
+
+
+{{!-- {{#each drinks}}
+  {{> drink-card}}
+{{/each}} --}}
+
+{{> drink-card}}
