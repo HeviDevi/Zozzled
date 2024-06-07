@@ -1,4 +1,4 @@
-  let sequelize;
+let sequelize;
 
 if (process.env.DB_URL) {
   sequelize = new Sequelize(process.env.DB_URL);
@@ -8,8 +8,8 @@ if (process.env.DB_URL) {
     process.env.DB_USER,
     process.env.DB_PW,
     {
-      host: 'localhost',
-      dialect: 'postgres',
+        host: 'localhost',
+        dialect: 'postgres',
     },
   );
 }
