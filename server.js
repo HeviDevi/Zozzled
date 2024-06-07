@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 const { Pool } = require('pg');
 const initializePassport = require('./config/passport-config');
 const moment = require('moment');
+const mainRoutes = require('./routes/main-routes');
 
 
 const app = express();
@@ -21,6 +22,8 @@ const saltRounds = 10;
 
 //Bring database connection
 const db = require('./config/database');
+const { route } = require('./routes/users');
+
 
 //Test database connection
 db.authenticate()
@@ -58,41 +61,8 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, 'views'));
 
-
-// Route for handlebars
-app.get("/", (req, res) => {
-    res.render("homepage", { layout: "main" });
-});
-
-// Route for drink-search
-app.get("/drink-search", (req, res) => {
-    res.render("drink-search", { layout: "main" });
-});
-
-// Route for drink-results
-app.get("/drink-results", (req, res) => {
-    res.render("drink-results", { layout: "main" })
-});
-
-// Route for drink-details
-app.get("/drink-details", (req, res) => {
-    res.render("drink-details", { layout: "main" })
-});
-
-// Route for user-profile
-app.get("/user-profile", (req, res) => {
-    res.render("user-profile", { layout: "main" })
-});
-
-// Route for user-input
-app.get("/user-input", (req, res) => {
-    res.render("user-input", { layout: "main" })
-});
-
-// Route for user-favorites requirement 
-app.get('/users', (req, res) => {
-    res.render('users', { layout: "main" })
-});
+// Handlebar page routes
+app.use('/', mainRoutes); 
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
