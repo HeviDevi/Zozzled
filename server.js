@@ -10,6 +10,7 @@ const { Pool } = require('pg');
 const initializePassport = require('./config/passport-config');
 const moment = require('moment');
 const mainRoutes = require('./routes/main-routes');
+const drinkRoutes = require('./routes/drink-results');
 
 
 const app = express();
@@ -63,6 +64,9 @@ app.set("views", path.join(__dirname, 'views'));
 
 // Handlebar page routes
 app.use('/', mainRoutes); 
+
+// Drink results route
+app.use('/drink-results', drinkRoutes);
 
 // Initialize PostgreSQL database connection
 const pool = new Pool({
