@@ -142,7 +142,6 @@ body {
 /* Drink Results */
 
 /* Cards */
-
 .drink-card {
     display: flex;
     justify-content: center;
@@ -152,4 +151,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #822c1c;
+    height: 300px;
+    width: 200px;
 }
