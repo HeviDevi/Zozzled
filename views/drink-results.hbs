@@ -3,10 +3,15 @@
 
 <div class="results">
     <div class="results-container">
-        {{#each drink}}
+        {{#each userdrink}}
             {{#if @index '<' 8}}
                 {{> drink-card}}
             {{/if}}
         {{/each}}
     </div>
 </div>
+
+{{!-- {{> drink-card}}
+{{#times 8}}
+    {{> drink-card}}
+{{/times}} --}}
