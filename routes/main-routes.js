@@ -36,4 +36,6 @@ router.get('/users', (req, res) => {
     res.render('users', { layout: "main" })
 });
 
+
+
 module.exports = router;
