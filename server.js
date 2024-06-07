@@ -62,6 +62,7 @@ app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, 'views'));
 
+
 // Handlebar page routes
 app.use('/', mainRoutes); 
 
