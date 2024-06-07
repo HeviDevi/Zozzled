@@ -1,6 +1,9 @@
 const express = require('express'); // Import express
 const router = express.Router(); // Create a router
 const User = require('../models/User'); // Import User model
+const Drinks = require('../models/Drinks'); // Import Drinks model
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Retrieve user list
 router.get('/', async (req, res) => {
