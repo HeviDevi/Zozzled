@@ -1,4 +1,5 @@
 {{!-- Modal --}}
+{{!-- Modal --}}
 <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -8,7 +9,6 @@
                     <div class="row">
                         <div class="col">
                             <h1 class="modal-title fs-2" id="modalTitle">Login</h1>
-                            {{!-- <button type="button" class="btn-close" aria-label="Close">&times;</button> --}}
                         </div>
                     </div>
                 </div>
@@ -16,14 +16,11 @@
             <div class="modal-body">
                 <form id="loginForm" action="/login" method="POST">
                     <div class="form-group">
-                        {{!-- <label for="loginUsername">Username</label> --}}
-                        <input type="text" class="form-control-user" id="loginUsername" placeholder=" Username"
+                        <input type="text" class="form-control-user" id="loginUsername" placeholder="Username"
                             name="username" required>
                     </div>
                     <div class="form-group mt-3">
-                        {{!-- <label for="loginPassword">Password</label>
-                        <br> --}}
-                        <input type="password" class="form-control-user" id="loginPassword" placeholder=" Password"
+                        <input type="password" class="form-control-user" id="loginPassword" placeholder="Password"
                             name="password" required>
                     </div>
                     <div class="modal-footer d-flex justify-content-center border-0 mt-4">
@@ -32,28 +29,26 @@
                 </form>
                 <form id="registerForm" action="/register" method="POST" style="display: none;">
                     <div class="form-group">
-                        {{!-- <label for="regUsername">Username</label> --}}
-                        <input type="text" class="form-control-user" id="regUsername" placeholder=" Username"
+                        <input type="text" class="form-control-user" id="regUsername" placeholder="Username"
                             name="username" maxlength="16" required>
                     </div>
                     <div class="form-group mt-2">
-                        {{!-- <label for="regEmail">Email</label> --}}
-                        <input type="email" class="form-control-user" id="regEmail" placeholder=" Email" name="email"
+                        <input type="email" class="form-control-user" id="regEmail" placeholder="Email" name="email"
                             maxlength="35" required>
                     </div>
                     <div class="form-group mt-2">
-                        {{!-- <label for="regDob">Date of Birth</label> --}}
                         <input type="date" class="form-control-user" id="regDob" name="dob" required>
                     </div>
                     <div class="form-group mt-2">
-                        {{!-- <label for="regPassword">Password</label> --}}
-                        <input type="password" class="form-control-user" placeholder=" Password" id="regPassword"
+                        <input type="password" class="form-control-user" placeholder="Password" id="regPassword"
                             name="password" maxlength="16" required>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center border-0 mt-4">
+                        <button type="submit" class="btn-primary modalBtn" id="registerSubmitButton">Register</button>
                     </div>
                 </form>
                 <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
                     <button id="showRegisterBtn" class="btn-primary modalBtn">Register</button>
-                    {{!-- <button id="guestBtn" class="btn-secondary modalBtn">Continue as Guest</button> --}}
                 </div>
                 <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
                     <a href="#" id="guestBtn" class="btn-secondary" data-bs-dismiss="modal">Continue as Guest</a>
