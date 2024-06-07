@@ -5,7 +5,7 @@
 -- Dumped from database version 16.3
 -- Dumped by pg_dump version 16.3
 
--- Started on 2024-06-02 22:28:53
+-- Started on 2024-06-06 20:08:36
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -24,41 +24,40 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 215 (class 1259 OID 16721)
--- Name: liquor_table; Type: TABLE; Schema: public; Owner: postgres
+-- Name: drinkrecipes; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.liquor_table (
+CREATE TABLE public.drinkrecipes (
     drink_id integer NOT NULL,
     drink_name text,
     spirit_type text,
     spirit_amount integer,
-    ingredient_1 text,
-    ingredient_1_quantity integer,
-    ingredient_2 text,
-    ingredient_2_quantity integer,
-    ingredient_3 text,
-    ingredient_3_quantity integer,
-    ingredient_4 text,
-    ingredient_4_quantity integer,
-    ingredient_5 text,
-    ingredient_5_quantity integer,
-    ingredient_6 text,
-    ingredient_6_quantity integer,
+    ingredients character varying,
+    instructions text,
+    image_link character varying,
     bitter boolean,
-    sweet boolean,
-    drink_link text,
-    instructions text
+    sweet boolean
+
 );
 
 
-ALTER TABLE public.liquor_table OWNER TO postgres;
+ALTER TABLE public.drinkrecipes OWNER TO postgres;
+
+--
+-- TOC entry 4850 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: COLUMN drinkrecipes.image_link; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN public.drinkrecipes.image_link IS 'image links to use for rendering along with drink application';
+
 
 --
 -- TOC entry 216 (class 1259 OID 16728)
 -- Name: liquor_party_drink_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-ALTER TABLE public.liquor_table ALTER COLUMN drink_id ADD GENERATED ALWAYS AS IDENTITY (
+ALTER TABLE public.drinkrecipes ALTER COLUMN drink_id ADD GENERATED ALWAYS AS IDENTITY (
     SEQUENCE NAME public.liquor_party_drink_id_seq
     START WITH 1
     INCREMENT BY 1
@@ -69,84 +68,63 @@ ALTER TABLE public.liquor_table ALTER COLUMN drink_id ADD GENERATED ALWAYS AS ID
 
 
 --
--- TOC entry 4833 (class 0 OID 16721)
+-- TOC entry 4843 (class 0 OID 16721)
 -- Dependencies: 215
--- Data for Name: liquor_table; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: drinkrecipes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.liquor_table (
- drink_id,
- drink_name, 
- spirit_type, 
- spirit_amount, 
- ingredient_1, 
- ingredient_1_quantity, 
- ingredient_2, 
- ingredient_2_quantity, 
- ingredient_3, 
- ingredient_3_quantity, 
- ingredient_4, 
- ingredient_4_quantity, 
- ingredient_5, 
- ingredient_5_quantity, 
- ingredient_6, 
- ingredient_6_quantity,
- bitter,
- sweet,
- drink_link, 
- instructions
- ) FROM stdin;
-1	Americano	Vermouth	1	Campari	1	Soda Water	4	\N	\N	\N	\N	\N	\N	\N	\N true true \N	Pour Campari and sweet vermouth into a glass. Add ice and soda water.
-3	Aperol Spritz	Aperol	2	Sparkling Wine	3	Seltzer	2	\N	\N	\N	\N	\N	\N	\N	\N true false \N	Pour the Aperol into a wineglass. Fill the glass with ice cubes, then pour in the sparkling wine and seltzer. Mix gently with a bar spoon. Garnish with a grapefruit wedge.
-4	Bees Knees	Gin	2	Lemon Juice	1	Honey Syrup	1	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe.
-5	Between the Sheets	Cognac	1	White Rum	1	Cointreau	1	Lemon Juice	1	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe.
-6	Boulevardier	Bourbon	2	Sweet Vermouth	1	Campari	1	\N	\N	\N	\N	\N	\N	\N	\N true false \N	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Garnish with a cherry.
-7	Brandy Alexander	Cognac	2	Creme de Cacao	1	Heavy Cream	1	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with grated nutmeg.
-8	Brandy Flip	Cognac	2	Demerara Syrup	1	Whole Egg	1	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients without ice. Shake again with ice. Double strain into a chilled coupe. Garnish with grated nutmeg.
-9	Champs-Elysees	Cognac	2	Green Chartreuse	1	Lemon Juice	1	Simple Syrup	1	Angostura Bitters	1	\N	\N	\N	\N false false \N	Shake all ingredients with ice. Strain into a chilled coupe. Express the lemon twist over the drink then set it on the edge of the glass.
-10	Corpse Reviver No.2	Gin	1	Lillet Blanc	1	Cointreau	1	Lemon Juice	1	Absinthe	2	\N	\N	\N	\N fasle false \N	Shake all ingredients with ice. Double strain into a chilled coupe.
-11	Cosmopolitan	Vodka	2	Cointreau	1	Lime Juice	1	Cranberry Juice	1	Simple Syrup	1	\N	\N	\N	\N false sweet \N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.
-12	Cuba Libre	White Rum	2	Lime Juice	0	Coca-Cola	4	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Pour the rum into a highball glass and add three ice cubes. Stir for 3 seconds. Add the lime juice and cola and stir once with a bar spoon. Garnish with a lime wedge.
-13	Daiquiri	White Rum	2	Lime Juice	1	Simple Syrup	1	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe.
-14	French 75	Gin	1	Lemon Juice	1	Simple Syrup	1	Sparkling Wine	4	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients (except for the sparkling wine) with ice. Strain into a chilled flute. Pour in the sparkling wine and gently mix with a bar spoon. Express a lemon twist over the drink then place it into the drink.
-16	Hemingway Daiquiri	White Rum	2	Maraschino Liqueur	1	Grapefruit Juice	1	Lime Juice	1	Simple Syrup	1	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.
-17	Hot Toddy	Bourbon	2	Honey Syrup	1	Angostura Bitters	1	\N	\N	\N	\N	\N	\N	\N	\N false false \N	Combine all ingredients (except the water) in a mixing glass and stir. Pour into a toddy mug, then pour in the boiling water. Garnish with a cinnamon stick.
-18	Improved Whiskey Cocktail	Bourbon	2	Maraschino Liqueur	1	Absinthe	1	Angostura Bitters	1	Peychauds Bitters true false \N	1	\N	\N	\N	\N	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express a lemon twist over the drink, then place it into the drink.
-19	Jack Rose	Apple Brandy	2	Lime Juice	1	Grenadine	1	\N	\N	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with an apple slice.
-20	Last Word	Gin	1	Green Chartreuse	1	Maraschino Liqueur	1	Lime Juice	1	\N	\N	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe.
-21	Mai Tai	Aged Rum	1	Rum Agricole Blanc	1	Cointreau	1	Lime Juice	1	Orgeat	1	Simple Syrup	1	Angostura Bitters	1 false true \N	Shake all ingredients with a small amount of crushed ice. Dump into a double old-fashioned glass. Pack the glass with crushed ice. Garnish with a mint bouquet.
-22	Manhattan	Rye Whiskey	2	Sweet Vermouth	1	Angostura Bitters	2	\N	\N	\N	\N	\N	\N	\N	\N true true \N	Stir all ingredients over ice. Strain into a chilled coupe. Garnish with 1 brandied cherry.
-23	Margarita	Blanco Tequila	2	Cointreau	1	Lime Juice	1	Simple Syrup	1	Lime Wedge	1	Kosher Salt	1	\N	\N false true \N	Rub the lime wedge along the rim of the glass. Roll the wet portion of the glass in the salt. Shake the remaining ingredients with ice. Strain into prepared glass.
-24	Martini	Gin	2	Dry Vermouth	1	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N false false \N	Stir all ingredients over ice. Strain into a chilled coupe. Garnish with an olive or express a lemon peel over the drink and set it on the side of the glass.
-25	Mint Julep	Bourbon	2	Simple Syrup	0	Mint Bouquet	1	\N	\N	\N	\N	\N	\N	\N	\N false false \N	Rub the interior of the julep tin with the mint bouquet and then set it aside. Add the bourbon and syrup and fill the tin halfway with crushed ice. Stir, churning the ice as you go, for about 10 seconds. Fill the tin with ice until it is about two-thirds full. Stir until it is completely frosted. Add more ice to form a cone over the rim. Garnish with the mint bouquet and serve with a straw.
-26	Mojito	White Rum	2	Lime Juice	1	Simple Syrup	1	White Sugar Cube	1	Mint Leaves	10	\N	\N	\N	\N false true \N	Gently muddle the mint leaves, simple syrup, and sugar cube in a shaker. Add the remaining ingredients and shake with a small amount of crushed ice. Dump into a Collins glass and add crushed ice until about four-fifths full. Swizzle for a few seconds, then pack the glass with ice. Garnish with mint bouquet then serve with a straw.
-30	Moscow Mule	Vodka	2	Seltzer	2	Lime Juice	1	Ginger Syrup	1	\N	\N	\N	\N	\N	\N false fasle \N	Pour the chilled seltzer into a Collins glass. Short-shake the remaining ingredients for about 5 seconds. Strain into the glass. Fill the glass with ice cubes & garnish with a lime wheel.
-31	Negroni	Gin	1	Sweet Vermouth	1	Campari	1	\N	\N	\N	\N	\N	\N	\N	\N true true \N	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express an orange twist over the drink, then place it into the drink.
-32	Old Cuban	Aged Rum	2	Lime Juice	1	Simple Syrup	1	Angostura Bitters	2	Mint Leaves	6	Champagne	2	\N	\N false true \N	Shake all ingredients (except the champagne) with ice. Double strain into a chilled coupe. Pour in the champagne and mix gently with a bar spoon. Garnish with a fresh mint leaf.
-33	Old-Fashioned	Bourbon	2	Angostura Bitters	2	Sugar Cube	1	\N	\N	\N	\N	\N	\N	\N	\N	true false \N Muddle the sugar cube and simple syrup in an old-fashioned glass. Add the bourbon and 1 large ice cube. Stir until chilled. Garnish with lemon & orange twist.
-34	Old Pal	Rye Whiskey	2	Dry Vermouth	1	Campari	1	\N	\N	\N	\N	\N	\N	\N	\N true false \N	Stir all ingredients over ice. Strain into a chilled coupe. Express an orange twist over the drink and then place it into the drink.
-35	Peaches and Smoke	Lillet Rose	2	Cognac	1	Scotch	1	Creme de Peche	1	Lemon Juice	1	Simple Syrup	0	Peach Wedge	1 false true \N	Muddle the peach wedge in a shaker. Add the remaining ingredients and shake with ice. Double strain into a chilled coupe. Garnish with a peach wedge.
-36	Pegu Club	Gin	2	Cointreau	1	Lime Juice	1	Angostura Bitters	1	Angostura Orange Bitters	1	\N	\N	\N	\N false true \N	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.
-37	Pink Lady	Gin	2	Apple Brandy	1	Lemon Juice	1	Grenadine	1	Simple Syrup	1	Egg White	1	\N	\N	false true \N Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Garnish with a cherry.
-38	Pisco Sour	Pisco	2	Lime Juice	1	Lemon Juice	1	Simple Syrup	1	Egg White	1	\N	\N	\N	\N	false false \N Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Carefully garnish the top of the foam with Angostura bitters.
-39	Poets Dream	Gin	2	Dry Vermouth	1	Benedictine	0	Angostura Orange Bitters	2	\N	\N	\N	\N	\N	\N	true false \N Stir all ingredients over ice. Strain into a chilled coupe. Express a lemon twist over the drink and then place it on the edge of the glass.
-40	Rosita	Blanco Tequila	2	Sweet Vermouth	1	Dry Vermouth	1	Campari	1	Angostura Bitters	1	\N	\N	\N	\N true false \N	Stir all ingredients over ice. Strain into a chilled coupe. Express an orange twist over the drink, then place it into the drink.
-42	Sidecar	Cognac	2	Cointreau	1	Lemon Juice	1	\N	\N	\N	\N	\N	\N	\N	\N	false true \N Shake all ingredients with ice. Strain into a chilled coupe. Express an orange twist over the drink, then place it into the drink.
-43	Southside	Gin	2	Lime Juice	1	Simple Syrup	1	Angostura Bitters	1	\N	\N	\N	\N	\N	\N	false true \N Gently muddle the mint in a shaker. Add the remaining ingredients and shake with ice. Strain into a chilled coupe. Garnish with a fresh mint leaf.
-44	Tequila Sunrise	Blanco Tequila	2	Orange Juice	4	Lime Juice	0	Grenadine	0	\N	\N	\N	\N	\N	\N	false true \N Combine the tequila, orange juice, and lime juice in a highball glass. Add three ice cubes. Stir for three seconds. Add the grenadine and let it sink to the bottom of the glass. Garnish with half an orange wheel and a lime wedge.
-45	Ti Punch	Rhum Agricole Blanc	2	Sugar Cane Syrup	1	Lime Wheel	1	\N	\N	\N	\N	\N	\N	\N	\N true false \N	In an old-fashioned glass, muddle the lime and syrup. Add the rhum and fill the glass with cracked ice. Stir briefly.
-46	Tom Collins	Seltzer	2	Gin	2	Lemon Juice	1	Simple Syrup	1	\N	\N	\N	\N	\N	\N	fasle true \N Pour the seltzer into a Collins glass. Short-shake the remaining ingredients with ice for about 5 seconds. Strain into the glass. Fill the glass with ice cubes. Garnish with a lemon wheel and cherry.
-47	Whisky Highball	Scotch	2	Seltzer	6	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	true false \N Pour the scotch intoa highball glass. Add 3 ice cubes. Stir for 3 seconds. Add the seltzer and stir once. Garnish with a lemon peel.
-48	Whiskey Sour	Bourbon	2	Lemon Juice	1	Simple Syrup	1	\N	\N	\N	\N	\N	\N	\N	\N false false \N	Shake all ingredients with ice. Strain into a double old-fashioned glass over 1 large ice cube. Garnish with a lemon wheel and a cherry.
-50	White Negroni	Gin	2	Dry Vermouth	1	Suze	1	\N	\N	\N	\N	\N	\N	\N	\N true false	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express an orange twist over the drink, then place it into the drink.
-41	Sazerac	Absinthe	2	Rye Whiskey	2	Cognac	1	Demerara Syrup	1	Peychauds Bitters	4	Angostura Bitters	1	\N	\N true false \N	Rinse an old-fashioned glass with absinthe and then dump. Stir the remaining ingredients over ice. Strain into the glass. Express the lemon twist over the drink and discard it.
-49	White Lady	Gin	2	Cointreau	1	Lemon Juice	1	Simple Syrup	1	Egg White	1	\N	\N	\N	\N false true \N	Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Express a lemon twist over the drink, then place it on the edge of the glass.
-15	Grasshopper	Creme de Menthe	1	Creme de Cacao	1	Heavy Cream	1	\N	\N	\N	\N	\N	\N	\N	\N	false ture \N Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a fresh mint leaf.
+COPY public.drinkrecipes (drink_id, drink_name, spirit_type, spirit_amount, ingredients, instructions, image_link, bitter, sweet) FROM stdin;
+6	Boulevardier	Bourbon	2	1.5 oz bourbon\n.75 oz sweet vermouth\n.75 oz Campari	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Garnish with a cherry.	\N	\N	\N
+7	Brandy Alexander	Cognac	2	1.5 oz cognac\n1 oz creme de cacao\n1 oz heavy cream	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with grated nutmeg.	\N	\N	\N
+1	Americano	Vermouth	1	1 oz Campari \n1 oz sweet vermouth\n 4 oz seltzer	Pour Campari and sweet vermouth into a glass. Add ice and soda water.	\N	\N	\N
+3	Aperol Spritz	Aperol	2	2 oz Aperol\n3 oz sparkling wine \n2 oz seltzer	Pour the Aperol into a wineglass. Fill the glass with ice cubes, then pour in the sparkling wine and seltzer. Mix gently with a bar spoon. Garnish with a grapefruit wedge.	\N	\N	\N
+4	Bee's Knees	Gin	2	2 oz gin\n3/4 oz lemon juice\n3/4 honey syrup	Shake all ingredients with ice. Double strain into a chilled coupe.	\N	\N	\N
+5	Between the Sheets	Cognac	1	.75 cognac\n.75 oz white rum \n.75 oz Cointreau\n.75 oz lemon juice	Shake all ingredients with ice. Double strain into a chilled coupe.	\N	\N	\N
+8	Brandy Flip	Cognac	2	1.5 oz Cognac\n.75 oz demerara syrup\n1 whole egg	Shake all ingredients without ice. Shake again with ice. Double strain into a chilled coupe. Garnish with grated nutmeg.	\N	\N	\N
+9	Champs-Elysees	Cognac	2	2 oz Cognac\n.5 oz Green Chartreuse\n.75 oz lemon juice\n.5 oz simple syrup\n1 dash angostura bitters	Shake all ingredients with ice. Strain into a chilled coupe. Express the lemon twist over the drink then set it on the edge of the glass.	\N	\N	\N
+13	Daiquiri	White Rum	2	2 oz white rum\n.75 oz lime juice\n.75 oz simple syrup	Shake all ingredients with ice. Double strain into a chilled coupe.	\N	\N	\N
+10	Corpse Reviver No.2	Gin	1	.75 oz gin\n.75 oz Lillet blanc\n.75 Cointreau\n.75 lemon juice\n2 dashes absinthe	Shake all ingredients with ice. Double strain into a chilled coupe.	\N	\N	\N
+11	Cosmopolitan	Vodka	2	2 oz vodka\n.75 oz Cointreau\n.5 oz lime juice\n.5 cranberry juice\n.5 oz simple syrup\n	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.	\N	\N	\N
+12	Cuba Libre	White Rum	2	2 oz white rum\n.25 oz lime juice\n4 oz Coca-Cola	Pour the rum into a highball glass and add three ice cubes. Stir for 3 seconds. Add the lime juice and cola and stir once with a bar spoon. Garnish with a lime wedge.	\N	\N	\N
+14	French 75	Gin	1	1 oz gin\n.5 oz lemon juice\n.5 oz simple syrup\n4 oz sparkling wine	Shake all ingredients (except for the sparkling wine) with ice. Strain into a chilled flute. Pour in the sparkling wine and gently mix with a bar spoon. Express a lemon twist over the drink then place it into the drink.	\N	\N	\N
+15	Grasshopper	Creme de Menthe	1	1 oz creme de menthe\n1 oz creme de cacao\n1 oz heavy cream\n8 mint leaves	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a fresh mint leaf.	\N	\N	\N
+16	Hemingway Daiquiri	White Rum	2	1.5 oz white rum\n.5 oz maraschino liquer\n1 oz grapefruit juice\n.5 oz lime juice\n1 tsp simple syrup	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.	\N	\N	\N
+17	Hot Toddy	Bourbon	2	2 lemon wedges\n1.5 oz bourbon\n.75 oz honey syrup\n1 dash Angostura bitters\n4 oz boiling water	Combine all ingredients (except the water) in a mixing glass and stir. Pour into a toddy mug, then pour in the boiling water. Garnish with a cinnamon stick.	\N	\N	\N
+18	Improved Whiskey Cocktail	Bourbon	2	2 oz bourbon\n1 tsp maraschino liqueur\n1 dash absinthe\n1 dash Angostura\n1 dash Peychaud's bitters	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express a lemon twist over the drink, then place it into the drink.	\N	\N	\N
+19	Jack Rose	Apple Brandy	2	2 oz apple brandy\n.75 oz lime juice\n.75 grenadine	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with an apple slice.	\N	\N	\N
+20	Last Word	Gin	1	.75 oz gin\n.75 oz green Chartreuse\n.75 oz maraschino liquer\n.75 lime juice	Shake all ingredients with ice. Double strain into a chilled coupe.	\N	\N	\N
+21	Mai Tai	Aged Rum	1	1 oz aged rum\n1 oz rum agricole blanc\n.75 oz Cointreau\n1 oz lime juice\n.5 oz orgeat\n.5 oz simple syrup\n1 dash Angostura bitters	Shake all ingredients with a small amount of crushed ice. Dump into a double old-fashioned glass. Pack the glass with crushed ice. Garnish with a mint bouquet.	\N	\N	\N
+22	Manhattan	Rye Whiskey	2	2 oz rye whiskey \n1 oz sweet vermouth\n2 dash Angostura bitters	Stir all ingredients over ice. Strain into a chilled coupe. Garnish with 1 brandied cherry.	\N	\N	\N
+23	Margarita	Blanco Tequila	2	2 oz blanco tequila\n.75 oz Cointreau\n.75 oz lime juice\n.75 oz simple syrup\n1 lime wedge\nkosher salt, for the rim.	Rub the lime wedge along the rim of the glass. Roll the wet portion of the glass in the salt. Shake the remaining ingredients with ice. Strain into prepared glass.	\N	\N	\N
+24	Martini	Gin	2	2 oz gin\n.75 oz dry vermouth\n	Stir all ingredients over ice. Strain into a chilled coupe. Garnish with an olive or express a lemon peel over the drink and set it on the side of the glass.	\N	\N	\N
+25	Mint Julep	Bourbon	2	1 mint bouquet\n2 oz bourbon\n.25 oz simple syrup\n	Rub the interior of the julep tin with the mint bouquet and then set it aside. Add the bourbon and syrup and fill the tin halfway with crushed ice. Stir, churning the ice as you go, for about 10 seconds. Fill the tin with ice until it is about two-thirds full. Stir until it is completely frosted. Add more ice to form a cone over the rim. Garnish with the mint bouquet and serve with a straw.	\N	\N	\N
+26	Mojito	White Rum	2	2 oz white rum\n1 oz lime juice\n.75 simple syrup\n1 white sugar cube\n10 min leaves	Gently muddle the mint leaves, simple syrup, and sugar cube in a shaker. Add the remaining ingredients and shake with a small amount of crushed ice. Dump into a Collins glass and add crushed ice until about four-fifths full. Swizzle for a few seconds, then pack the glass with ice. Garnish with mint bouquet then serve with a straw.	\N	\N	\N
+30	Moscow Mule	Vodka	2	2 oz seltzer\n2 oz vodka\n.5 lime juice\n.75 ginger syrup	Pour the chilled seltzer into a Collins glass. Short-shake the remaining ingredients for about 5 seconds. Strain into the glass. Fill the glass with ice cubes & garnish with a lime wheel.	\N	\N	\N
+31	Negroni	Gin	1	1 oz gin\n1 oz sweet vermouth\n1 oz Campari	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express an orange twist over the drink, then place it into the drink.	\N	\N	\N
+32	Old Cuban	Aged Rum	2	1.5 oz aged rum\n.75 lime juice\n1 oz simple syrup\n2 dashes Angostura bitters\n6 mint leaves\n2 oz champagne	Shake all ingredients (except the champagne) with ice. Double strain into a chilled coupe. Pour in the champagne and mix gently with a bar spoon. Garnish with a fresh mint leaf.	\N	\N	\N
+33	Old-Fashioned	Bourbon	2	2 oz bourbon\n2 dashes Angostura bitters\n1 sugar cube\n	Muddle the sugar cube and simple syrup in an old-fashioned glass. Add the bourbon and 1 large ice cube. Stir until chilled. Garnish with lemon & orange twist.	\N	\N	\N
+34	Old Pal	Rye Whiskey	2	1.5 oz rye whiskey\n.75 dry vermouth\n.75 Campari	Stir all ingredients over ice. Strain into a chilled coupe. Express an orange twist over the drink and then place it into the drink.	\N	\N	\N
+35	Peaches and Smoke	Lillet Rose	2	1.5 oz Lillet rose\n.5 oz cognac\n1 tsp scotch\n.75 oz creme de peche\n.75 oz lemon juice\n.25 oz simple syrup\n1 peach wedge\n	Muddle the peach wedge in a shaker. Add the remaining ingredients and shake with ice. Double strain into a chilled coupe. Garnish with a peach wedge.	\N	\N	\N
+36	Pegu Club	Gin	2	2 oz gin\n.75 oz Cointreau\n.75 oz lime juice\n1 dash Angostura bitters\n1 dash Angostura oragne bitters	Shake all ingredients with ice. Double strain into a chilled coupe. Garnish with a lime wheel.	\N	\N	\N
+37	Pink Lady	Gin	2	1.5 oz gin\n.5 oz apple brandy\n.5 lemon juice\n.5 grenadine\n.5 simple syrup\n1 egg white	Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Garnish with a cherry.	\N	\N	\N
+38	Pisco Sour	Pisco	2	2 oz Pisco\n.5 lime juice\n.5 lemon juice\n.75 simple syrup\n1 egg white\n	Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Carefully garnish the top of the foam with Angostura bitters.	\N	\N	\N
+39	Poets Dream	Gin	2	2 oz gin\n.75 dry vermouth\n.25 oz benedictine\n2 dashes Angostura orange bitters	Stir all ingredients over ice. Strain into a chilled coupe. Express a lemon twist over the drink and then place it on the edge of the glass.	\N	\N	\N
+40	Rosita	Blanco Tequila	2	1.5 oz blanco tequila\n.5 sweet vermouth\n.5 oz dry vermouth\n.5 Campari\n1 dash Angostura	Stir all ingredients over ice. Strain into a chilled coupe. Express an orange twist over the drink, then place it into the drink.	\N	\N	\N
+41	Sazerac	Absinthe	2	absinthe\n1.5 oz rye whiskey\n.5 oz cognac\n1 tsp demerara syrup\n4 dashes Petchaud's bitters\n1 dash Angostura bitters	Rinse an old-fashioned glass with absinthe and then dump. Stir the remaining ingredients over ice. Strain into the glass. Express the lemon twist over the drink and discard it.	\N	\N	\N
+42	Sidecar	Cognac	2	1.5 oz cognac\n1 oz Cointreau\n.75 oz lemon juice	Shake all ingredients with ice. Strain into a chilled coupe. Express an orange twist over the drink, then place it into the drink.	\N	\N	\N
+43	Southside	Gin	2	2 oz gin\n.75oz lime juice\n.75 oz simple syrup\n1 dash Angostura bitters	Gently muddle the mint in a shaker. Add the remaining ingredients and shake with ice. Strain into a chilled coupe. Garnish with a fresh mint leaf.	\N	\N	\N
+44	Tequila Sunrise	Blanco Tequila	2	2 oz blanco tequila\n4 oz orange juice\n.25 oz lime juice\n.25 oz grenadine\n	Combine the tequila, orange juice, and lime juice in a highball glass. Add three ice cubes. Stir for three seconds. Add the grenadine and let it sink to the bottom of the glass. Garnish with half an orange wheel and a lime wedge.	\N	\N	\N
+45	Ti Punch	Rhum Agricole Blanc	2	2 ounces rhum agricole blanc\n1 tsp sugar cane syrup\n1 lime wheel\n	In an old-fashioned glass, muddle the lime and syrup. Add the rhum and fill the glass with cracked ice. Stir briefly.	\N	\N	\N
+46	Tom Collins	Seltzer	2	2 oz seltzer\n2 oz gin\n1 oz lemon juice\n.75 simple syrup	Pour the seltzer into a Collins glass. Short-shake the remaining ingredients with ice for about 5 seconds. Strain into the glass. Fill the glass with ice cubes. Garnish with a lemon wheel and cherry.	\N	\N	\N
+47	Whisky Highball	Scotch	2	2 oz scotch\n6 oz seltzer	Pour the scotch intoa highball glass. Add 3 ice cubes. Stir for 3 seconds. Add the seltzer and stir once. Garnish with a lemon peel.	\N	\N	\N
+48	Whiskey Sour	Bourbon	2	2 oz bourbon\n.75 lemon juice\n.75 simple syrup	Shake all ingredients with ice. Strain into a double old-fashioned glass over 1 large ice cube. Garnish with a lemon wheel and a cherry.	\N	\N	\N
+49	White Lady	Gin	2	2 oz gin\n.5 oz Cointreau\n.75 oz lemon juice\n.25 simple syrup\n1 egg white	Shake all the ingredients without ice. Shake all ingredients again with ice. Double strain into a chilled coupe. Express a lemon twist over the drink, then place it on the edge of the glass.	\N	\N	\N
+50	White Negroni	Gin	2	1.5 oz gin\n1 oz dry vermouth\n.75 Suze	Stir all ingredients over ice. Strain into an old-fashioned glass over 1 large cube. Express an orange twist over the drink, then place it into the drink.	\N	\N	\N
 \.
 
 
 --
--- TOC entry 4840 (class 0 OID 0)
+-- TOC entry 4851 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: liquor_party_drink_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -155,16 +133,17 @@ SELECT pg_catalog.setval('public.liquor_party_drink_id_seq', 50, true);
 
 
 --
--- TOC entry 4689 (class 2606 OID 16725)
--- Name: liquor_table liquor_party_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 4699 (class 2606 OID 16725)
+-- Name: drinkrecipes liquor_party_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.liquor_table
+ALTER TABLE ONLY public.drinkrecipes
     ADD CONSTRAINT liquor_party_pkey PRIMARY KEY (drink_id);
 
 
--- Completed on 2024-06-02 22:28:53
+-- Completed on 2024-06-06 20:08:36
 
 --
 -- PostgreSQL database dump complete
 --
+
