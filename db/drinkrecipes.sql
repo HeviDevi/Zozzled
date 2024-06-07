@@ -37,6 +37,7 @@ CREATE TABLE public.drinkrecipes (
     image_link character varying,
     bitter boolean,
     sweet boolean
+
 );
 
 
