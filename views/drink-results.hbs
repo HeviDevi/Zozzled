@@ -3,10 +3,11 @@
 
 <div class="results">
     <div class="results-container">
-        {{#each drink}}
-            {{#if @index '<' 8}}
-                {{> drink-card}}
-            {{/if}}
+        {{#each drinks}}
+            <li>SHOW DRINK HERE:{{drink_name}}</li>
+            <!-- Include other attributes as needed -->
+            {{else}}
+            <p>No drinks found</p>
         {{/each}}
     </div>
 </div>
