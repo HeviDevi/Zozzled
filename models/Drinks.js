@@ -37,11 +37,11 @@ const Drinks = db.define('drinkrecipes', {
         type: Sequelize.BOOLEAN,
         allowNull: false
     },
-    drink_link: {
+    image_link: {
         type: Sequelize.STRING,
         allowNull: false
     }
-    
+
 }, {
     timestamps: false, // Disable timestamps
     freezeTableName: true // Prevent Sequelize from pluralizing the table name
