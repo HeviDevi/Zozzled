@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const Drinks = require("../models/Drinks");
 
 // Route for handlebars
 router.get("/", (req, res) => {
@@ -13,7 +14,16 @@ router.get("/drink-search", (req, res) => {
 
 // Route for drink-results
 router.get("/drink-results", (req, res) => {
-    res.render("drink-results", { layout: "main" })
+    Drinks.findAll({raw: true})
+    .then(drinks => {
+        res.render("drink-results", {
+            drinks: drinks 
+        });
+    })
+    .catch(error => {
+        console.error("Error fetching drinks:", error);
+        res.status(500).send("Error fetching drink results");
+    });
 });
 
 // Route for drink-details
