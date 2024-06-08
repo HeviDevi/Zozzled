@@ -169,15 +169,14 @@ body {
 /* Drink Results */
 
 /* Cards */
+.card {
+    margin: 0 auto;
+}
+
 .drink-card {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    justify-content: space-between;
     background-color: #822c1c;
     max-height: 80%;
     max-width: 80%;
@@ -187,7 +186,6 @@ body {
     box-sizing: border-box;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: .9;
 }
 
 .drink-card h2 {
