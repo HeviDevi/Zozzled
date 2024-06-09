@@ -309,6 +309,7 @@ p {
   display: none;
 }
 
+/* controls size of stars */
 .star-rating label {
   font-size: 1.5em;
   color: #ccc;
@@ -316,6 +317,7 @@ p {
   transition: all 0.2s ease;
 }
 
+/* controls how stars react to hover. */
 input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label {
   color: #f7d70c;
@@ -324,3 +326,38 @@ input:not(:checked) ~ label:hover ~ label {
 input:checked ~ label {
   color: #f7d70c;
 }
+
+/* added slight glow when 5 stars is selected */
+input#rate-5:checked ~ label {
+  color: #fff895;
+  text-shadow: 0 0 20px rgb(255, 156, 81);
+}
+
+form header {
+  width: 100%;
+  font-size: 15px;
+  color: #f7d70c;
+  font-weight: 500;
+  margin: 5px 0 20px 0;
+  transition: all 0.2s ease;
+}
+
+form .textarea {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* formatting and coloring for comments box */
+form .textarea textarea {
+  height: 100%;
+  width: 30%;
+  outline: none;
+  border: 1px solid #333;
+  background: #222;
+  color: #eee;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+
