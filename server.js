@@ -65,6 +65,9 @@ const hbs = exphbs.create({
       }
       return arr.slice(0, limit);
     },
+    encodeURIComponent: function (str) {
+      return encodeURIComponent(str);
+    }
   },
 });
 
