@@ -20,7 +20,7 @@ const saltRounds = 10;
 
 //Bring database connection
 const db = require("./config/database");
-const { route } = require("./routes/users");
+
 
 //Test database connection
 db.authenticate()
@@ -39,6 +39,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // User routes - anything that is /users will go to the users.js file
 app.use("/users", require("./routes/users"));
+
+// Search routes - anything that is /search will go to the search.js file
+app.use('/', require('./routes/search'));
 
 //END OF CODE CONSOLIDATION - Zachary
 
