@@ -1,239 +1,285 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #f8f4ea;
+  background-color: #f8f4ea;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
 
+p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Logo */
 .logo-container {
-    position: absolute;
-    top: 8%;
-    left: 53%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 8%;
+  left: 53%;
+  transform: translate(-50%, -50%);
 }
 
 .logo {
-    width: 75%;
+  width: 75%;
 }
 
 /* NavBar */
 .nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .nav ul {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav li {
-    margin: 0 10px;
+  margin: 0 10px;
 }
 
 .nav a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Top Left Art Deco */
 .top-left-container {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
 
 .top-left {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
 }
 
 /* Bottom Left Art Deco */
 .bottom-left-container {
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
 }
 
 .bottom-left {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
 }
 
 /* Top Right Art Deco */
 .top-right-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    position: fixed;
-    top: 0px;
-    right: 0px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0px;
+  right: 0px;
 }
 
 .top-right {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
 }
 
 /* Bottom Right Art Deco */
 .bottom-right-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
 }
 
 .bottom-right {
-    max-width: 90%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
 }
 
 /* Homepage */
 
 /* Discover Img */
 .discover-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .discover {
-    max-width: 80%;
-    max-height: 80%;
-    width: auto;
-    height: auto;
+  max-width: 80%;
+  max-height: 80%;
+  width: auto;
+  height: auto;
 }
 
 /* Start Button */
 .start-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
 
 /* Search Page */
 
 /* modal */
 .modal {
-    box-shadow: 5px 5px 10px grey;
+  box-shadow: 5px 5px 10px grey;
 }
 
 .form-control-user {
-    font-family: 'Poppins', sans-serif;
-    width: 300px;
+  width: 300px;
 }
 
 #modalTitle {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .modalBtn {
-    width: 300px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: .9rem;
-    background-color: #822c1c;
-    color: white;
-    font-family: 'Poppins', sans-serif;
+  width: 300px;
+  height: 35px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #822c1c;
+  color: white;
 }
 
 /* Drink Results */
 
 /* Cards */
 .card {
-    margin: 0 auto;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
+  margin: 0 auto;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
 }
 
 .drink-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 80%;
-    max-width: 80%;
-    padding: 20px;
-    text-align: center;
-    overflow: auto;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 80%;
+  max-width: 80%;
+  padding: 5px;
+  text-align: center;
+  overflow: auto;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
-.drink-card h2 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: #fff;
-    word-wrap: break-word;
+.drink-card h6,
+.drink-card p {
+  color: #fff;
+}
+
+.drink-card h6 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 .drink-card p {
-    margin-bottom: 5px;
-    font-size: 1em;
-    color: #fff;
-    word-wrap: break-word;
+  margin-bottom: 5px;
+  font-size: 1em;
+  word-wrap: break-word;
+}
+
+.image-link {
+  position: relative;
+  display: block;
+}
+
+.card-img-top {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.overlay-text {
+  padding: 10px;
+}
+
+.image-link:hover .overlay {
+  opacity: 2;
 }
 
 /* Drink Details Page */
 .drink-details {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* align-items: center; */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #822c1c;
-    max-height: 80%;
-    max-width: 80%;
-    padding: 20px;
-    text-align: center;
-    overflow: auto;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #822c1c;
+  max-height: 80%;
+  max-width: 80%;
+  padding: 20px;
+  text-align: center;
+  overflow: auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .drink-details h2 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: #fff;
-    word-wrap: break-word;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  color: #fff;
+  word-wrap: break-word;
 }
 
 .drink-details p {
-    margin-bottom: 5px;
-    font-size: 1em;
-    color: #fff;
-    word-wrap: break-word;
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: #fff;
+  word-wrap: break-word;
 }
