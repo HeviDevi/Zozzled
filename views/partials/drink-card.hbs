@@ -7,12 +7,7 @@
             <img src="{{image_link}}" class="card-img-top" alt="The Cocktail of Choice">
             <h5>{{drink_name}}</h5>
             <p>Rating: ⭐⭐⭐⭐⭐</p>
-            <button type="button"  href="/drink-details?id={{drink_id}}" class="btn btn-primary" data-toggle="modal" data-target="#drinkModal">
-              View Recipe</button>
-            {{!-- <p>Spirit Type: {{spirit_type}}</p>
-            <p>Spirit Amount: {{spirit_amount}} OZ</p>
-            <p>Ingredients: {{ingredients}}</p>
-            <p>Instructions: {{instructions}}</p> --}}
+            <a href="/drink-details?id={{drink_id}}&name={{drink_name}}&spirit={{spirit_type}}&amount={{spirit_amount}}&ingredients={{ingredients}}&instructions={{instructions}}" class="btn btn-primary">View Recipe</a>
           </div>
         </div>
       </div>
