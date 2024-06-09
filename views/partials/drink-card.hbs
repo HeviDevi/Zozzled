@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="row">
+<div class="container mt-5 p-5">
+  <div class="row align-items-center mt-5 p-5 overflow-auto drink-results">
     {{#each drinks}}
-      <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex">
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-4 d-flex">
         <div class="card drink-card">
           <div class="card-body">
             <a href="/drink-details?id={{drink_id}}&name={{drink_name}}&spirit={{spirit_type}}&amount={{spirit_amount}}&ingredients={{ingredients}}&instructions={{instructions}}" class="image-link">
-              <img src="{{image_link}}" class="card-img-top" alt="The Cocktail of Choice">
+              <img src="{{image_link}}" class="card-img-top card-img" alt="The Cocktail of Choice">
               <div class="overlay">
                 <div class="overlay-text">
                   <h6>{{drink_name}}</h6>
