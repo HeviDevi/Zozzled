@@ -185,6 +185,7 @@ p {
 
 .drink-results {
     height: 600px;
+    width: 100%;
 }
 
 .card {
