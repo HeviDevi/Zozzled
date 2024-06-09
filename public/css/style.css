@@ -50,7 +50,7 @@ body {
 
 /* Top Left Art Deco */
 .top-left-container {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
 }
@@ -64,7 +64,7 @@ body {
 
 /* Bottom Left Art Deco */
 .bottom-left-container {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     left: 0px;
 }
@@ -80,7 +80,6 @@ body {
 .top-right-container {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
     position: fixed;
     top: 0px;
     right: 0px;
@@ -97,7 +96,6 @@ body {
 .bottom-right-container {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
     position: fixed;
     bottom: 0px;
     right: 0px;
@@ -181,7 +179,7 @@ body {
     justify-content: space-between;
     max-height: 80%;
     max-width: 80%;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     overflow: auto;
     box-sizing: border-box;
@@ -189,26 +187,61 @@ body {
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
-.drink-card h2 {
+.drink-card h6,
+.drink-card p {
+    color: #fff;
+}
+
+.drink-card h6 {
     margin-bottom: 10px;
     font-size: 1.5em;
-    color: #fff;
-    word-wrap: break-word;
 }
 
 .drink-card p {
     margin-bottom: 5px;
     font-size: 1em;
-    color: #fff;
     word-wrap: break-word;
+}
+
+.image-link {
+    position: relative;
+    display: block;
+}
+
+.card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.overlay-text {
+    padding: 10px;
+}
+
+.image-link:hover .overlay {
+    opacity: 2;
 }
 
 /* Drink Details Page */
 .drink-details {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-    /* align-items: center; */
     position: absolute;
     top: 50%;
     left: 50%;
