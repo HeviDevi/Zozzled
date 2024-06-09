@@ -69,5 +69,5 @@ window.addEventListener("DOMContentLoaded", () => {
 document.getElementById('searchButton').addEventListener('click', function() {
     var searchTerm = document.getElementById('searchInput').value;
     // Redirect to the search route with the search term as a query parameter
-    window.location.href = '/users/search?term=' + encodeURIComponent(searchTerm);
+    window.location.href = '/search?term=' + encodeURIComponent(searchTerm);
 });
