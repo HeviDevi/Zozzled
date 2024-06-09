@@ -1,16 +1,21 @@
-{{!-- <div class="logo">{{> logo}}</div>
-<div class="nav">{{> nav-bar}}</div> --}}
 <div class="artDeco">{{> art-deco}}</div>
 <div class="artDeco2">{{> art-deco2}}</div>
 
+
 <div class="drink-details">
-    <h4>{{name}}</h4>
-    <img src="{{image}}" class="card-detail-img" alt="The Cocktail of Choice">
-    <p>Spirit Type: {{spirit}}</p>
-    <p>Spirit Amount: {{amount}} OZ</p>
-    <p>Ingredients: {{ingredients}}</p>
-    <p>Instructions: {{instructions}}</p><br>
-    <p>How did you like this drink??</p> 
+    <div class="drink-details-container">
+        <div class="card-detail-img-container">
+            <img src="{{image}}" class="card-detail-img" alt="The Cocktail of Choice">
+        </div>
+        <div class="drink-info">
+            <h4>{{name}}</h4>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <p>Spirit Type: {{spirit}}</p>
+            <p>Spirit Amount: {{amount}} OZ</p>
+            <p>Ingredients: {{ingredients}}</p>
+            <p>Instructions: {{instructions}}</p>
+            <br>
+            <p>How did you like this drink??</p> 
     {{!-- this will be the area where the user can input their own rating --}}
     {{!-- This will be a future feature --}}
     <div class="star-rating">
@@ -35,4 +40,3 @@
         </form>
     </div>
 </div>
-
