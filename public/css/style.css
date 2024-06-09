@@ -298,8 +298,114 @@ p {
 }
 /* This controls the image sizing and placement */
 .card-detail-img {
-  max-height: 500px;
+  max-height: 400px;
   width: auto;
   display: block;
   margin: 0 auto;
 }
+
+/* Styling for rating system */
+.star-rating input {
+  display: none;
+}
+
+/* controls size of stars */
+.star-rating label {
+  font-size: 1.5em;
+  color: #ccc;
+  padding: 0 0.1em;
+  transition: all 0.2s ease;
+}
+
+/* controls how stars react to hover. */
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #f7d70c;
+}
+
+input:checked ~ label {
+  color: #f7d70c;
+}
+
+/* added slight glow when 5 stars is selected */
+input#rate-5:checked ~ label {
+  color: #fff895;
+  text-shadow: 0 0 20px rgb(255, 156, 81);
+}
+
+/* modifying text based on star selection */
+#rate-1:checked ~ form header:before {
+  content: "This shouldn't even be served in a bar😠";
+  text-transform: uppercase;
+}
+
+#rate-2:checked ~ form header:before {
+  content: "Not a fan🙃";
+  text-transform: uppercase;
+}
+
+#rate-3:checked ~ form header:before {
+  content: "It was aight 👌";
+  text-transform: uppercase;
+}
+
+#rate-4:checked ~ form header:before {
+  content: "Imma have a good good night🥳";
+  text-transform: uppercase;
+}
+
+#rate-5:checked ~ form header:before {
+  content: "I'm not going to remember tonight...🖤";
+  text-transform: uppercase;
+}
+
+
+form header {
+  width: 100%;
+  font-size: 15px;
+  color: #f7d70c;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+form .textarea {
+  height: 100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* formatting and coloring for comments box */
+form .textarea textarea {
+  height: 100%;
+  width: 30%;
+  outline: none;
+  border: 1px solid #333;
+  background: #222;
+  color: #eee;
+  padding: 10px;
+  font-size: 17px;
+  resize: none;
+}
+
+/* button formating */
+form .btn {
+  height: 45px;
+  width: 100%;
+}
+
+form .btn button {
+  height: 100%;
+  width: 30%;
+  border: 1px solid #444;  
+  outline: none;
+  background: #222;
+  color: #999;
+  font-size: 17px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+form .btn button:hover {
+  background: #1b1b1b;  
+} 
