@@ -297,7 +297,7 @@ p {
   word-wrap: break-word;
 }
 /* This controls the image sizing and placement */
-.card-img-top {
+.card-detail-img {
   max-height: 500px;
   width: auto;
   display: block;
