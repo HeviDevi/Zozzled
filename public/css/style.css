@@ -171,21 +171,22 @@ body {
 /* Cards */
 .card {
     margin: 0 auto;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
 }
 
 .drink-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #822c1c;
     max-height: 80%;
     max-width: 80%;
     padding: 20px;
     text-align: center;
     overflow: auto;
     box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
 .drink-card h2 {
