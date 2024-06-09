@@ -21,7 +21,6 @@ const saltRounds = 10;
 //Bring database connection
 const db = require("./config/database");
 
-
 //Test database connection
 db.authenticate()
   .then(() => console.log("Database connected..."))
@@ -42,6 +41,10 @@ app.use("/users", require("./routes/users"));
 
 // Search routes - anything that is /search will go to the search.js file
 app.use('/', require('./routes/search'));
+
+//Drink Detail
+app.use('/', require('./routes/drinks'));
+
 
 //END OF CODE CONSOLIDATION - Zachary
 
