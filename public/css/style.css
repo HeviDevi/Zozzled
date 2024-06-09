@@ -303,3 +303,24 @@ p {
   display: block;
   margin: 0 auto;
 }
+
+/* Styling for rating system */
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 1.5em;
+  color: #ccc;
+  padding: 0 0.1em;
+  transition: all 0.2s ease;
+}
+
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label {
+  color: #f7d70c;
+}
+
+input:checked ~ label {
+  color: #f7d70c;
+}
