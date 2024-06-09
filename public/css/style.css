@@ -298,7 +298,7 @@ p {
 }
 /* This controls the image sizing and placement */
 .card-detail-img {
-  max-height: 500px;
+  max-height: 400px;
   width: auto;
   display: block;
   margin: 0 auto;
