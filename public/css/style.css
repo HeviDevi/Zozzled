@@ -223,6 +223,28 @@ font-size: 1em;
 word-wrap: break-word;
 }
 
+/* Heart Button */
+.heart-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.heart-btn i {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.heart-btn:hover {
+  transform: scale(1.1);
+}
+
 .image-link {
 position: relative;
 display: block;
@@ -288,6 +310,28 @@ opacity: 1;
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+/* Heart Button */
+.favorite-btn {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.favorite-btn i {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.favorite-btn:hover {
+  transform: scale(1.1);
 }
 
 .card-detail-img-container {
