@@ -31,17 +31,12 @@ router.get("/drink-details", (req, res) => {
     res.render("drink-details", { layout: "main" })
 });
 
-// Route for user-profile
-router.get("/user-profile", (req, res) => {
-    res.render("user-profile", { layout: "main" })
-});
-
 // Route for user-input
 router.get("/user-input", (req, res) => {
     res.render("user-input", { layout: "main" })
 });
 
-// Route for user-favorites requirement 
+// Route for user added drinks
 router.get('/users', (req, res) => {
     res.render('users', { layout: "main" })
 });
