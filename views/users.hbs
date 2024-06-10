@@ -1,11 +1,32 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>User Added Drinks</title>
-    </head>
-    <body>
+{{> art-deco}}
+{{> art-deco2}}
+
+        <div class="container detail-container">
+            <div class="row justify-content-center">
+            <div class="col-md-8">
+                {{#each users}}
+                <div class="card mb-4 drink-details">
+                <div class="row drink-details-container">
+                    <div class="col-md-8">
+                    <div class="card-body drink-info">
+                        <h4 class="card-title">{{dataValues.drinkname}}</h4>
+                        <p class="card-text">Spirit Type: {{dataValues.spirittype}}</p>
+                        <p class="card-text">Spirit Amount: {{dataValues.spiritamount}} OZ</p>
+                        <p class="card-text">Ingredients: {{dataValues.ingredients}}</p>
+                        <p class="card-text">Instructions: {{dataValues.instructions}}</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                {{/each}}
+                {{^each users}}
+                <p>No drinks found</p>
+                {{/each}}
+            </div>
+            </div>
+        </div>
+       
+{{!-- 
         {{#each users}}
         <h1>{{dataValues.drinkname}}</h1>
         <ul>
@@ -14,6 +35,4 @@
             <p>{{dataValues.instructions}}</p>
     {{else}}
             <p>No drinks found</p>
-    {{/each}}
-    </body>
-    </html>
+    {{/each}} --}}
