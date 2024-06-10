@@ -15,17 +15,25 @@ window.addEventListener("DOMContentLoaded", () => {
     showRegisterBtn.addEventListener("click", (event) => {
       event.preventDefault();
       console.log("Register button clicked");
-      if (loginForm) loginForm.style.display = "none";
-      if (registerForm) registerForm.style.display = "block";
-      if (modalTitle) modalTitle.textContent = "Register";
+      if (loginForm.style.display === "none") {
+        loginForm.style.display = "block";
+        registerForm.style.display = "none";
+        modalTitle.textContent = "Login";
+        showRegisterBtn.textContent = "Register";
+      } else {
+        loginForm.style.display = "none";
+        registerForm.style.display = "block";
+        modalTitle.textContent = "Register";
+        showRegisterBtn.textContent = "Back to Login";
+      }
     });
   }
 
   // Continue as Guest script to hide modal when clicked
   guestBtn.addEventListener("click", () => {
     const myModalEl = document.querySelector(".modal");
-    const modal = bootstrap.Modal.getInstance(myModalEl);
-    modal.hide();
+    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+    modalInstance.hide();
   });
 
   window.addEventListener("click", (event) => {
@@ -54,9 +62,42 @@ window.addEventListener("DOMContentLoaded", () => {
       .then((response) => {
         if (response.ok) {
           console.log("User registered successfully");
+          const myModalEl = document.querySelector(".modal");
+          const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+          modalInstance.hide();
           window.location.href = "/drink-search";
         } else {
           console.error("Registration failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+
+  // Login form submission
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    console.log("Login form submitted");
+    const formData = new FormData(loginForm);
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
+    // Send form data to server via fetch
+    fetch("/login", {
+      method: "POST",
+      body: new URLSearchParams(formData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("User logged in successfully");
+          const myModalEl = document.querySelector(".modal");
+          const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+          modalInstance.hide();
+          window.location.href = "/drink-search";
+        } else {
+          console.error("Login failed");
         }
       })
       .catch((error) => {
