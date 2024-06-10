@@ -46,6 +46,9 @@ router.get('/users', (req, res) => {
     res.render('users', { layout: "main" })
 });
 
-
+// Route for Profile
+router.get('/profile', (req, res) => {
+    res.render('profile', { layout: "main" })
+})
 
 module.exports = router;
