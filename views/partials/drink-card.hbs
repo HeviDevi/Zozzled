@@ -4,8 +4,25 @@
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex">
         <div class="card drink-card">
           <div class="card-body">
-            <a href="/drink-details?id={{drink_id}}&name={{encodeURIComponent drink_name}}&spirit={{encodeURIComponent spirit_type}}&amount={{encodeURIComponent spirit_amount}}&ingredients={{encodeURIComponent ingredients}}&instructions={{encodeURIComponent instructions}}&image={{encodeURIComponent image_link}}" class="image-link">
-              <img src="{{image_link}}" class="card-img-top card-img" alt="The Cocktail of Choice">
+            <a
+              href="/drink-details?id={{drink_id}}&name={{encodeURIComponent
+                drink_name
+              }}&spirit={{encodeURIComponent
+                spirit_type
+              }}&amount={{encodeURIComponent
+                spirit_amount
+              }}&ingredients={{encodeURIComponent
+                ingredients
+              }}&instructions={{encodeURIComponent
+                instructions
+              }}&image={{encodeURIComponent image_link}}"
+              class="image-link"
+            >
+              <img
+                src="{{image_link}}"
+                class="card-img-top card-img"
+                alt="The Cocktail of Choice"
+              />
               <div class="overlay">
                 <div class="overlay-text">
                   <h6>{{drink_name}}</h6>
@@ -18,6 +35,9 @@
                   </p>
                 </div>
               </div>
+              <button class="heart-btn">
+                <i class="fa-regular fa-heart"></i>
+              </button>
             </a>
           </div>
         </div>
@@ -26,5 +46,6 @@
   </div>
 </div>
 
+<script src="/js/drink-results.js"></script>
 
-{{!-- ⭐⭐⭐⭐⭐ --}}
+{{! ⭐⭐⭐⭐⭐ }}
