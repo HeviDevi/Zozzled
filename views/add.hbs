@@ -1,36 +1,46 @@
+{{> art-deco}}
+{{> art-deco2}}
+
 {{!-- Loop through the errors object and display each error in a div with a class of error. --}}
+<section class="form-section">
+    <div class="container mt-5 pt-5">
         {{#each errors}}
-        <div class="error">
-            <p>{{text}}</p>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="error">
+                    <p>{{text}}</p>
+                </div>
+            </div>
         </div>
         {{/each}}
-        <form action="/users/add" method="POST">
-            <div class="input-group">
-                <label for="drinkname">Drink Name</label>
-                <input type="text" name="drinkname" id="drinkname" class="input-box"
-                    placeholder="Ex: jack and coke, sunrise" maxlength="100" value={{drinkname}}>
+        <div class="row justify-content-center mt-5 pt-5">
+            <div class="col-md-6">
+                <form action="/users/add" method="POST" class="centered-form">
+                    <div class="input-group mb-3">
+                        <label for="drinkname" class="form-label">Drink Name</label>
+                        <input type="text" name="drinkname" id="drinkname" class="form-control" placeholder="Ex: jack and coke, sunrise" maxlength="100" value={{drinkname}}>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="spirittype" class="form-label">Spirit Type</label>
+                        <input type="text" name="spirittype" id="spirittype" class="form-control" placeholder="EX. rum, whiskey, bourbon" maxlength="100" value={{spirittype}}>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="spiritamount" class="form-label">Spirit Amount (Leave blank for unknown)</label>
+                        <input type="number" name="spiritamount" id="spiritamount" class="form-control" placeholder="EX. 1, 1.5, 2" value={{spiritamount}}>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="ingredients" class="form-label">Ingredients</label>
+                        <textarea name="ingredients" id="ingredients" class="form-control" placeholder="Input ingredients to drink" rows="3">{{ingredients}}</textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="instructions" class="form-label">Instructions</label>
+                        <textarea name="instructions" id="instructions" class="form-control" placeholder="Input instructions to drink creation!" rows="5">{{instructions}}</textarea>
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" value="Cocktail Creation!" class="btn btn-primary">
+                    </div>
+                </form>
             </div>
-            <div class="input-group">
-                <label for="spirittype">Spirit Type</label>
-                <input type="text" name="spirittype" id="spirittype" class="input-box"
-                    placeholder="EX. rum, whiskey, bourbon" maxlength="100" value={{spirittype}}>
-            </div>
-            <div class="input-group">
-                <label for="spiritamount">Spirit Amount (Leave blank for unknown)</label>
-                <input type="number" name="spiritamount" id="spiritamount" class="input-box" 
-                placeholder="EX. 1, 1.5, 2" value={{spiritamount}}>
-            </div>
-            <div class="input-group">
-                <label for="ingredients">Ingredients</label>
-                <textarea name="ingredients" id="ingredients" class="input-box"
-                    placeholder="Input ingredients to drink" rows="3">{{ingredients}}</textarea>
-            </div>
-            <div class="input-group">
-                <label for="instructions">Instructions</label>
-                <textarea name="instructions" id="instructions" class="input-box"
-                    placeholder="Input instructions to drink creation!" rows="5">{{instructions}}</textarea>
-            </div>
-            <input type="submit" value="Cocktail Creation!" class="btn btn-reverse">
-        </form>
+        </div>
     </div>
 </section>
