@@ -299,7 +299,7 @@ opacity: 1;
   box-sizing: border-box;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px; /* Space between cards */
+  margin-bottom: 20px;
 }
 
 .drink-details-container {
@@ -351,16 +351,29 @@ opacity: 1;
 
 .drink-info h4 {
   margin: 0;
-  font-size: 2em;
+  font-size: 2rem;
   color: black;
 }
 
 .drink-info p {
   margin-bottom: 5px;
-  font-size: 1em;
+  font-size: 1rem;
   color: black;
   word-wrap: break-word;
 }
+
+/* Comment-rating cards */
+.comment-rating-card {
+  max-height: 500px;
+  max-width: 100%;
+  padding: 20px;
+  overflow: auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
 
 /* Styling for rating system */
 .star-rating input {
