@@ -46,4 +46,9 @@ router.get('/profile', (req, res) => {
     res.render('profile', { layout: "main" })
 })
 
+// Route for About
+router.get('/about', (req, res) => {
+    res.render('about', { layout: "main" })
+});
+
 module.exports = router;
