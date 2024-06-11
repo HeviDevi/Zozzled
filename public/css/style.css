@@ -29,7 +29,7 @@ p {
 /* Logo */
 .logo-container {
   position: absolute;
-  top: 8%;
+  top: 6%;
   left: 53%;
   transform: translate(-50%, -50%);
 }
@@ -45,7 +45,7 @@ p {
   align-items: center;
   position: absolute;
   z-index: 1;
-  top: 15%;
+  top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 1;
@@ -516,4 +516,3 @@ form .btn button {
 .detail-container {
   padding-top: 200px;
 }
-
