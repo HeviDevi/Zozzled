@@ -6,12 +6,24 @@ const Op = Sequelize.Op;
 
 // Search for a drink route
 router.get('/search', async (req, res) => {
-    const { term } = req.query;
+    const { term, spirit } = req.query;
 
     console.log("Search term:", term); // Log the search term
+    if (spirit) {
+        console.log("Spirit type:", spirit); // Log the spirit type if provided
+    }
 
     try {
-        const drinks = await Drinks.findAll({ where: { drink_name: { [Op.like]: '%' + term + '%' } } });
+        // Build the where clause dynamically
+        let whereClause = {
+            drink_name: { [Op.like]: '%' + term + '%' }
+        };
+
+        if (spirit) {
+            whereClause.spirit_type = { [Op.like]: '%' + spirit + '%' };
+        }
+
+        const drinks = await Drinks.findAll({ where: whereClause });
         console.log("Found drinks:", drinks); // Log the retrieved drinks
         
         if (drinks.length === 0) {
@@ -24,4 +36,6 @@ router.get('/search', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
 module.exports = router; // Export the router
+
