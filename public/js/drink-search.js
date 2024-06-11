@@ -113,3 +113,21 @@ window.addEventListener("DOMContentLoaded", () => {
 //     window.location.href = '/search?term=' + encodeURIComponent(searchTerm);
 // });
 
+document.addEventListener('DOMContentLoaded', function() {
+  const searchButton = document.getElementById('searchButton');
+  const searchInput = document.getElementById('searchInput');
+  const spiritFilter = document.getElementById('spiritFilter');
+
+  searchButton.addEventListener('click', function() {
+      const searchTerm = searchInput.value;
+      const spiritType = spiritFilter.value;
+      let query = '/search?term=' + encodeURIComponent(searchTerm);
+
+      if (spiritType) {
+          query += '&spirit=' + encodeURIComponent(spiritType);
+      }
+
+      // Redirect to the search route with the search term and spirit type as query parameters
+      window.location.href = query;
+  });
+});
