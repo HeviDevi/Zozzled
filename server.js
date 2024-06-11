@@ -133,28 +133,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Handlebars engine setup
-const hbs = exphbs.create({
-  extname: "hbs",
-  layoutsDir: `${__dirname}/views/layouts`,
-  defaultLayout: "main",
-  partialsDir: `${__dirname}/views/partials`,
-  runtimeOptions: {
-    allowProtoPropertiesByDefault: true,
-    allowProtoMethodsByDefault: true,
-  },
-  helpers: {
-    limit: function (arr, limit) {
-      if (!Array.isArray(arr)) {
-        return [];
-      }
-      return arr.slice(0, limit);
-    },
-    encodeURIComponent: function (str) {
-      return encodeURIComponent(str);
-    }
-  },
-});
 
 app.engine("hbs", hbs.engine);
 app.set("view engine", "hbs");
