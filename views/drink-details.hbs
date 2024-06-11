@@ -53,31 +53,32 @@
             <div class="card mb-4 rating-comments">
                 <div class="card-body">
                     <h4 class="card-title">How did you like this drink?</h4>
-                    <div class="star-rating mb-3">
-                        <input type="radio" name="rate" id="rate-5">
-                        <label for="rate-5" class="fas fa-star"></label>
-                        <input type="radio" name="rate" id="rate-4">
-                        <label for="rate-4" class="fas fa-star"></label>
-                        <input type="radio" name="rate" id="rate-3">
-                        <label for="rate-3" class="fas fa-star"></label>
-                        <input type="radio" name="rate" id="rate-2">
-                        <label for="rate-2" class="fas fa-star"></label>
-                        <input type="radio" name="rate" id="rate-1">
-                        <label for="rate-1" class="fas fa-star"></label>
+                    <div class="star-rating">
+                        <form id="rating-form" action="/submit-rating" method="POST">
+                            <input type='radio' name='rate' id='rate-5'>
+                            <label for='rate-5' class="fas fa-star"></label>
+                            <input type='radio' name='rate' id='rate-4'>
+                            <label for='rate-4' class="fas fa-star"></label>
+                            <input type='radio' name='rate' id='rate-3'>
+                            <label for='rate-3' class="fas fa-star"></label>
+                            <input type='radio' name='rate' id='rate-2'>
+                            <label for='rate-2' class="fas fa-star"></label>
+                            <input type='radio' name='rate' id='rate-1'>
+                            <label for='rate-1' class="fas fa-star"></label>
+                            <form action='#'>
+                                <header></header>
+                                <div class="div textarea">
+                                    <textarea cols="30" placeholder="Give us some thoughts, Stay Frosty"></textarea>
+                                </div>
+                                <div class="btn">
+                                    <button type="submit">Send Us The Feedback</button>
+                                </div>
+                            </form>
+                        </form>
                     </div>
-                    <form action="#">
-                        <header></header>
-                        <div class="textarea form-group">
-                            <textarea class="form-control" cols="30" rows="3" placeholder="Give us some thoughts, Stay Frosty"></textarea>
-                        </div>
-                        <div class="btn submitBtn">
-                            <button type="submit" class="btn btn-primary">Send Us The Feedback</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script src="/js/drink-details.js"></script>
+    <script src="/js/drink-details.js"></script>
