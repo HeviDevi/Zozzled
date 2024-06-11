@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const showRegisterBtn = document.getElementById("showRegisterBtn");
   const guestBtn = document.getElementById("guestBtn");
 
-    if (!isAuthenticated && modal) {
+    if (modal) {
     const myModal = new bootstrap.Modal(modal);
     myModal.show();
   }
