@@ -106,13 +106,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// // Search Button script
-// document.getElementById('searchButton').addEventListener('click', function() {
-//     var searchTerm = document.getElementById('searchInput').value;
-//     // Redirect to the search route with the search term as a query parameter
-//     window.location.href = '/search?term=' + encodeURIComponent(searchTerm);
-// });
-
 document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
