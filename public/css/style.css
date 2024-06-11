@@ -127,6 +127,38 @@ p {
   height: auto;
 }
 
+/* Side Border Lines */
+.left-border {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+}
+
+.left {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+.right-border {
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 1000;
+}
+
+.right {
+  max-width: 90%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+
+
 /* Homepage */
 
 /* Discover Img */
@@ -484,3 +516,4 @@ form .btn button {
 .detail-container {
   padding-top: 200px;
 }
+
