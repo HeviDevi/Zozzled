@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const showRegisterBtn = document.getElementById("showRegisterBtn");
   const guestBtn = document.getElementById("guestBtn");
 
-  if (modal) {
+    if (!isAuthenticated && modal) {
     const myModal = new bootstrap.Modal(modal);
     myModal.show();
   }
@@ -106,26 +106,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
   const spiritFilter = document.getElementById('spiritFilter');
-  const spiritSlider = document.getElementById('spiritSlider');
 
   searchButton.addEventListener('click', function() {
-      const searchTerm = searchInput.value; // Get the value of the search input
-      const spiritType = spiritFilter.value; // Get the value of the spirit filter
-      const sliderValue = spiritSlider.value; // Get the value of the slider
+      const searchTerm = searchInput.value;
+      const spiritType = spiritFilter.value;
       let query = '/search?term=' + encodeURIComponent(searchTerm);
 
       if (spiritType) {
-          query += '&spirit=' + encodeURIComponent(spiritType); // Add spirit type to the query
+          query += '&spirit=' + encodeURIComponent(spiritType);
       }
 
-      // Add bitter and sweet preferences to the query based on slider value
-      if (sliderValue === '0') {
-          query += '&bitter=true';
-      } else if (sliderValue === '2') {
-          query += '&sweet=true';
-      }
-
-      // Redirect to the search route with the updated query parameters
+      // Redirect to the search route with the search term and spirit type as query parameters
       window.location.href = query;
   });
 });

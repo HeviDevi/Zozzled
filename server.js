@@ -80,7 +80,6 @@ app.use("/", mainRoutes);
 
 //Start of user login/registration
 
-// Initialize PostgreSQL database connection
 const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
@@ -100,8 +99,10 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === 'production',
       httpOnly: true,
-      sameSite: 'lax'
-  }})
+      sameSite: 'strict',
+      maxAge: 24 * 60 * 60 * 1000 // 1 day in milliseconds
+    }
+  })
 );
 
 // Passport middleware
@@ -109,7 +110,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware to check if user is authenticated
-function checkAuthenticatedated(req, res, next) {
+function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
@@ -124,19 +125,72 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
+// Set up static files
+app.use(express.static("public"));
+
+// Set up body parser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Handlebars engine setup
+const hbs = exphbs.create({
+  extname: "hbs",
+  layoutsDir: `${__dirname}/views/layouts`,
+  defaultLayout: "main",
+  partialsDir: `${__dirname}/views/partials`,
+  runtimeOptions: {
+    allowProtoPropertiesByDefault: true,
+    allowProtoMethodsByDefault: true,
+  },
+  helpers: {
+    limit: function (arr, limit) {
+      if (!Array.isArray(arr)) {
+        return [];
+      }
+      return arr.slice(0, limit);
+    },
+    encodeURIComponent: function (str) {
+      return encodeURIComponent(str);
+    }
+  },
+});
+
+app.engine("hbs", hbs.engine);
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
+
 // Route to render main page
 app.get("/", checkNotAuthenticated, (req, res) => {
-  res.render("main", { title: "Home" });
+  res.render("main", { title: "Home", isAuthenticated: req.isAuthenticated() });
+});
+
+// Route to render drink search page
+app.get("/drink-search", checkAuthenticated, (req, res) => {
+  res.render("drink-search", { title: "Drink Search", isAuthenticated: req.isAuthenticated() });
 });
 
 // Route to handle login
-app.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/drink-search",
-    failureRedirect: "/",
-  })
-);
+app.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      console.error("Error during authentication:", err);
+      return next(err);
+    }
+    if (!user) {
+      console.log("Authentication failed:", info.message);
+      return res.redirect("/");
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        console.error("Error during login:", err);
+        return next(err);
+      }
+      console.log("Authentication successful, user logged in:", user.username);
+      return res.redirect("/drink-search");
+    });
+  })(req, res, next);
+});
 
 // Route to handle registration
 app.post("/register", async (req, res) => {
@@ -163,7 +217,7 @@ app.post("/register", async (req, res) => {
       return res.redirect("/");
     }
 
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const hashedPassword = await bcrypt.hash(password, 10);
     console.log("Hashed password:", hashedPassword);
     await pool.query(
       "INSERT INTO public.login (username, passwd, email, dob) VALUES ($1, $2, $3, $4)",
@@ -182,7 +236,6 @@ app.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
-//End of login/registration
 
 // Start the server
 app.listen(PORT, () => {
