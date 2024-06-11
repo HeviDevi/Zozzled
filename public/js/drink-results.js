@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const heartButtons = document.querySelectorAll('.heart-btn');
   
@@ -12,6 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
           heartIcon.classList.remove('fa-solid');
           heartIcon.classList.add('fa-regular');
         }
+
+        const drinkId = this.dataset.drinkId;
+        fetch('/add-favorite', {
+          method: 'POST',
+          body: JSON.stringify({ drink_id: drinkId }),
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            console.log('Favorite added successfully');
+          } else {
+            console.error('Failed to add favorite');
+          }
+        });
       });
     });
   });

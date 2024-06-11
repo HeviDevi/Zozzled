@@ -28,24 +28,16 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.favorites (
+    username text NOT NULL,
     drink_id integer NOT NULL,
     drink_name text,
     spirit_type text,
     spirit_amount integer,
-    ingredient_1 text,
-    ingredient_1_quantity integer,
-    ingredient_2 text,
-    ingredient_2_quantity integer,
-    ingredient_3 text,
-    ingredient_3_quantity integer,
-    ingredient_4 text,
-    ingredient_4_quantity integer,
-    ingredient_5 text,
-    ingredient_5_quantity integer,
-    ingredient_6 text,
-    ingredient_6_quantity integer,
+    ingredients character varying,
     instructions text,
-    image_link character varying
+    image_link character varying,
+    bitter boolean,
+    sweet boolean
 );
 
 
@@ -81,7 +73,7 @@ ALTER TABLE public.favorites ALTER COLUMN drink_id ADD GENERATED ALWAYS AS IDENT
 -- Data for Name: favorites; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.favorites (drink_id, drink_name, spirit_type, spirit_amount, ingredient_1, ingredient_1_quantity, ingredient_2, ingredient_2_quantity, ingredient_3, ingredient_3_quantity, ingredient_4, ingredient_4_quantity, ingredient_5, ingredient_5_quantity, ingredient_6, ingredient_6_quantity, instructions, image_link) FROM stdin;
+COPY public.favorites (username, drink_id, drink_name, spirit_type, spirit_amount, ingredient_1, ingredient_1_quantity, ingredient_2, ingredient_2_quantity, ingredient_3, ingredient_3_quantity, ingredient_4, ingredient_4_quantity, ingredient_5, ingredient_5_quantity, ingredient_6, ingredient_6_quantity, instructions, image_link) FROM stdin;
 \.
 
 
