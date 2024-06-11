@@ -20,7 +20,7 @@ router.get('/search', async (req, res) => {
         };
 
         if (spirit) {
-            whereClause.spirit_type = spirit;
+            whereClause.spirit_type = { [Op.like]: '%' + spirit + '%' };
         }
 
         const drinks = await Drinks.findAll({ where: whereClause });
@@ -38,3 +38,4 @@ router.get('/search', async (req, res) => {
 });
 
 module.exports = router; // Export the router
+
