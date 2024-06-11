@@ -125,18 +125,6 @@ function checkNotAuthenticated(req, res, next) {
   next();
 }
 
-// Set up static files
-app.use(express.static("public"));
-
-// Set up body parser
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
-app.engine("hbs", hbs.engine);
-app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "views"));
 
 // Route to render main page
 app.get("/", checkNotAuthenticated, (req, res) => {
