@@ -78,6 +78,8 @@ app.set("views", path.join(__dirname, "views"));
 // Handlebar page routes
 app.use("/", mainRoutes);
 
+//Start of user login/registration
+
 // Initialize PostgreSQL database connection
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -95,7 +97,11 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-  })
+    cookie: {
+      secure: process.env.NODE_ENV === 'production',
+      httpOnly: true,
+      sameSite: 'lax'
+  }})
 );
 
 // Passport middleware
@@ -103,7 +109,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Middleware to check if user is authenticated
-function checkAuthenticated(req, res, next) {
+function checkAuthenticatedated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
@@ -113,7 +119,7 @@ function checkAuthenticated(req, res, next) {
 // Middleware to check if user is not authenticated
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    return res.redirect("/dashboard");
+    return res.redirect("/drink-search");
   }
   next();
 }
@@ -171,16 +177,12 @@ app.post("/register", async (req, res) => {
   }
 });
 
-// Route to handle dashboard
-app.get("/dashboard", checkAuthenticated, (req, res) =>
-  res.send("Welcome to the dashboard!")
-);
-
 // Route to handle logout
 app.get("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
+//End of login/registration
 
 // Start the server
 app.listen(PORT, () => {

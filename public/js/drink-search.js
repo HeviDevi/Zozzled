@@ -50,9 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     console.log("Register form submitted");
     const formData = new FormData(registerForm);
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    for (let [key, value] of formData.entries())
 
     // Send form data to server via fetch
     fetch("/register", {
@@ -65,8 +63,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const myModalEl = document.querySelector(".modal");
           const modalInstance = bootstrap.Modal.getInstance(myModalEl);
           modalInstance.hide();
-          window.location.href = "/drink-search";
-        } else {
+          }
+          else {
           console.error("Registration failed");
         }
       })
@@ -80,10 +78,8 @@ window.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     console.log("Login form submitted");
     const formData = new FormData(loginForm);
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-
+    for (let [key, value] of formData.entries());
+  
     // Send form data to server via fetch
     fetch("/login", {
       method: "POST",
@@ -95,8 +91,8 @@ window.addEventListener("DOMContentLoaded", () => {
           const myModalEl = document.querySelector(".modal");
           const modalInstance = bootstrap.Modal.getInstance(myModalEl);
           modalInstance.hide();
-          window.location.href = "/drink-search";
-        } else {
+        } 
+        else {
           console.error("Login failed");
         }
       })
