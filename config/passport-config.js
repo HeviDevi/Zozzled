@@ -1,13 +1,14 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
+const Login = require('../models/login'); // Ensure the correct path
 
-function initialize(passport, pool) {
+function initialize(passport) {
   const authenticateUser = async (username, password, done) => {
     try {
       console.log(`Authenticating user: ${username}`);
-      const res = await pool.query('SELECT * FROM login WHERE username = $1', [username]);
-      if (res.rows.length > 0) {
-        const user = res.rows[0];
+      const user = await Login.findOne({ where: { username } });
+
+      if (user) {
         console.log(`User found: ${username}`);
 
         const isValidPassword = await bcrypt.compare(password, user.passwd);
@@ -16,15 +17,15 @@ function initialize(passport, pool) {
         if (isValidPassword) {
           return done(null, user);
         } else {
-          console.log("Password incorrect");
+          console.log('Password incorrect');
           return done(null, false, { message: 'Password incorrect' });
         }
       } else {
-        console.log("No user with that username");
+        console.log('No user with that username');
         return done(null, false, { message: 'No user with that username' });
       }
     } catch (err) {
-      console.error("Error during authentication:", err);
+      console.error('Error during authentication:', err);
       return done(err);
     }
   };
@@ -33,8 +34,8 @@ function initialize(passport, pool) {
   passport.serializeUser((user, done) => done(null, user.id));
   passport.deserializeUser(async (id, done) => {
     try {
-      const res = await pool.query('SELECT * FROM login WHERE id = $1', [id]);
-      return done(null, res.rows[0]);
+      const user = await Login.findByPk(id);
+      return done(null, user);
     } catch (err) {
       return done(err);
     }

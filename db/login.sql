@@ -28,10 +28,10 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.login (
-    id integer NOT NULL,
+    id serial NOT NULL,
     userid integer,
     username character varying(16),
-    passwd character varying(16),
+    passwd character varying(255),
     email character varying(35),
     dob character varying
 );
@@ -45,9 +45,6 @@ ALTER TABLE public.login OWNER TO postgres;
 -- Data for Name: login; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.login (id, userid, username, passwd, email, dob) FROM stdin;
-1	1	admin	project	user1@gmail.com	19900110
-\.
 
 
 --
