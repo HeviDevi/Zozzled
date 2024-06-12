@@ -1,38 +1,39 @@
-require('dotenv').config();
-const express = require('express');
-const exphbs = require('express-handlebars');
-const bodyParser = require('body-parser');
-const path = require('path');
-const session = require('express-session');
-const passport = require('passport');
-const bcrypt = require('bcrypt');
-const moment = require('moment');
-const Sequelize = require('sequelize');
-const mainRoutes = require('./routes/main-routes');
-const initializePassport = require('./config/passport-config');
-const sequelize = require('./config/database');
-const Login = require('./models/login');
+require("dotenv").config();
+const express = require("express");
+const exphbs = require("express-handlebars");
+const bodyParser = require("body-parser");
+const path = require("path");
+const session = require("express-session");
+const passport = require("passport");
+const bcrypt = require("bcrypt");
+const { Pool } = require("pg");
+const initializePassport = require("./config/passport-config");
+const moment = require("moment");
+const mainRoutes = require("./routes/main-routes");
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const saltRounds = 10;
 
-// //stuff Eddie tested out with Ryan
-// // const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// // const sess = {
-// //   secret: 'Super secret secret',
-// //   cookie: {
-// //     maxAge: 300000,
-// //     httpOnly: true,
-// //     secure: false,
-// //     sameSite: 'strict',
-// //   },
-// //   resave: false,
-// //   saveUninitialized: true,
-// //   store: new SequelizeStore({
-// //     db: sequelize
-// //   })
-// // };
-// // app.use(session(sess));
+
+//stuff Eddie tested out with Ryan
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// const sess = {
+//   secret: 'Super secret secret',
+//   cookie: {
+//     maxAge: 300000,
+//     httpOnly: true,
+//     secure: false,
+//     sameSite: 'strict',
+//   },
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
+// };
+// app.use(session(sess));
 
 // I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
 // ANYTHING BELOW THIS LINE. - Zachary Testing
