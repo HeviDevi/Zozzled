@@ -15,5 +15,14 @@
     <li>
       <a href="/profile">Profile</a>
     </li>
+        {{#if isAuthenticated}}
+          <li class="nav-item">
+            <a class="nav-link" href="/auth/logout">Logout</a>
+          </li>
+        {{else}}
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="loginRegisterLink">Login/Register</a>
+          </li>
+        {{/if}}
   </ul>
 </nav>
