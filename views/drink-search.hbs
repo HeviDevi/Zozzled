@@ -1,13 +1,8 @@
-{{!-- Logo --}}
-{{!-- <div class="logo">{{> logo}}</div> --}}
+{{> art-deco}}
+{{> art-deco2}}
 
-{{!-- Art Deco Corners --}}
-<div class="artDeco">{{> art-deco}}</div>
 
-{{!-- navbar --}}
-{{!-- <div class="nav">{{> nav-bar}}</div> --}}
-
-{{!-- Modal --}}
+<!-- Modal -->
 <div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -32,7 +27,7 @@
                             name="password" required>
                     </div>
                     <div class="modal-footer d-flex justify-content-center border-0 mt-4">
-                        <button type="submit" class="btn-primary modalBtn">Login</button>
+                        <button type="submit" class="btn btn-primary modalBtn">Login</button>
                     </div>
                 </form>
                 <form id="registerForm" action="/register" method="POST" style="display: none;">
@@ -52,20 +47,19 @@
                             name="password" maxlength="16" required>
                     </div>
                     <div class="modal-footer d-flex justify-content-center border-0 mt-4">
-                        <button type="submit" class="btn-primary modalBtn" id="registerSubmitButton">Submit</button>
+                        <button type="submit" class="btn btn-primary modalBtn" id="registerSubmitButton">Submit</button>
                     </div>
                 </form>
                 <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
-                    <button id="showRegisterBtn" class="btn-primary modalBtn">Register</button>
+                    <button id="showRegisterBtn" class="btn btn-primary modalBtn">Register</button>
                 </div>
                 <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
-                    <a href="#" id="guestBtn" class="btn-secondary" data-bs-dismiss="modal">Continue as Guest</a>
+                    <a href="#" id="guestBtn" class="btn btn-secondary" data-bs-dismiss="modal">Continue as Guest</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 
 {{!-- Search Container --}}
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
@@ -91,15 +85,15 @@
         <div class="d-flex justify-content-between">
             <span>Bitter</span>
             <span>Sweet</span>
-        </div>
+        </div>        
         <button id="searchButton" type="button" class="btn mt-3 search-btn"
             style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 10rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
             Shake it
         </button>
     </div>
+<img id="spiritImage" src="" alt="Spirit Image" style="display: none;">
 </div>
 
-{{> art-deco2}}
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

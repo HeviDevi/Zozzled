@@ -11,6 +11,7 @@ window.addEventListener("DOMContentLoaded", () => {
     myModal.show();
   }
 
+  
   if (showRegisterBtn) {
     showRegisterBtn.addEventListener("click", (event) => {
       event.preventDefault();
@@ -102,6 +103,22 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// // Bitter/Sweet images
+// document.getElementById('spiritSlider').addEventListener('input', function() {
+//   const sliderValue = this.value;
+//   const spiritImage = document.getElementById('spiritImage');
+
+//   if(sliderValue == 0) {
+//     spiritImage.src = '/assets/img/bitter.png';
+//     spiritImage.style.display = 'block';
+//   } else if (sliderValue == 2) {
+//     spiritImage.src = '/assets/img/sweet.png';
+//     spiritImage.style.display = 'block';
+//   } else {
+//     spiritImage.style.display = 'none';
+//   }
+// })
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
@@ -120,3 +137,5 @@ document.addEventListener('DOMContentLoaded', function() {
       window.location.href = query;
   });
 });
+
+

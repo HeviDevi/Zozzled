@@ -11,11 +11,9 @@ const initializePassport = require("./config/passport-config");
 const moment = require("moment");
 const mainRoutes = require("./routes/main-routes");
 
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
-
 
 //stuff Eddie tested out with Ryan
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
