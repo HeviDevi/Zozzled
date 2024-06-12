@@ -41,7 +41,7 @@ const saltRounds = 10;
 const db = require("./config/database");
 
 //Test database connection
-db.authenticate()
+db.sync()
   .then(() => console.log("Database connected..."))
   .catch((err) => console.log("Error: " + err));
 
