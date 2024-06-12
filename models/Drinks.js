@@ -44,7 +44,8 @@ const Drinks = db.define('drinkrecipes', {
 
 }, {
     timestamps: false, // Disable timestamps
-    freezeTableName: true // Prevent Sequelize from pluralizing the table name
+    freezeTableName: true, // Prevent Sequelize from pluralizing the table name
+    modelName: 'drinkrecipes'
 });
 
 module.exports = Drinks;
