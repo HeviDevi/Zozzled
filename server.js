@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
 
 
+//stuff Eddie tested out with Ryan
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // const sess = {
 //   secret: 'Super secret secret',
