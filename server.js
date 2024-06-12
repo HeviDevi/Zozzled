@@ -11,9 +11,28 @@ const initializePassport = require("./config/passport-config");
 const moment = require("moment");
 const mainRoutes = require("./routes/main-routes");
 
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 const saltRounds = 10;
+
+
+// const SequelizeStore = require('connect-session-sequelize')(session.Store);
+// const sess = {
+//   secret: 'Super secret secret',
+//   cookie: {
+//     maxAge: 300000,
+//     httpOnly: true,
+//     secure: false,
+//     sameSite: 'strict',
+//   },
+//   resave: false,
+//   saveUninitialized: true,
+//   store: new SequelizeStore({
+//     db: sequelize
+//   })
+// };
+// app.use(session(sess));
 
 // I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
 // ANYTHING BELOW THIS LINE. - Zachary Testing
@@ -93,7 +112,7 @@ initializePassport(passport, pool);
 // Express session middleware
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: false,
     cookie: {
