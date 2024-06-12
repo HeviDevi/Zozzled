@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const showRegisterBtn = document.getElementById("showRegisterBtn");
   const guestBtn = document.getElementById("guestBtn");
 
-    if (modal) {
+  if (modal) {
     const myModal = new bootstrap.Modal(modal);
     myModal.show();
   }
@@ -29,12 +29,15 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Continue as Guest script to hide modal when clicked
-  guestBtn.addEventListener("click", () => {
-    const myModalEl = document.querySelector(".modal");
-    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-    modalInstance.hide();
-  });
+  if (guestBtn) {
+    guestBtn.addEventListener("click", () => {
+      const myModalEl = document.querySelector(".modal");
+      if (myModalEl) {
+        const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+        modalInstance.hide();
+      }
+    });
+  }
 
   window.addEventListener("click", (event) => {
     if (event.target === modal) {
@@ -45,78 +48,78 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Debug form submission
-  registerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("Register form submitted");
-    const formData = new FormData(registerForm);
-    for (let [key, value] of formData.entries())
+  if (registerForm) {
+    registerForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      console.log("Register form submitted");
+      const formData = new FormData(registerForm);
 
-    // Send form data to server via fetch
-    fetch("/register", {
-      method: "POST",
-      body: new URLSearchParams(formData),
-    })
-      .then((response) => {
+      try {
+        const response = await fetch("/register", {
+          method: "POST",
+          body: new URLSearchParams(formData),
+        });
+
         if (response.ok) {
           console.log("User registered successfully");
           const myModalEl = document.querySelector(".modal");
-          const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-          modalInstance.hide();
+          if (myModalEl) {
+            const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+            modalInstance.hide();
           }
-          else {
+        } else {
           console.error("Registration failed");
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error:", error);
-      });
-  });
+      }
+    });
+  }
 
-  // Login form submission
-  loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("Login form submitted");
-    const formData = new FormData(loginForm);
-    for (let [key, value] of formData.entries());
-  
-    // Send form data to server via fetch
-    fetch("/login", {
-      method: "POST",
-      body: new URLSearchParams(formData),
-    })
-      .then((response) => {
+  if (loginForm) {
+    loginForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      console.log("Login form submitted");
+      const formData = new FormData(loginForm);
+
+      try {
+        const response = await fetch("/login", {
+          method: "POST",
+          body: new URLSearchParams(formData),
+        });
+
         if (response.ok) {
           console.log("User logged in successfully");
           const myModalEl = document.querySelector(".modal");
-          const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-          modalInstance.hide();
-        } 
-        else {
+          if (myModalEl) {
+            const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+            modalInstance.hide();
+          }
+        } else {
           console.error("Login failed");
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error:", error);
-      });
-  });
-});
+      }
+    });
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
   const spiritFilter = document.getElementById('spiritFilter');
 
-  searchButton.addEventListener('click', function() {
+  if (searchButton && searchInput && spiritFilter) {
+    searchButton.addEventListener('click', () => {
       const searchTerm = searchInput.value;
       const spiritType = spiritFilter.value;
       let query = '/search?term=' + encodeURIComponent(searchTerm);
 
       if (spiritType) {
-          query += '&spirit=' + encodeURIComponent(spiritType);
+        query += '&spirit=' + encodeURIComponent(spiritType);
       }
 
       // Redirect to the search route with the search term and spirit type as query parameters
       window.location.href = query;
-  });
+    });
+  }
 });
