@@ -206,18 +206,23 @@ p {
   width: auto;
   height: auto;
   opacity: 0; 
-  animation: fade-in 5s forwards; 
+  animation: slide-fade-in 4s forwards; 
 }
 
-/* For the fade-in animation */
-@keyframes fade-in {
+@keyframes slide-fade-in {
   0% {
-    opacity: 0; 
+    transform: translateX(-100%); /* Start position outside the left edge */
+    opacity: 0; /* Start with zero opacity */
   }
   100% {
-    opacity: 1;
+    transform: translateX(0); /* End position at the original position */
+    opacity: 1; /* End with full opacity */
   }
 }
+
+/* .discover {
+  animation: slide-fade-in 4s forwards;
+} */
 
 
 /* Start Button */
