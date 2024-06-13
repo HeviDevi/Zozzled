@@ -5,7 +5,7 @@ const db = require('../config/database');
 const Favorite = db.define('favorites', {
     
     username: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
     },
     favorite_id: {

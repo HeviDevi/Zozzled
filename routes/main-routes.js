@@ -65,27 +65,46 @@ router.post('/add-favorite', withAuth, (req, res) => {
         if (!drink) {
             return res.status(404).send("Drink not found");
         }
-
-        // Adds the drink to the favorites table as well as the user's username
-        Favorites.create({
-            username: req.user.id,
-            drink_id: drink.drink_id,
-            drink_name: drink.drink_name,
-            spirit_type: drink.spirit_type,
-            spirit_amount: drink.spirit_amount,
-            ingredients: drink.ingredients,
-            instructions: drink.instructions,
-            image_link: drink.image_link,
-            bitter: drink.bitter,
-            sweet: drink.sweet,
+        return Favorites.findOne({
+            where: {
+                username: req.user.id,
+                drink_id: req.body.drink_id
+            }
         })
+        .then(favorite => {
+            if (favorite) {
+                return console.log("Drink already favorited");
+            }
+            return Favorites.create({
+                username: req.user.id,
+                drink_id: drink.drink_id,
+                drink_name: drink.drink_name,
+                spirit_type: drink.spirit_type,
+                spirit_amount: drink.spirit_amount,
+                ingredients: drink.ingredients,
+                instructions: drink.instructions,
+                image_link: drink.image_link,
+                bitter: drink.bitter,
+                sweet: drink.sweet,
+            });
+        })
+        .then(createdFavorite => res.status(201).send(createdFavorite))
+        .catch(error => res.status(500).send(error.message));
     })
-    .then(() => {
-        res.redirect('/profile');
+    .catch(error => res.status(500).send(error.message));
+});
+
+// Route for deleting favorites
+router.delete('/delete-favorite', withAuth, (req, res) => {
+    Favorites.destroy({
+        where: {
+            username: req.user.id,
+            drink_id: req.body.drink_id
+        }
     })
     .catch(error => {
-        console.error("Error adding favorite:", error);
-        res.status(500).send("Error adding favorite");
+        console.error("Error deleting favorite:", error);
+        res.status(500).send("Error deleting favorite");
     });
 });
 
