@@ -103,39 +103,47 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// // Bitter/Sweet images
-// document.getElementById('spiritSlider').addEventListener('input', function() {
-//   const sliderValue = this.value;
-//   const spiritImage = document.getElementById('spiritImage');
-
-//   if(sliderValue == 0) {
-//     spiritImage.src = '/assets/img/bitter.png';
-//     spiritImage.style.display = 'block';
-//   } else if (sliderValue == 2) {
-//     spiritImage.src = '/assets/img/sweet.png';
-//     spiritImage.style.display = 'block';
-//   } else {
-//     spiritImage.style.display = 'none';
-//   }
-// })
-
 document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
   const spiritFilter = document.getElementById('spiritFilter');
+  const spiritSlider = document.getElementById('spiritSlider');
 
-  if (searchButton && searchInput && spiritFilter) {
-    searchButton.addEventListener('click', () => {
-      const searchTerm = searchInput.value;
-      const spiritType = spiritFilter.value;
-      let query = '/search?term=' + encodeURIComponent(searchTerm);
+  if (searchButton && searchInput && spiritFilter && spiritSlider) {
+      searchButton.addEventListener('click', async (event) => {
+          event.preventDefault(); // Prevent default form submission
 
-      if (spiritType) {
-        query += '&spirit=' + encodeURIComponent(spiritType);
-      }
+          const searchTerm = searchInput.value;
+          const spiritType = spiritFilter.value;
+          const sliderValue = spiritSlider.value;
 
-      // Redirect to the search route with the search term and spirit type as query parameters
-      window.location.href = query;
-    });
+          // Determine bitter and sweet based on slider value
+          const bitter = sliderValue == 0;
+          const sweet = sliderValue == 2;
+
+          let query = '/search?term=' + encodeURIComponent(searchTerm);
+
+          if (spiritType) {
+              query += '&spirit=' + encodeURIComponent(spiritType);
+          }
+
+          // Append bitter and sweet filters if applicable
+          if (bitter) {
+              query += '&bitter=true';
+          }
+
+          if (sweet) {
+              query += '&sweet=true';
+          }
+
+          try {
+              // Redirect to the constructed query URL
+              window.location.href = query;
+
+          } catch (error) {
+              console.error('Error redirecting:', error);
+          }
+      });
   }
 });
+
