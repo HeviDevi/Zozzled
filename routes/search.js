@@ -6,15 +6,18 @@ const Op = Sequelize.Op;
 
 // Search for a drink route
 router.get('/search', async (req, res) => {
-    const { term, spirit, bitter, sweet } = req.query;
+    let { term, spirit, bitter, sweet } = req.query;
 
     console.log("Search term:", term);
     console.log("Spirit:", spirit);
     console.log("Bitter:", bitter);
     console.log("Sweet:", sweet);
 
+    // Convert term to lowercase for case-insensitive search
+    term = term ? term.toLowerCase() : '';
+
     try {
-        let whereClause = { drink_name: { [Op.like]: '%' + term + '%' } };
+        let whereClause = { drink_name: { [Op.iLike]: '%' + term + '%' } };
 
         if (spirit) {
             whereClause.spirit_type = { [Op.iLike]: '%' + spirit + '%' };
@@ -30,7 +33,7 @@ router.get('/search', async (req, res) => {
         }
 
         const drinks = await Drinks.findAll({ where: whereClause });
-        // console.log("Found drinks:", drinks);
+        console.log("Found drinks:", drinks);
 
         if (drinks.length === 0) {
             console.log("No drinks found for term:", term);
@@ -44,6 +47,7 @@ router.get('/search', async (req, res) => {
 });
 
 module.exports = router;
+
 
 
 
