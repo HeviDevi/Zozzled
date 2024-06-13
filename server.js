@@ -5,8 +5,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 const passport = require('passport');
-const bcrypt = require('bcrypt');
-const moment = require('moment');
 const Sequelize = require('sequelize');
 const mainRoutes = require('./routes/main-routes');
 const initializePassport = require('./config/passport-config');
@@ -55,17 +53,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// User routes - anything that is /users will go to the users.js file
-app.use("/users", require("./routes/users"));
-
-// Search routes - anything that is /search will go to the search.js file
-app.use('/', require('./routes/search'));
-
-//Drink Detail
-app.use('/', require('./routes/drinks'));
-
-//END OF CODE CONSOLIDATION - Zachary
-
 // Set up Handlebars engine
 const hbs = exphbs.create({
   extname: 'hbs',
@@ -93,9 +80,6 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Handlebars page routes
-app.use('/', mainRoutes);
-
 // Initialize Passport
 initializePassport(passport);
 
@@ -118,8 +102,22 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// User routes - anything that is /users will go to the users.js file
+app.use("/users", require("./routes/users"));
+
+// Search routes - anything that is /search will go to the search.js file
+app.use('/', require('./routes/search'));
+
+//Drink Detail
+app.use('/', require('./routes/drinks'));
+
 // Use authentication routes
 app.use('/auth', require('./routes/auth-routes'));
+
+// Handlebars page routes
+app.use('/', mainRoutes);
+
+//END OF CODE CONSOLIDATION - Zachary
 
 // Start the server
 app.listen(PORT, () => {
