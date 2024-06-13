@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "seed": "node seeds/seed.js",
+    "build": "npm install && npm run seed",
     "dev": "nodemon server.js"
   },
   "author": "",
