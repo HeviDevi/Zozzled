@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 const { withAuth } = require('../utility/auth');
 
-router.get('/drink-details', withAuth, (req, res) => {
+router.get('/drink-details', (req, res) => {
     const { id, name, spirit, amount, ingredients, instructions, image } = req.query;
     console.log("Drink details:", id, name, spirit, amount, ingredients, instructions, image);
     res.render('drink-details', { id, name, spirit, amount, ingredients, instructions, image, isAuthenticated: req.isAuthenticated() });
