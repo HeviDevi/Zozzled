@@ -31,7 +31,7 @@ router.post('/login', (req, res, next) => {
         }
         if (!user) {
             console.log('Authentication failed:', info.message);
-            return res.redirect('/');
+            return res.status(401).json({ error: 'Invalid username or password' });
         }
         req.logIn(user, (err) => {
             if (err) {
@@ -39,7 +39,7 @@ router.post('/login', (req, res, next) => {
                 return next(err);
             }
             console.log('Authentication successful, user logged in:', user.username);
-            return res.redirect('/drink-search');
+            return res.status(200).json({ message: 'Login successful' });
         });
     })(req, res, next);
 });
@@ -52,12 +52,12 @@ router.post('/register', async (req, res) => {
     // Check if user is at least 21 years old
     const age = moment().diff(moment(dob, 'YYYY-MM-DD'), 'years');
     if (age < 21) {
-        return res.redirect('/');
+        return res.status(400).json({ error: 'You must be at least 21 years old to register' });
     }
 
     // Validate field lengths
     if (username.length > 16 || password.length > 16 || email.length > 35) {
-        return res.redirect('/');
+        return res.status(400).json({ error: 'Invalid field lengths' });
     }
 
     try {
@@ -72,11 +72,12 @@ router.post('/register', async (req, res) => {
         });
 
         if (userExists) {
-            return res.redirect('/');
+            return res.status(400).json({ error: 'Username or email already exists' });
         }
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
+        console.log('Hashed password:', hashedPassword);
 
         // Create a new user
         await Login.create({
@@ -87,10 +88,10 @@ router.post('/register', async (req, res) => {
         });
 
         console.log('User registered successfully');
-        res.redirect('/');
+        res.status(200).json({ message: 'Registration successful' });
     } catch (err) {
         console.error('Error registering user:', err);
-        res.redirect('/');
+        res.status(500).json({ error: 'Server error' });
     }
 });
 
