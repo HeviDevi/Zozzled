@@ -2,65 +2,6 @@
 {{> art-deco2}}
 
 
-<!-- Modal -->
-<div class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-center">
-            <div class="modal-header border-0">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <h1 class="modal-title fs-2" id="modalTitle">Login</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <form id="loginForm" action="/login" method="POST">
-                    <div class="form-group">
-                        <input type="text" class="form-control-user" id="loginUsername" placeholder="Username"
-                            name="username" required>
-                    </div>
-                    <div class="form-group mt-3">
-                        <input type="password" class="form-control-user" id="loginPassword" placeholder="Password"
-                            name="password" required>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center border-0 mt-4">
-                        <button type="submit" class="btn btn-primary modalBtn">Login</button>
-                    </div>
-                </form>
-                <form id="registerForm" action="/register" method="POST" style="display: none;">
-                    <div class="form-group">
-                        <input type="text" class="form-control-user" id="regUsername" placeholder="Username"
-                            name="username" maxlength="16" required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="email" class="form-control-user" id="regEmail" placeholder="Email" name="email"
-                            maxlength="35" required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="date" class="form-control-user" id="regDob" name="dob" required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="password" class="form-control-user" placeholder="Password" id="regPassword"
-                            name="password" maxlength="16" required>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-center border-0 mt-4">
-                        <button type="submit" class="btn btn-primary modalBtn" id="registerSubmitButton">Submit</button>
-                    </div>
-                </form>
-                <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
-                    <button id="showRegisterBtn" class="btn btn-primary modalBtn">Register</button>
-                </div>
-                <div id="authFooter" class="modal-footer d-flex justify-content-center border-0">
-                    <a href="#" id="guestBtn" class="btn btn-secondary" data-bs-dismiss="modal">Continue as Guest</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 {{!-- Search Container --}}
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <div class="search-container">
