@@ -103,6 +103,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
 document.addEventListener('DOMContentLoaded', function() {
   const searchButton = document.getElementById('searchButton');
   const searchInput = document.getElementById('searchInput');
