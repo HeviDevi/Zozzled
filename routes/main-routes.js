@@ -46,7 +46,10 @@ router.get('/users', (req, res) => {
 
 // Route for Profile
 router.get('/profile', withAuth, (req, res) => {
-    Favorites.findAll({ raw: true })
+    Favorites.findAll({ 
+        raw: true,
+        where: { username: req.user.id }
+     })
     .then(favorites => {
         res.render("profile", {
             favorites: favorites,
