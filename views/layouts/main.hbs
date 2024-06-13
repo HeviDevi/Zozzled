@@ -20,8 +20,30 @@
   </head>
   <title>Zozzled</title>
   <body>
-    <div class="logo">{{> logo}}</div>
-    <div class="nav">{{> nav-bar}}</div>
+
+    {{!-- Logo --}}
+    <div class="flex-container">
+  <div class="logo-container">
+    <img class="logo" src="/assets/img/zozzled.png" alt="Logo" />
+  </div>
+</div>
+
+  {{!-- Nav Bar --}}
+  <div class="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/drink-search">Drink Search</a></li>
+      {{#if isAuthenticated}}
+      <li><a href="/users/add">Add Drink</a></li>
+      <li><a href="/users">User Drinks</a></li>
+      <li><a href="/profile">Profile</a></li>
+      <li><a href="/auth/logout">Logout</a></li>
+      {{else}}
+      <li><a href="#" data-bs-toggle="modal" data-bs-target="#register">Login/Register</a></li>
+      {{/if}}
+    </ul>
+  </div>
     {{{body}}}
     {{> modal}}
     <script
