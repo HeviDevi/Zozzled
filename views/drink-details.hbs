@@ -33,7 +33,6 @@
                 <div class="col-md-4">
                     <div class="card mb-4 comment-rating-card">
                         <div class="card-body">
-                            {{!-- content goes here --}}
                             <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
                             <p>COMMENTS HERE PLEASE AND THANKS YOU</p>
                         </div>
@@ -42,7 +41,6 @@
                 <div class="col-md-4">
                     <div class="card mb-4 comment-rating-card">
                         <div class="card-body">
-                            {{!-- content goes here --}}
                             <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
                             <p>COMMENTS HERE PLEASE AND THANKS YOU</p>
                         </div>
@@ -51,7 +49,6 @@
                 <div class="col-md-4">
                     <div class="card mb-4 comment-rating-card">
                         <div class="card-body">
-                            {{!-- content goes here --}}
                             <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
                             <p>COMMENTS HERE PLEASE AND THANKS YOU</p>
                         </div>
@@ -74,21 +71,23 @@
                             <label for='rate-2' class="fas fa-star"></label>
                             <input type='radio' name='rate' id='rate-1'>
                             <label for='rate-1' class="fas fa-star"></label>
-                            <form action='#'>
-                                <header></header>
-                                <div class="div textarea mt-3">
-                                    <textarea cols="30" placeholder="Give us some thoughts, Stay Frosty"></textarea>
+                            <div class="div textarea mt-3">
+                                <textarea cols="30" placeholder="Give us some thoughts, Stay Frosty"></textarea>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-md-8 col-lg-6">
+                                    <button id="submitButton" type="submit" class="btn mt-3 submit w-100"
+                                            style="--bs-btn-padding-y: .50rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
+                                        Send Us Feedback
+                                    </button>
                                 </div>
-                                <button id="submitButton" type="submit" class="btn mt-3 submit"
-                                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 10rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
-                                    Send Us Feedback
-                                </button>
-                            </form>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <script src="/js/drink-details.js"></script>
