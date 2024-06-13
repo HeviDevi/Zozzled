@@ -9,7 +9,7 @@
 
 // module.exports = sequelize;
 
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
 const sequelize = process.env.DB_URL
