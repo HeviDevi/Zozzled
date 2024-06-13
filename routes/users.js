@@ -1,6 +1,7 @@
 const express = require('express'); // Import express
 const router = express.Router(); // Create a router
 const User = require('../models/User'); // Import User model
+const { withAuth } = require('../utility/auth'); // Import withAuth middleware
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
@@ -9,20 +10,20 @@ router.get('/', async (req, res) => {
     try {
         const users = await User.findAll();
         console.log(users);
-        res.render('users', { users }); // Render the 'users' view
+        res.render('users', { users, isAuthenticated: req.isAuthenticated() }); // Render the 'users' view with isAuthenticated
     } catch (err) {
         console.error(err);
         res.status(500).send('Server Error');
     }
 });
 
-//Display add user drink form
-router.get('/add', (req, res) => {
-    res.render('add');
+// Display add user drink form
+router.get('/add', withAuth, (req, res) => {
+    res.render('add', { isAuthenticated: req.isAuthenticated() });
 });
 
 // Add a user
-router.post('/add', async (req, res) => {
+router.post('/add', withAuth, async (req, res) => {
     console.log('Received request to /add');
     let { drinkname, spirittype, spiritamount, ingredients, instructions } = req.body;
     let errors = [];
@@ -36,7 +37,7 @@ router.post('/add', async (req, res) => {
 
     // If there are errors, re-render the form with the errors and with previously entered values, otherwise add the user to the database
     if (errors.length > 0) {
-        res.render('add', { errors, drinkname, spirittype, spiritamount, ingredients, instructions });
+        res.render('add', { errors, drinkname, spirittype, spiritamount, ingredients, instructions, isAuthenticated: req.isAuthenticated() });
     } else {
         drinkname = drinkname.toLowerCase();
         spirittype = spirittype.toLowerCase();
@@ -50,8 +51,7 @@ router.post('/add', async (req, res) => {
             console.log('Error:', err);
             res.status(500).send('Server Error');
         }
-    }  
+    }
 });
-
 
 module.exports = router; // Export the router
