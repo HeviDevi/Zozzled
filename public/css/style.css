@@ -20,12 +20,6 @@ h6 {
   font-style: normal;
 }
 
-h4 {
-  margin: 0;
-  font-size: 2.5rem;
-  color: black;
-}
-
 p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -610,8 +604,35 @@ form .btn button {
 
 .detail-container {
   padding-top: 200px;
+  z-index: inherit;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .about-container {
   padding-bottom: 150px;
+}
+
+
+/* Add Drink Page */
+.add-container {
+  z-index: 10;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1;
+  }
 }
