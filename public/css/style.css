@@ -20,6 +20,12 @@ h6 {
   font-style: normal;
 }
 
+h4 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: black;
+}
+
 p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -32,6 +38,7 @@ p {
   top: 6%;
   left: 53%;
   transform: translate(-50%, -50%);
+  z-index: 20;
 }
 
 .logo {
@@ -44,7 +51,7 @@ p {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 1;
+  z-index: 20;
   top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -72,6 +79,7 @@ p {
   position: fixed;
   top: 0px;
   left: 0px;
+  z-index: 10;
 }
 
 .top-left {
@@ -86,6 +94,7 @@ p {
   position: fixed;
   bottom: 0px;
   left: 0px;
+  z-index: 10;
 }
 
 .bottom-left {
@@ -102,6 +111,7 @@ p {
   position: fixed;
   top: 0px;
   right: 0px;
+  z-index: 10;
 }
 
 .top-right {
@@ -118,6 +128,7 @@ p {
   position: fixed;
   bottom: 0px;
   right: 0px;
+  z-index: 10;
 }
 
 .bottom-right {
@@ -161,20 +172,59 @@ p {
 
 /* Homepage */
 
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: #f8f4ea;
+  z-index: 5;
+}
+
+.star::before {
+  font-family: "Font Awesome 6 Pro";
+  content: '\e5d6';
+  font-weight: 200;
+}
+
+.star.animate {
+  color: rgb(248, 210, 57);
+}
+
 /* Discover Img */
 .discover-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  z-index: 15;
 }
 
 .discover {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 90%;
+  max-height: 90%;
   width: auto;
   height: auto;
+  opacity: 0; 
+  animation: fade-in 5s forwards; 
 }
+
+/* For the fade-in animation */
+@keyframes fade-in {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 /* Start Button */
 .start-btn {
@@ -185,6 +235,7 @@ p {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 20;
 }
 
 /* Search Page */
@@ -210,6 +261,52 @@ p {
   background-color: #822c1c;
   color: white;
 }
+
+.search-container {
+  z-index: 10;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0; 
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .slider-img {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: auto;
+  z-index: 5;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.slider-img.visible {
+  opacity: 1;
+}
+
+.animate {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+}
+
+.fade {
+  animation: fadeInOut 4s infinite;
+} */
 
 /* Drink Results */
 
@@ -381,17 +478,15 @@ opacity: 1;
   text-align: left;
 }
 
-.drink-info h4 {
-  margin: 0;
-  font-size: 2rem;
-  color: black;
-}
-
 .drink-info p {
   margin-bottom: 5px;
   font-size: 1rem;
   color: black;
   word-wrap: break-word;
+}
+
+.bold-text {
+  font-weight: bold;
 }
 
 /* Comment-rating cards */

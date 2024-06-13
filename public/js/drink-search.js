@@ -42,3 +42,49 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+
+
+// // Bitter/Sweet Slider Images
+// const bitterImagePath = "/assets/img/bitter.png";
+// const sweetImagePath = "/assets/img/sweet.png";
+
+// function createImage(src, size) {
+//     const img = document.createElement('img');
+//     img.src = src;
+//     img.classList.add('slider-img');
+//     img.style.width = size + 'px';
+//     img.style.right = Math.random() * window.innerWidth + 'px';
+//     img.style.bottom = Math.random() * window.innerHeight + 'px';
+//     return img;
+// }
+
+// function updateImages(src, count) {
+//     const imageContainer = document.getElementById('imageContainer');
+//     imageContainer.innerHTML = '';
+//     for (let i = 0; i < count; i++) {
+//         const size = Math.random() * 50 + 50;
+//         const img = createImage(src, size);
+//         imageContainer.appendChild(img);
+//     }
+// }
+
+// document.getElementById('spiritSlider').addEventListener('input', function() {
+//     const value = this.value;
+//     if (value == 0) {
+//         updateImages(bitterImagePath, 5);
+//     } else if (value == 2) {
+//         updateImages(sweetImagePath, 5);
+//     } else {
+//         document.getElementById('imageContainer').innerHTML = '';
+//     }
+// });
+
+// function animateImages() {
+//     const allImages = document.querySelectorAll('.slider-img');
+//     if (allImages.length > 0) {
+//         const num = Math.floor(Math.random() * allImages.length);
+//         allImages[num].classList.add('fade');
+//     }
+// }
+
+// setInterval(animateImages, 1000);
