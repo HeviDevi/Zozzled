@@ -51,6 +51,7 @@ router.get('/profile', withAuth, (req, res) => {
         res.render("profile", {
             favorites: favorites,
             isAuthenticated: req.isAuthenticated(),
+
         });
     })
 })
@@ -67,7 +68,7 @@ router.post('/add-favorite', withAuth, (req, res) => {
 
         // Adds the drink to the favorites table as well as the user's username
         Favorites.create({
-            username: 'HeviDevi',
+            username: req.user.id,
             drink_id: drink.drink_id,
             drink_name: drink.drink_name,
             spirit_type: drink.spirit_type,

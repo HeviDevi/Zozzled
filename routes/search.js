@@ -39,7 +39,7 @@ router.get('/search', async (req, res) => {
             console.log("No drinks found for term:", term);
         }
 
-        res.render('drink-results', { drinks });
+        res.render('drink-results', { drinks, isAuthenticated: req.isAuthenticated() });
     } catch (err) {
         console.error("Database error:", err.message);
         res.status(500).send('Server Error');

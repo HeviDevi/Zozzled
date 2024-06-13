@@ -8,10 +8,16 @@ const Favorite = db.define('favorites', {
         type: Sequelize.STRING,
         allowNull: false,
     },
+    favorite_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true
+    },
     drink_id: {
         type: Sequelize.STRING,
         allowNull: false,
-        primaryKey: true
+        primaryKey: false
     },
     drink_name: {
         type: Sequelize.STRING,
