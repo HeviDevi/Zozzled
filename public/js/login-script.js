@@ -6,103 +6,118 @@ window.addEventListener("DOMContentLoaded", () => {
     const showRegisterBtn = document.getElementById("showRegisterBtn");
     const guestBtn = document.getElementById("guestBtn");
     const loginRegisterLink = document.getElementById("loginRegisterLink");
+    const loginError = document.getElementById('loginError');
+    const registerError = document.getElementById('registerError');
 
     // Show modal when login/register link is clicked
     if (loginRegisterLink) {
-    loginRegisterLink.addEventListener("click", (event) => {
-        event.preventDefault();
-        const myModal = new bootstrap.Modal(modal);
-        myModal.show();
-    });
+        loginRegisterLink.addEventListener("click", (event) => {
+            event.preventDefault();
+            const myModal = new bootstrap.Modal(modal);
+            myModal.show();
+        });
     }
 
     if (showRegisterBtn) {
-    showRegisterBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        console.log("Register button clicked");
-        if (loginForm.style.display === "none") {
-        loginForm.style.display = "block";
-        registerForm.style.display = "none";
-        modalTitle.textContent = "Login";
-        showRegisterBtn.textContent = "Register";
-        } else {
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
-        modalTitle.textContent = "Register";
-        showRegisterBtn.textContent = "Back to Login";
-        }
-    });
+        showRegisterBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                modalTitle.textContent = "Login";
+                showRegisterBtn.textContent = "Register";
+            } else {
+                loginForm.style.display = "none";
+                registerForm.style.display = "block";
+                modalTitle.textContent = "Register";
+                showRegisterBtn.textContent = "Back to Login";
+            }
+        });
     }
 
     if (guestBtn) {
-    guestBtn.addEventListener("click", () => {
-        const myModalEl = document.querySelector(".modal");
-        if (myModalEl) {
-        const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-        modalInstance.hide();
-        }
-    });
+        guestBtn.addEventListener("click", () => {
+            const myModalEl = document.querySelector(".modal");
+            if (myModalEl) {
+                const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+                modalInstance.hide();
+            }
+        });
     }
 
     window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        if (modal) modal.style.display = "none";
-        if (loginForm) loginForm.style.display = "block";
-        if (registerForm) registerForm.style.display = "none";
-        if (modalTitle) modalTitle.textContent = "Login";
-    }
+        if (event.target === modal) {
+            if (modal) modal.style.display = "none";
+            if (loginForm) loginForm.style.display = "block";
+            if (registerForm) registerForm.style.display = "none";
+            if (modalTitle) modalTitle.textContent = "Login";
+        }
     });
 
     registerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("Register form submitted");
-    const formData = new FormData(registerForm);
+        event.preventDefault();
+        const formData = new FormData(registerForm);
 
-    fetch("/auth/register", {
-        method: "POST",
-        body: new URLSearchParams(formData),
-    })
-        .then((response) => {
-        if (response.ok) {
-            console.log("User registered successfully");
-            const myModalEl = document.querySelector(".modal");
-            if (myModalEl) {
-            const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-            modalInstance.hide();
+        fetch("/auth/register", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData)),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if (result.error) {
+                registerError.textContent = result.error;
+                registerError.style.display = 'block';
+            } else {
+                console.log("User registered successfully");
+                const myModalEl = document.querySelector(".modal");
+                if (myModalEl) {
+                    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+                    modalInstance.hide();
+                }
+                registerError.style.display = 'none';
             }
-        } else {
-            console.error("Registration failed");
-        }
         })
         .catch((error) => {
-        console.error("Error:", error);
+            console.error("Error:", error);
+            registerError.textContent = 'An error occurred. Please try again.';
+            registerError.style.display = 'block';
         });
     });
 
     loginForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("Login form submitted");
-    const formData = new FormData(loginForm);
+        event.preventDefault();
+        const formData = new FormData(loginForm);
 
-    fetch("/auth/login", {
-        method: "POST",
-        body: new URLSearchParams(formData),
-    })
-        .then((response) => {
-        if (response.ok) {
-            console.log("User logged in successfully");
-            const myModalEl = document.querySelector(".modal");
-            if (myModalEl) {
-            const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-            modalInstance.hide();
+        fetch("/auth/login", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData)),
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            if (result.error) {
+                loginError.textContent = result.error;
+                loginError.style.display = 'block';
+            } else {
+                console.log("User logged in successfully");
+                const myModalEl = document.querySelector(".modal");
+                if (myModalEl) {
+                    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+                    modalInstance.hide();
+                }
+                loginError.style.display = 'none';
+                window.location.reload(); // Reload the page to update the nav-bar
             }
-            window.location.reload(); // Reload the page to update the nav-bar
-        } else {
-            console.error("Login failed");
-        }
         })
         .catch((error) => {
-        console.error("Error:", error);
+            console.error("Error:", error);
+            loginError.textContent = 'An error occurred. Please try again.';
+            loginError.style.display = 'block';
         });
     });
 });
