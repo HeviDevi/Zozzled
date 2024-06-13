@@ -51,6 +51,7 @@ router.get('/profile', withAuth, (req, res) => {
         res.render("profile", {
             favorites: favorites,
             isAuthenticated: req.isAuthenticated(),
+
         });
     })
 })
