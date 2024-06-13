@@ -13,34 +13,34 @@
             </div>
         </div>
         {{/each}}
-        <div class="row justify-content-center mt-5 pt-5">
-            <div class="col-md-6">
-                <form action="/users/add" method="POST" class="centered-form">
-                    <div class="input-group mb-3">
-                        <label for="drinkname" class="form-label">Drink Name</label>
-                        <input type="text" name="drinkname" id="drinkname" class="form-control" placeholder="Ex: jack and coke, sunrise" maxlength="100" value={{drinkname}}>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="spirittype" class="form-label">Spirit Type</label>
-                        <input type="text" name="spirittype" id="spirittype" class="form-control" placeholder="EX. rum, whiskey, bourbon" maxlength="100" value={{spirittype}}>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="spiritamount" class="form-label">Spirit Amount (Leave blank for unknown)</label>
-                        <input type="number" name="spiritamount" id="spiritamount" class="form-control" placeholder="EX. 1, 1.5, 2" value={{spiritamount}}>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="ingredients" class="form-label">Ingredients</label>
-                        <textarea name="ingredients" id="ingredients" class="form-control" placeholder="Input ingredients to drink" rows="3">{{ingredients}}</textarea>
-                    </div>
-                    <div class="input-group mb-3">
-                        <label for="instructions" class="form-label">Instructions</label>
-                        <textarea name="instructions" id="instructions" class="form-control" placeholder="Input instructions to drink creation!" rows="5">{{instructions}}</textarea>
-                    </div>
-                    <div class="text-center">
-                        <input type="submit" value="Cocktail Creation!" class="btn btn-primary">
-                    </div>
-                </form>
+        <div class="d-flex justify-content-center align-items-center mt-4 pt-5 add-container">
+        <form action="/users/add" method="POST" class="w-100" style="max-width: 500px;">
+            <div class="form-group">
+                <label for="drinkname" class="form-label">Drink Name</label>
+                <input type="text" name="drinkname" id="drinkname" class="form-control" placeholder="Ex: jack and coke, sunrise" maxlength="100" value="{{drinkname}}">
             </div>
-        </div>
+            <div class="form-group">
+                <label for="spirittype" class="form-label mt-1">Spirit Type</label>
+                <input type="text" name="spirittype" id="spirittype" class="form-control" placeholder="EX. rum, whiskey, bourbon" maxlength="100" value="{{spirittype}}">
+            </div>
+            <div class="form-group">
+                <label for="spiritamount" class="form-label mt-1">Spirit Amount (Leave blank for unknown)</label>
+                <input type="number" name="spiritamount" id="spiritamount" class="form-control" placeholder="EX. 1, 1.5, 2" value="{{spiritamount}}">
+            </div>
+            <div class="form-group">
+                <label for="ingredients" class="form-label mt-1">Ingredients</label>
+                <textarea name="ingredients" id="ingredients" class="form-control" placeholder="Input ingredients to drink" rows="3">{{ingredients}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="instructions" class="form-label mt-1">Instructions</label>
+                <textarea name="instructions" id="instructions" class="form-control" placeholder="Input instructions to drink creation!" rows="5">{{instructions}}</textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button id="addButton" type="submit" class="btn mt-3 addBtn"
+                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 10rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
+                        Cocktail Creation!
+                </button>
+            </div>
+        </form>
     </div>
 </section>

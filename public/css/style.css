@@ -32,6 +32,7 @@ p {
   top: 6%;
   left: 53%;
   transform: translate(-50%, -50%);
+  z-index: 20;
 }
 
 .logo {
@@ -44,7 +45,7 @@ p {
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 1;
+  z-index: 20;
   top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -72,6 +73,7 @@ p {
   position: fixed;
   top: 0px;
   left: 0px;
+  z-index: 10;
 }
 
 .top-left {
@@ -86,6 +88,7 @@ p {
   position: fixed;
   bottom: 0px;
   left: 0px;
+  z-index: 10;
 }
 
 .bottom-left {
@@ -102,6 +105,7 @@ p {
   position: fixed;
   top: 0px;
   right: 0px;
+  z-index: 10;
 }
 
 .top-right {
@@ -118,6 +122,7 @@ p {
   position: fixed;
   bottom: 0px;
   right: 0px;
+  z-index: 10;
 }
 
 .bottom-right {
@@ -157,9 +162,32 @@ p {
   height: auto;
 }
 
-
-
 /* Homepage */
+
+.background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  color: #f8f4ea;
+  z-index: 5;
+}
+
+.star::before {
+  font-family: "Font Awesome 6 Pro";
+  content: "\e5d6";
+  font-weight: 200;
+}
+
+.star.animate {
+  color: rgb(248, 210, 57);
+}
 
 /* Discover Img */
 .discover-container {
@@ -167,14 +195,32 @@ p {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  z-index: 15;
 }
 
 .discover {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 90%;
+  max-height: 90%;
   width: auto;
   height: auto;
+  opacity: 0;
+  animation: slide-fade-in 4s forwards;
 }
+
+@keyframes slide-fade-in {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* .discover {
+  animation: slide-fade-in 4s forwards;
+} */
 
 /* Start Button */
 .start-btn {
@@ -185,15 +231,12 @@ p {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 20;
 }
 
 /* Search Page */
 
 /* modal */
-.modal {
-  box-shadow: 5px 5px 10px grey;
-}
-
 .form-control-user {
   width: 300px;
 }
@@ -211,6 +254,58 @@ p {
   color: white;
 }
 
+.modal-content {
+  background-color: #f8f4ea;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px grey
+}
+
+.search-container {
+  z-index: 10;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* .slider-img {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: auto;
+  z-index: 5;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.slider-img.visible {
+  opacity: 1;
+}
+
+.animate {
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+      opacity: 0;
+  }
+  50% {
+      opacity: 1;
+  }
+}
+
+.fade {
+  animation: fadeInOut 4s infinite;
+} */
+
 /* Drink Results */
 
 /* Cards */
@@ -220,39 +315,39 @@ p {
 }
 
 .card {
-margin: 0 auto;
-background-color: transparent;
-backdrop-filter: blur(10px);
+  margin: 0 auto;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
 }
 
 .drink-card {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-max-height: 100%;
-max-width: 100%;
-padding: 5px;
-text-align: center;
-box-sizing: border-box;
-border-radius: 5px;
-box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
-overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 .drink-card h6,
 .drink-card p {
-color: #fff;
+  color: #fff;
 }
 
 .drink-card h6 {
-margin-bottom: 10px;
-font-size: 1.5em;
+  margin-bottom: 10px;
+  font-size: 1.5em;
 }
 
 .drink-card p {
-margin-bottom: 5px;
-font-size: 1em;
-word-wrap: break-word;
+  margin-bottom: 5px;
+  font-size: 1em;
+  word-wrap: break-word;
 }
 
 /* Heart Button */
@@ -278,49 +373,48 @@ word-wrap: break-word;
 }
 
 .image-link {
-position: relative;
-display: block;
+  position: relative;
+  display: block;
 }
 
 .card-img-top {
-width: 100%;
-height: 200px; 
-border-radius: 5px;
-object-fit: cover; 
+  width: 100%;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
 .card-img {
   width: 100%;
-  height: 200px; 
+  height: 200px;
   border-radius: 5px;
-  object-fit: cover; 
+  object-fit: cover;
 }
 
 .overlay {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-color: rgba(0, 0, 0, 0.5);
-opacity: 0;
-transition: opacity 0.3s;
-display: flex;
-justify-content: center;
-align-items: center;
-color: white;
-text-align: center;
-border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .overlay-text {
-padding: 10px;
+  padding: 10px;
 }
 
 .image-link:hover .overlay {
-opacity: 1;
+  opacity: 1;
 }
-
 
 /* Drink Details */
 .drink-details {
@@ -381,17 +475,15 @@ opacity: 1;
   text-align: left;
 }
 
-.drink-info h4 {
-  margin: 0;
-  font-size: 2rem;
-  color: black;
-}
-
 .drink-info p {
   margin-bottom: 5px;
   font-size: 1rem;
   color: black;
   word-wrap: break-word;
+}
+
+.bold-text {
+  font-weight: bold;
 }
 
 /* Comment-rating cards */
@@ -405,7 +497,6 @@ opacity: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
 }
-
 
 /* Styling for rating system */
 .star-rating input {
@@ -515,8 +606,34 @@ form .btn button {
 
 .detail-container {
   padding-top: 200px;
+  z-index: inherit;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .about-container {
   padding-bottom: 150px;
+}
+
+/* Add Drink Page */
+.add-container {
+  z-index: 10;
+  animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -18,12 +18,12 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body drink-info">
-                            <h4 class="card-title">{{name}}</h4>
-                            <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
-                            <p class="card-text">Spirit Type: {{spirit}}</p>
-                            <p class="card-text">Spirit Amount: {{amount}} OZ</p>
-                            <p class="card-text">Ingredients: {{ingredients}}</p>
-                            <p class="card-text">Instructions: {{instructions}}</p>
+                            <h1 class="card-title">{{name}}</h1>
+                            <p class="card-text"><span class="bold-text">Rating:</span> ⭐⭐⭐⭐⭐</p>
+                            <p class="card-text"><span class="bold-text">Spirit Type:</span> {{spirit}}</p>
+                            <p class="card-text"><span class="bold-text">Spirit Amount:</span> {{amount}} OZ</p>
+                            <p class="card-text"><span class="bold-text">Ingredients:</span> {{ingredients}}</p>
+                            <p class="card-text"><span class="bold-text">Instructions:</span> {{instructions}}</p>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
 
             <div class="card mb-4 rating-comments">
                 <div class="card-body">
-                    <h4 class="card-title">How did you like this drink?</h4>
+                    <h3 class="card-title">How did you like this drink?</h3>
                     <div class="star-rating">
                         <form id="rating-form" action="/submit-rating" method="POST">
                             <input type='radio' name='rate' id='rate-5'>
@@ -79,9 +79,10 @@
                                 <div class="div textarea">
                                     <textarea cols="30" placeholder="Give us some thoughts, Stay Frosty"></textarea>
                                 </div>
-                                <div class="btn">
-                                    <button type="submit">Send Us The Feedback</button>
-                                </div>
+                                <button id="submitButton" type="submit" class="btn mt-3 submit"
+                                        style="--bs-btn-padding-y: .50rem; --bs-btn-padding-x: 10rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
+                                       Send Us Feedback
+                                </button>
                             </form>
                         </form>
                     </div>
