@@ -37,7 +37,7 @@ router.post('/add', withAuth, async (req, res) => {
 
     // If there are errors, re-render the form with the errors and with previously entered values, otherwise add the user to the database
     if (errors.length > 0) {
-        res.render('add', { errors, drinkname, spirittype, spiritamount, ingredients, instructions});
+        res.render('add', { errors, drinkname, spirittype, spiritamount, ingredients, instructions, isAuthenticated: req.isAuthenticated() });
     } else {
         drinkname = drinkname.toLowerCase();
         spirittype = spirittype.toLowerCase();

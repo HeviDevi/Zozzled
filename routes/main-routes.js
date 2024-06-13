@@ -45,12 +45,12 @@ router.get('/users', (req, res) => {
 });
 
 // Route for Profile
-router.get('/profile', (res) => {
-    Favorites.findAll({raw: true})
+router.get('/profile', withAuth, (req, res) => {
+    Favorites.findAll({ raw: true })
     .then(favorites => {
         res.render("profile", {
-            layout: "main",
-            favorites: favorites
+            favorites: favorites,
+            isAuthenticated: req.isAuthenticated(),
         });
     })
 })
