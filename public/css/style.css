@@ -211,13 +211,12 @@ p {
 
 @keyframes slide-fade-in {
   0% {
-    transform: translateX(-100%); /* Start position outside the left edge */
-    opacity: 0; /* Start with zero opacity */
+    transform: translateX(-100%); 
+    opacity: 0; 
   }
   100% {
-    transform: translateX(0); /* End position at the original position */
-    opacity: 1; /* End with full opacity */
-  }
+    transform: translateX(0);
+    opacity: 1;
 }
 
 /* .discover {
