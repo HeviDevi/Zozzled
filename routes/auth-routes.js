@@ -6,25 +6,9 @@ const { Login } = require('../models/login'); // Ensure this path is correct
 const Sequelize = require('sequelize');
 const router = express.Router();
 
-// Middleware to check if user is authenticated
-function checkAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/');
-}
-
-// Middleware to check if user is not authenticated
-function checkNotAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) {
-        return res.redirect('/drink-search');
-    }
-    next();
-}
-
 // Route to handle login
 router.post('/login', (req, res, next) => {
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local', (err, user, info) => { // uses local strat to authenticate user
         if (err) {
             console.error('Error during authentication:', err);
             return next(err);
@@ -33,7 +17,7 @@ router.post('/login', (req, res, next) => {
             console.log('Authentication failed:', info.message);
             return res.status(401).json({ error: 'Invalid username or password' });
         }
-        req.logIn(user, (err) => {
+        req.logIn(user, (err) => { // logs user in
             if (err) {
                 console.error('Error during login:', err);
                 return next(err);
@@ -76,11 +60,11 @@ router.post('/register', async (req, res) => {
         }
 
         // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10); // making the password secure for storage
         console.log('Hashed password:', hashedPassword);
 
         // Create a new user
-        await Login.create({
+        await Login.create({  // creates the user if all checks pass
             username,
             passwd: hashedPassword,
             email,
@@ -89,7 +73,7 @@ router.post('/register', async (req, res) => {
 
         console.log('User registered successfully');
         res.status(200).json({ message: 'Registration successful' });
-    } catch (err) {
+        } catch (err) {
         console.error('Error registering user:', err);
         res.status(500).json({ error: 'Server error' });
     }

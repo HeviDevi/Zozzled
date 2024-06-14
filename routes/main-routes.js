@@ -45,13 +45,13 @@ router.get('/users', (req, res) => {
 });
 
 // Route for Profile
-router.get('/profile', withAuth, (req, res) => {
-    Favorites.findAll({ 
+router.get('/profile', withAuth, (req, res) => { //uses withAuth to check for authentication
+    Favorites.findAll({  //looks for all the favorites for authenticated user
         raw: true,
         where: { username: req.user.id }
-     })
+    })
     .then(favorites => {
-        res.render("profile", {
+        res.render("profile", {   //renders profile and passes favorites, and setting authentication
             favorites: favorites,
             isAuthenticated: req.isAuthenticated(),
 
