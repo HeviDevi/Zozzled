@@ -26,24 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
           console.error("Error:", error);
         });
 
-      } else if (heartIcon.classList.contains('fa-solid')) {
-        fetch("/delete-favorite", { 
+      } else if (heartIcon.classList.contains("fa-solid")) {
+        fetch("/delete-favorite", {
           method: "DELETE",
           body: JSON.stringify({ drink_id: drinkId }),
           headers: {
             "Content-Type": "application/json",
           },
-        }).then(response => {
-          if (response.ok) {
-            heartIcon.classList.remove('fa-solid');
-            heartIcon.classList.add('fa-regular');
-            console.log("Favorite Deleted!");
-          } else {
-            console.error("Error deleting favorite");
-          }
-        }).catch(error => {
-          console.error("Error:", error);
         });
+        heartIcon.classList.remove("fa-solid");
+        heartIcon.classList.add("fa-regular");
+        console.log("Favorite Deleted!");
       }
     });
   });
