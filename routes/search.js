@@ -17,7 +17,12 @@ router.get('/search', async (req, res) => {
     term = term ? term.toLowerCase() : '';
 
     try {
-        let whereClause = { drink_name: { [Op.iLike]: '%' + term + '%' } };
+        let whereClause = {
+            [Op.or]: [
+                { drink_name: { [Op.iLike]: '%' + term + '%' } },
+                { ingredients: { [Op.iLike]: '%' + term + '%' } }
+            ]
+        };
 
         if (spirit) {
             whereClause.spirit_type = { [Op.iLike]: '%' + spirit + '%' };
@@ -33,7 +38,7 @@ router.get('/search', async (req, res) => {
         }
 
         const drinks = await Drinks.findAll({ where: whereClause });
-        console.log("Found drinks:", drinks);
+          // console.log("Found drinks:", drinks);
 
         if (drinks.length === 0) {
             console.log("No drinks found for term:", term);
@@ -47,7 +52,4 @@ router.get('/search', async (req, res) => {
 });
 
 module.exports = router;
-
-
-
 
