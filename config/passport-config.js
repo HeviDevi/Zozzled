@@ -1,6 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const { Login } = require('../models/login'); // Ensure the correct path
+const { Login } = require('../models/login'); // imports login model 
 
 function initialize(passport) {
   const authenticateUser = async (username, password, done) => {
@@ -31,11 +31,11 @@ function initialize(passport) {
   };
 
   passport.use(new LocalStrategy({ usernameField: 'username' }, authenticateUser));
-  passport.serializeUser((user, done) => done(null, user.id));
+  passport.serializeUser((user, done) => done(null, user.id)); // serializes user id to maintain minimal session state
   passport.deserializeUser(async (id, done) => {
     try {
       const user = await Login.findByPk(id);
-      return done(null, user);
+      return done(null, user); // deserializes user id for subsequent reads.
     } catch (err) {
       return done(err);
     }

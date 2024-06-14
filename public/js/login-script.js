@@ -8,6 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const loginRegisterLink = document.getElementById("loginRegisterLink");
     const loginError = document.getElementById('loginError');
     const registerError = document.getElementById('registerError');
+    const loginSuccessMessage = document.getElementById('loginSuccessMessage'); // New element for success message
 
     // Show modal when login/register link is clicked
     if (loginRegisterLink) {
@@ -72,11 +73,12 @@ window.addEventListener("DOMContentLoaded", () => {
                 registerError.style.display = 'block';
             } else {
                 console.log("User registered successfully");
-                const myModalEl = document.querySelector(".modal");
-                if (myModalEl) {
-                    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-                    modalInstance.hide();
-                }
+                loginForm.style.display = "block";
+                registerForm.style.display = "none";
+                modalTitle.textContent = "Login";
+                showRegisterBtn.textContent = "Register";
+                loginSuccessMessage.textContent = 'Registration successful, please login.'; // Show success message
+                loginSuccessMessage.style.display = 'block'; // Show success message
                 registerError.style.display = 'none';
             }
         })
