@@ -46,15 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    window.addEventListener("click", (event) => {
-        if (event.target === modal) {
-            if (modal) modal.style.display = "none";
-            if (loginForm) loginForm.style.display = "block";
-            if (registerForm) registerForm.style.display = "none";
-            if (modalTitle) modalTitle.textContent = "Login";
-        }
-    });
-
     registerForm.addEventListener("submit", (event) => {
         event.preventDefault();
         const formData = new FormData(registerForm);
