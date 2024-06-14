@@ -1,25 +1,24 @@
+/* General Reset and Box Sizing */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
   background-color: #f8f4ea;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
   font-family: "EB Garamond", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
+/* Paragraphs */
 p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -39,7 +38,7 @@ p {
   width: 75%;
 }
 
-/* NavBar */
+/* Navigation Bar */
 .nav {
   display: flex;
   justify-content: center;
@@ -49,7 +48,6 @@ p {
   top: 12%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 1;
 }
 
 .nav ul {
@@ -68,6 +66,7 @@ p {
   color: inherit;
 }
 
+/* Art Deco Decorations */
 /* Top Left Art Deco */
 .top-left-container {
   position: fixed;
@@ -133,37 +132,24 @@ p {
 }
 
 /* Side Border Lines */
-.left-border {
+.left-border, .right-border {
   position: fixed;
-  top: 0px;
-  left: 0px;
-}
-
-.left {
+  top: 0;
   max-width: 90%;
   max-height: 90%;
   width: auto;
   height: auto;
 }
 
+.left-border { left: 0; }
 .right-border {
+  right: 0;
   display: flex;
   flex-direction: row-reverse;
-  position: fixed;
-  top: 0px;
-  right: 0px;
   z-index: 1000;
 }
 
-.right {
-  max-width: 90%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-}
-
-/* Homepage */
-
+/* Homepage Background */
 .background {
   display: flex;
   justify-content: center;
@@ -189,7 +175,7 @@ p {
   color: rgb(248, 210, 57);
 }
 
-/* Discover Img */
+/* Discover Image */
 .discover-container {
   display: flex;
   justify-content: center;
@@ -231,8 +217,6 @@ p {
 }
 
 /* Search Page */
-
-/* modal */
 .form-control-user {
   width: 300px;
 }
@@ -262,49 +246,11 @@ p {
 }
 
 @keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
-
-/* .slider-img {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: auto;
-  z-index: 5;
-  transition: opacity 0.5s ease-in-out;
-  opacity: 0;
-}
-
-.slider-img.visible {
-  opacity: 1;
-}
-
-.animate {
-  animation: bounce 1s infinite alternate;
-}
-
-@keyframes fadeInOut {
-  0%, 100% {
-      opacity: 0;
-  }
-  50% {
-      opacity: 1;
-  }
-}
-
-.fade {
-  animation: fadeInOut 4s infinite;
-} */
 
 /* Drink Results */
-
-/* Cards */
 .drink-results {
   height: 600px;
   width: 100%;
@@ -347,7 +293,7 @@ p {
 }
 
 /* Heart Button */
-.heart-btn {
+.heart-btn, .favorite-btn {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -359,28 +305,22 @@ p {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.heart-btn i {
+.heart-btn i, .favorite-btn i {
   color: red;
   font-size: 1.5rem;
 }
 
-.heart-btn:hover {
+.heart-btn:hover, .favorite-btn:hover {
   transform: scale(1.1);
 }
 
+/* Image Links */
 .image-link {
   position: relative;
   display: block;
 }
 
-.card-img-top {
-  width: 100%;
-  height: 200px;
-  border-radius: 5px;
-  object-fit: cover;
-}
-
-.card-img {
+.card-img-top, .card-img {
   width: 100%;
   height: 200px;
   border-radius: 5px;
@@ -430,29 +370,6 @@ p {
   gap: 20px;
 }
 
-/* Heart Button */
-.favorite-btn {
-  position: absolute;
-  bottom: 0px;
-  right: 5px;
-  background-color: transparent;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.favorite-btn i {
-  color: red;
-  font-size: 1.5rem;
-}
-
-.favorite-btn:hover {
-  transform: scale(1.1);
-}
-
-/* Drink Img */
 .card-detail-img-container {
   flex: 1;
   display: flex;
@@ -467,7 +384,6 @@ p {
   z-index: 1;
 }
 
-/* Card Text */
 .drink-info {
   flex: 2;
   text-align: left;
@@ -487,7 +403,7 @@ p {
 /* Social Icons */
 .social-icons {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   left: 20px;
   display: flex;
   gap: 10px;
@@ -530,15 +446,6 @@ p {
     flex-direction: column;
     align-items: flex-start;
   }
-  
-  .social-icons {
-    top: 10px;
-    right: 10px;
-    bottom: auto;
-    left: auto;
-    display: flex;
-    justify-content: flex-end;
-  }
 }
 
 @media (max-width: 480px) {
@@ -551,9 +458,7 @@ p {
   }
 }
 
-
-
-/* Comment-rating cards */
+/* Comment and Rating Cards */
 .comment-rating-card {
   max-height: 500px;
   max-width: 100%;
@@ -565,17 +470,15 @@ p {
   margin-bottom: 20px;
 }
 
-
 .rating-comments {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Styling for rating system */
+/* Rating System */
 .star-rating input {
   display: none;
 }
 
-/* controls size of stars */
 .star-rating label {
   font-size: 1.5em;
   color: #ccc;
@@ -583,7 +486,6 @@ p {
   transition: all 0.2s ease;
 }
 
-/* controls how stars react to hover. */
 input:not(:checked) ~ label:hover,
 input:not(:checked) ~ label:hover ~ label {
   color: #f7d70c;
@@ -593,13 +495,11 @@ input:checked ~ label {
   color: #f7d70c;
 }
 
-/* added slight glow when 5 stars is selected */
 input#rate-5:checked ~ label {
   color: #fff895;
   text-shadow: 0 0 20px rgb(255, 156, 81);
 }
 
-/* modifying text based on star selection */
 #rate-1:checked ~ header:before {
   content: "This shouldn't even be served in a bar😠";
   text-transform: uppercase;
@@ -639,7 +539,6 @@ form .textarea {
   overflow: hidden;
 }
 
-/* formatting and coloring for comments box */
 form .textarea textarea {
   height: 100%;
   width: 100%;
@@ -656,43 +555,10 @@ form .textarea textarea:focus::placeholder {
   color: transparent;
 }
 
-/* button formatting */
-/* form .btn {
-  height: 45px;
-  width: 100%;
-}
-
-form .btn button {
-  height: 100%;
-  width: 30%;
-  border: 1px solid #444;  
-  outline: none;
-  background: #222;
-  color: #999;
-  font-size: 17px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
-} */
-
-/* form .btn button:hover {
-  background: #1b1b1b;
-  height: 100vh;
-} */
-
 .detail-container {
   padding-top: 200px;
   z-index: inherit;
   animation: fade-in 1s;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 .about-container {
@@ -703,13 +569,4 @@ form .btn button {
 .add-container {
   z-index: 10;
   animation: fade-in 1s;
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
