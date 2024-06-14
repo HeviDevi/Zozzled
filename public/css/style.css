@@ -416,7 +416,7 @@ p {
 .drink-details {
   max-height: 500px;
   max-width: 100%;
-  padding: 20px 20px 60px 20px;
+  padding: 20px 20px 40px 20px;
   overflow: auto;
   box-sizing: border-box;
   border-radius: 10px;
@@ -565,6 +565,11 @@ p {
   margin-bottom: 20px;
 }
 
+
+.rating-comments {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* Styling for rating system */
 .star-rating input {
   display: none;
@@ -640,11 +645,15 @@ form .textarea textarea {
   width: 100%;
   outline: none;
   border: 1px solid #333;
-  /* background: #222; */
-  color: #eee;
+  color: black;
   padding: 10px;
   font-size: 17px;
   resize: none;
+  box-sizing: border-box;
+}
+
+form .textarea textarea:focus::placeholder {
+  color: transparent;
 }
 
 /* button formatting */
