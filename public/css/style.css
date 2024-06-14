@@ -218,10 +218,6 @@ p {
   }
 }
 
-/* .discover {
-  animation: slide-fade-in 4s forwards;
-} */
-
 /* Start Button */
 .start-btn {
   display: flex;
@@ -420,7 +416,7 @@ p {
 .drink-details {
   max-height: 500px;
   max-width: 100%;
-  padding: 20px;
+  padding: 20px 20px 40px 20px;
   overflow: auto;
   box-sizing: border-box;
   border-radius: 10px;
@@ -456,6 +452,7 @@ p {
   transform: scale(1.1);
 }
 
+/* Drink Img */
 .card-detail-img-container {
   flex: 1;
   display: flex;
@@ -470,6 +467,7 @@ p {
   z-index: 1;
 }
 
+/* Card Text */
 .drink-info {
   flex: 2;
   text-align: left;
@@ -485,6 +483,75 @@ p {
 .bold-text {
   font-weight: bold;
 }
+
+/* Social Icons */
+.social-icons {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  background: transparent;
+  font-size: 2rem;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.instagram-btn i {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.twitter-btn i {
+  color: #1DA1F2;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .social-icons {
+    top: 10px;
+    right: 10px;
+    bottom: auto;
+    left: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .drink-details-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .social-icons {
+    top: 10px;
+    right: 10px;
+    bottom: auto;
+    left: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-btn i {
+    font-size: 1.5rem;
+  }
+
+  .favorite-btn i {
+    font-size: 1.2rem;
+  }
+}
+
+
 
 /* Comment-rating cards */
 .comment-rating-card {
