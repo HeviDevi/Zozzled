@@ -416,7 +416,7 @@ p {
 .drink-details {
   max-height: 500px;
   max-width: 100%;
-  padding: 20px 20px 40px 20px;
+  padding: 20px 20px 60px 20px;
   overflow: auto;
   box-sizing: border-box;
   border-radius: 10px;
@@ -433,7 +433,7 @@ p {
 /* Heart Button */
 .favorite-btn {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   right: 5px;
   background-color: transparent;
   border: none;
@@ -487,7 +487,7 @@ p {
 /* Social Icons */
 .social-icons {
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   left: 20px;
   display: flex;
   gap: 10px;
