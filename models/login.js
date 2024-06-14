@@ -10,10 +10,6 @@ Login.init({
         autoIncrement: true,
         allowNull: false
     },
-    userid: {
-        type: DataTypes.INTEGER,
-        allowNull: true
-    },
     username: {
         type: DataTypes.STRING(16),
         allowNull: false
