@@ -14,27 +14,6 @@ const Login = require('./models/login');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// //stuff Eddie tested out with Ryan
-// // const SequelizeStore = require('connect-session-sequelize')(session.Store);
-// // const sess = {
-// //   secret: 'Super secret secret',
-// //   cookie: {
-// //     maxAge: 300000,
-// //     httpOnly: true,
-// //     secure: false,
-// //     sameSite: 'strict',
-// //   },
-// //   resave: false,
-// //   saveUninitialized: true,
-// //   store: new SequelizeStore({
-// //     db: sequelize
-// //   })
-// // };
-// // app.use(session(sess));
-
-// I am consolidating my code here to make it easier to read and understand. DO NOT MOVE OR MODIFY
-// ANYTHING BELOW THIS LINE. - Zachary Testing
-
 //Bring database connection
 const db = require("./config/database");
 
@@ -91,16 +70,16 @@ app.use(
     saveUninitialized: false,
     cookie: {
       secure: false,
-      httpOnly: true,
-      sameSite: 'strict',
-      maxAge: 24 * 60 * 60 * 1000 // 1 day in milliseconds
+      httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
+      sameSite: 'strict', // Ensures the cookie is sent only in requests from the same site
+      maxAge: 24 * 60 * 60 * 1000 
     }
   })
 );
 
 // Passport middleware
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); // Enable persistent login sessions
 
 // User routes - anything that is /users will go to the users.js file
 app.use("/users", require("./routes/users"));
@@ -116,8 +95,6 @@ app.use('/auth', require('./routes/auth-routes'));
 
 // Handlebars page routes
 app.use('/', mainRoutes);
-
-//END OF CODE CONSOLIDATION - Zachary
 
 // Start the server
 app.listen(PORT, () => {
