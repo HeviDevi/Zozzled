@@ -132,21 +132,33 @@ p {
 }
 
 /* Side Border Lines */
-.left-border, .right-border {
+.left-border {
   position: fixed;
-  top: 0;
+  top: 0px;
+  left: 0px;
+}
+
+.left {
   max-width: 90%;
   max-height: 90%;
   width: auto;
   height: auto;
 }
 
-.left-border { left: 0; }
 .right-border {
-  right: 0;
   display: flex;
   flex-direction: row-reverse;
+  position: fixed;
+  top: 0px;
+  right: 0px;
   z-index: 1000;
+}
+
+.right {
+  max-width: 90%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 /* Homepage Background */
@@ -563,6 +575,10 @@ form .textarea textarea:focus::placeholder {
 
 .about-container {
   padding-bottom: 150px;
+}
+
+.form-section {
+  height: 100vh;
 }
 
 /* Add Drink Page */
