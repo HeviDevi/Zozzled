@@ -24,11 +24,11 @@ Drinks.init({
         allowNull: false,
     },
     ingredients: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,  // Changed to TEXT to allow longer values
         allowNull: false,
     },
     instructions: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,  // Changed to TEXT to allow longer values
         allowNull: false,
     },
     bitter: {
@@ -40,7 +40,7 @@ Drinks.init({
         allowNull: false,
     },
     image_link: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,  // Changed to TEXT to allow longer values
         allowNull: false,
     },
 }, {
