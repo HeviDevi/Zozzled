@@ -14,17 +14,15 @@
                         </button>
                         {{!-- social media icon buttons --}}
                         <div class="social-icons">
-                            <button class="social-btn instagram-btn border-0"
-                                onclick="window.open('https://www.instagram.com/USERNAME', '_blank')">
+                            <button id="instagram" class="social-btn instagram-btn border-0">
                                 <i class="fab fa-instagram"></i>
                             </button>
-                            <button class="social-btn twitter-btn border-0"
-                                onclick="window.open('https://twitter.com/USERNAME', '_blank')">
+                            <button  id="twitter" class="social-btn twitter-btn border-0">
                                 <i class="fab fa-twitter-square"></i>
                             </button>
                         </div>
                     </div>
-                    {{!-- drink card rendering info --}}
+                    {{!-- drink card rendering --}}
                     <div class="col-md-8">
                         <div class="card-body drink-info">
                             <h4 class="card-title">{{name}}</h4>
@@ -109,3 +107,4 @@
 </div>
 
 <script src="/js/favorites.js"></script>
+<script src="/js/socials.js"></script>
