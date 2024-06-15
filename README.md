@@ -109,8 +109,6 @@ You can Add personalized drinks to your profile, simply include:<br>
 <p>After giving a few of these cocktails a try, you have the ability to add them to your favorites by clicking the heart on each drink card, to view all your favorited cocktails, go to the Profile tab (must have login profile), and you can view all your favorite drinks.
 </p>
 
-<h4><strong>Share drinks via </strong><br></h4>
-<p>The drink's card, there will be a button to view the randomly generated quote pulled from the API that is linked to each corresponding mood that is selected in the main pag. </p>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
