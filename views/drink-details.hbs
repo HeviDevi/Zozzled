@@ -1,7 +1,7 @@
 {{> borderLine}}
 {{> borderLineRight}}
 
-
+{{!-- Main Container for drink rendering --}}
 <div class="container detail-container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -12,6 +12,7 @@
                         <button class="heart-btn" data-drink-id="{{id}}">
                             <i class="fa-regular fa-heart"></i>
                         </button>
+                        {{!-- social media icon buttons --}}
                         <div class="social-icons">
                             <button class="social-btn instagram-btn border-0"
                                 onclick="window.open('https://www.instagram.com/USERNAME', '_blank')">
@@ -23,6 +24,7 @@
                             </button>
                         </div>
                     </div>
+                    {{!-- drink card rendering info --}}
                     <div class="col-md-8">
                         <div class="card-body drink-info">
                             <h4 class="card-title">{{name}}</h4>
@@ -35,7 +37,7 @@
                     </div>
                 </div>
             </div>
-
+            {{!-- Static content for rating system --}}
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 comment-rating-card">
@@ -65,7 +67,7 @@
                     </div>
                 </div>
             </div>
-
+            {{!-- Context box for comments system --}}
             <div class="card mb-4 rating-comments">
                 <div class="card-body">
                     <h3 class="card-title">How did you like this drink?</h3>
