@@ -1,7 +1,6 @@
 //tweet function
 function tweet() {
-    window.open("https://twitter.com/intent/tweet?text=" + quote.innerHTML + " ---- By " + 
-    author.innerHTML, "Tweet Window", "width=600, height=300");
+    window.open("https://twitter.com/intent/tweet?text=" ,"Tweet Window", "width=600, height=300");
 }
 
 //instagram function
@@ -10,6 +9,12 @@ function instagram() {
 }
 
 //on click of tweet button
+document.getElementById('twitter',).addEventListener('click', () => {
+    tweet();
+});
 
 
 //on click of instagram button
+document.getElementById('instagram',).addEventListener('click', () => {
+    instagram();
+});

@@ -11,7 +11,7 @@ Login.init({
         allowNull: false
     },
     username: {
-        type: DataTypes.STRING(16),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     passwd: {
@@ -19,7 +19,7 @@ Login.init({
         allowNull: false
     },
     email: {
-        type: DataTypes.STRING(35),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     dob: {
