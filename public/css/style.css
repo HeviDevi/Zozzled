@@ -27,16 +27,27 @@ p {
 
 /* Logo */
 .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 6%;
-  left: 53%;
-  transform: translate(-50%, -50%);
+  width: 100%;
   z-index: 20;
 }
 
 .logo {
-  width: 75%;
+  width: 50%;
 }
+
+@media (min-width: 576px) {
+  .logo-container {
+    left: 0;
+  }
+  .logo {
+    width: 20%;
+  }
+}
+
 
 /* Navigation Bar */
 .nav {
@@ -131,6 +142,42 @@ p {
   height: auto;
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+    max-width: 80%;
+    max-height: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+    max-width: 70%;
+    max-height: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+    max-width: 60%;
+    max-height: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+    max-width: 40%;
+    max-height: 40%;
+  }
+}
+
+@media (max-width: 375px) {
+  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+    max-width: 30%;
+    max-height: 30%;
+  }
+}
+
 /* Side Border Lines */
 .left-border {
   position: fixed;
@@ -159,6 +206,13 @@ p {
   max-height: 100%;
   width: auto;
   height: auto;
+}
+
+@media screen and (max-width: 578px) {
+  .left-border,
+  .right-border {
+    display: none;
+  }
 }
 
 /* Homepage Background */
@@ -222,11 +276,39 @@ p {
   justify-content: center;
   align-items: center;
   position: absolute;
-  bottom: 5%;
+  bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 20;
 }
+
+ @media (min-width: 576px) {
+    .start-btn {
+      --bs-btn-padding-x: 3rem;
+      --bs-btn-font-size: 0.9rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .start-btn {
+      --bs-btn-padding-x: 4rem;
+      --bs-btn-font-size: 1rem;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .start-btn {
+      --bs-btn-padding-x: 5rem; 
+      --bs-btn-font-size: 1.1rem; 
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .start-btn {
+      --bs-btn-padding-x: 7rem; 
+      --bs-btn-font-size: 1.2rem;
+    }
+  }
 
 /* Search Page */
 .form-control-user {
