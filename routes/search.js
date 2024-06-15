@@ -38,7 +38,7 @@ router.get('/search', async (req, res) => {
         }
 
         const drinks = await Drinks.findAll({ where: whereClause });
-          // console.log("Found drinks:", drinks);
+        // console.log("Found drinks:", drinks);
 
         if (drinks.length === 0) {
             console.log("No drinks found for term:", term);
