@@ -1,15 +1,14 @@
-//tweet function
-function tweet(message) {
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
-    window.open(url, "Tweet Window", "width=600, height=300");
+// tweet function
+function tweet(drinkDetails) {
+    const tweetText = `Check out this amazing drink! Name: ${drinkDetails.name}, Spirit: ${drinkDetails.spirit}, Ingredients: ${drinkDetails.ingredients}`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+    window.open(tweetUrl, "Tweet Window", "width=600, height=300");
 }
+
 //instagram function
 function instagram() {
     window.open("https://www.instagram.com/", "Instagram Window", "width=600, height=300");
 }
-
-// Construct drink details message for the tweet using template literals
-const drinkDetails = `Check out this amazing drink! Name: ${'{{name}}'}, Spirit: ${'{{spirit}}'}, Ingredients: ${'{{ingredients}}'}`;
 
 //on click of tweet button
 document.getElementById('twitter').addEventListener('click', () => {
