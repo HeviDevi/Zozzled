@@ -8,8 +8,8 @@ function instagram() {
     window.open("https://www.instagram.com/", "Instagram Window", "width=600, height=300");
 }
 
-// Construct drink details message for the tweet
-const drinkDetails = `Check out this amazing drink! Name: ${'{{name}}'}, Spirit: ${'{{spirit}}'}, Ingredients: ${'{{ingredients}'}`;
+// Construct drink details message for the tweet using template literals
+const drinkDetails = `Check out this amazing drink! Name: ${'{{name}}'}, Spirit: ${'{{spirit}}'}, Ingredients: ${'{{ingredients}}'}`;
 
 //on click of tweet button
 document.getElementById('twitter').addEventListener('click', () => {
