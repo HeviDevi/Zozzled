@@ -72,6 +72,10 @@ p {
   margin: 0 10px;
 }
 
+.nav li :hover {
+  text-decoration: underline;
+}
+
 .nav a {
   text-decoration: none;
   color: inherit;
