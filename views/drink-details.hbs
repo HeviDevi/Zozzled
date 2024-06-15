@@ -13,10 +13,12 @@
                             <i class="fa-regular fa-heart"></i>
                         </button>
                         <div class="social-icons">
-                            <button class="social-btn instagram-btn border-0">
+                            <button class="social-btn instagram-btn border-0"
+                                onclick="window.open('https://www.instagram.com/USERNAME', '_blank')">
                                 <i class="fab fa-instagram"></i>
                             </button>
-                            <button class="social-btn twitter-btn border-0">
+                            <button class="social-btn twitter-btn border-0"
+                                onclick="window.open('https://twitter.com/USERNAME', '_blank')">
                                 <i class="fab fa-twitter-square"></i>
                             </button>
                         </div>
@@ -34,24 +36,13 @@
                 </div>
             </div>
 
-
-            <div class="row justify-content-center">
-                {{#each comments}}
-                    <div class="col-md-4">
-                        <div class="card mb-4 comment-rating-card">
-                            <div class="card-body">
-                                <p class="card-text">Rating: {{rating}}</p>
-                                <p>{{text}}</p>
-                            </div>
-                        </div>
-                    </div>
-                {{/each}}
-            </div>
-                {{!-- <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4">
                     <div class="card mb-4 comment-rating-card">
                         <div class="card-body">
-                            <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
-                            <p>COMMENTS HERE PLEASE AND THANKS YOU</p>
+                            <p class="card-text">Rating: ⭐⭐⭐⭐</p>
+                            <p>This drink was incredible! The flavors were perfectly balanced and so refreshing. It's
+                                definitely my new favorite for any occasion!</p>
                         </div>
                     </div>
                 </div>
@@ -59,11 +50,21 @@
                     <div class="card mb-4 comment-rating-card">
                         <div class="card-body">
                             <p class="card-text">Rating: ⭐⭐⭐⭐⭐</p>
-                            <p>COMMENTS HERE PLEASE AND THANKS YOU</p>
+                            <p>I was blown away by this beverage! It had a perfect mix of robustness and complexity. A
+                                true delight for the taste buds, I can't wait to have it again.</p>
                         </div>
                     </div>
                 </div>
-            </div> --}}
+                <div class="col-md-4">
+                    <div class="card mb-4 comment-rating-card">
+                        <div class="card-body">
+                            <p class="card-text">Rating: ⭐⭐⭐⭐</p>
+                            <p>Absolutely fantastic! The drink was smooth and flavorful, with just the right amount of
+                                kick. It's an instant crowd-pleaser and perfect for any gathering</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="card mb-4 rating-comments">
                 <div class="card-body">
@@ -80,24 +81,29 @@
                             <label for='rate-2' class="fas fa-star"></label>
                             <input type='radio' name='rate' id='rate-1' value="1">
                             <label for='rate-1' class="fas fa-star"></label>
-                            <div class="div textarea mt-3">
-                                <textarea name="comment" cols="30" placeholder="Give us some thoughts, Stay Frosty"></textarea>
-                            </div>
-                            <input type="hidden" name="drink_id" value="{{id}}">
-                            <div class="row justify-content-center">
-                                <div class="col-12 col-md-8 col-lg-6">
-                                    <button id="submitButton" type="submit" class="btn mt-3 submit w-100"
-                                            style="--bs-btn-padding-y: .50rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
-                                        Send Us Feedback
-                                    </button>
+                            <form action='#'>
+                                <header></header>
+                                <div class="textarea mt-3">
+                                    <textarea name="comment" cols="30"
+                                        placeholder="Comments system coming soon..., Stay Frosty"></textarea>
                                 </div>
-                            </div>
+                                <input type="hidden" name="drink_id" value="{{id}}">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-md-8 col-lg-6">
+                                        <button id="submitButton" type="submit" class="btn mt-3 submit w-100"
+                                            style="--bs-btn-padding-y: .50rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d; pointer-events: none;">
+                                            Feature Coming Soon!
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </form>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
-    <script src="/js/favorites.js"></script>
+<script src="/js/favorites.js"></script>
