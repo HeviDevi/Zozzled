@@ -1,7 +1,7 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const submitButtonEl = document.querySelector('#submitButton');
- 
-    submitButtonEl.addEventListener('click' , function(event) {
+
+    submitButtonEl.addEventListener('click', function (event) {
         event.preventDefault();
         const rating = document.querySelector('#rating').value;
         const comment = document.querySelector('#comment').value;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             headers: {
                 'Content-Type': 'application/json',
             },
-        }) 
-        
-})
+        })
+
+    })
 })

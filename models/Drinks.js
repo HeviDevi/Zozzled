@@ -3,7 +3,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class Drinks extends Model {}
+class Drinks extends Model { }
 
 Drinks.init({
     drink_id: {

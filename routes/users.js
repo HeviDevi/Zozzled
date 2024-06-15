@@ -22,7 +22,7 @@ router.get('/add', withAuth, (req, res) => {
     res.render('add', { isAuthenticated: req.isAuthenticated() });
 });
 
-// Add a user
+// Add a user drink
 router.post('/add', withAuth, async (req, res) => {
     console.log('Received request to /add');
     let { drinkname, spirittype, spiritamount, ingredients, instructions } = req.body;

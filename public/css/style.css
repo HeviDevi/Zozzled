@@ -11,7 +11,12 @@ body {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "EB Garamond", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -43,6 +48,7 @@ p {
   .logo-container {
     left: 0;
   }
+
   .logo {
     width: 20%;
   }
@@ -148,35 +154,65 @@ p {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
-  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+
+  .top-left,
+  .bottom-left,
+  .top-right,
+  .bottom-right,
+  .left,
+  .right {
     max-width: 80%;
     max-height: 80%;
   }
 }
 
 @media (max-width: 992px) {
-  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+
+  .top-left,
+  .bottom-left,
+  .top-right,
+  .bottom-right,
+  .left,
+  .right {
     max-width: 70%;
     max-height: 70%;
   }
 }
 
 @media (max-width: 768px) {
-  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+
+  .top-left,
+  .bottom-left,
+  .top-right,
+  .bottom-right,
+  .left,
+  .right {
     max-width: 60%;
     max-height: 60%;
   }
 }
 
 @media (max-width: 576px) {
-  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+
+  .top-left,
+  .bottom-left,
+  .top-right,
+  .bottom-right,
+  .left,
+  .right {
     max-width: 40%;
     max-height: 40%;
   }
 }
 
 @media (max-width: 375px) {
-  .top-left, .bottom-left, .top-right, .bottom-right, .left, .right {
+
+  .top-left,
+  .bottom-left,
+  .top-right,
+  .bottom-right,
+  .left,
+  .right {
     max-width: 30%;
     max-height: 30%;
   }
@@ -213,6 +249,7 @@ p {
 }
 
 @media screen and (max-width: 578px) {
+
   .left-border,
   .right-border {
     display: none;
@@ -268,6 +305,7 @@ p {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -286,33 +324,33 @@ p {
   z-index: 20;
 }
 
- @media (min-width: 576px) {
-    .start-btn {
-      --bs-btn-padding-x: 3rem;
-      --bs-btn-font-size: 0.9rem;
-    }
+@media (min-width: 576px) {
+  .start-btn {
+    --bs-btn-padding-x: 3rem;
+    --bs-btn-font-size: 0.9rem;
   }
+}
 
-  @media (min-width: 768px) {
-    .start-btn {
-      --bs-btn-padding-x: 4rem;
-      --bs-btn-font-size: 1rem;
-    }
+@media (min-width: 768px) {
+  .start-btn {
+    --bs-btn-padding-x: 4rem;
+    --bs-btn-font-size: 1rem;
   }
+}
 
-  @media (min-width: 992px) {
-    .start-btn {
-      --bs-btn-padding-x: 5rem; 
-      --bs-btn-font-size: 1.1rem; 
-    }
+@media (min-width: 992px) {
+  .start-btn {
+    --bs-btn-padding-x: 5rem;
+    --bs-btn-font-size: 1.1rem;
   }
+}
 
-  @media (min-width: 1200px) {
-    .start-btn {
-      --bs-btn-padding-x: 7rem; 
-      --bs-btn-font-size: 1.2rem;
-    }
+@media (min-width: 1200px) {
+  .start-btn {
+    --bs-btn-padding-x: 7rem;
+    --bs-btn-font-size: 1.2rem;
   }
+}
 
 /* Search Page */
 .form-control-user {
@@ -344,8 +382,13 @@ p {
 }
 
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Drink Results */
@@ -391,7 +434,8 @@ p {
 }
 
 /* Heart Button */
-.heart-btn, .favorite-btn {
+.heart-btn,
+.favorite-btn {
   position: absolute;
   bottom: 5px;
   right: 5px;
@@ -403,12 +447,14 @@ p {
   transition: background-color 0.3s, transform 0.3s;
 }
 
-.heart-btn i, .favorite-btn i {
+.heart-btn i,
+.favorite-btn i {
   color: red;
   font-size: 1.5rem;
 }
 
-.heart-btn:hover, .favorite-btn:hover {
+.heart-btn:hover,
+.favorite-btn:hover {
   transform: scale(1.1);
 }
 
@@ -418,7 +464,8 @@ p {
   display: block;
 }
 
-.card-img-top, .card-img {
+.card-img-top,
+.card-img {
   width: 100%;
   height: 200px;
   border-radius: 5px;
@@ -584,41 +631,41 @@ p {
   transition: all 0.2s ease;
 }
 
-input:not(:checked) ~ label:hover,
-input:not(:checked) ~ label:hover ~ label {
+input:not(:checked)~label:hover,
+input:not(:checked)~label:hover~label {
   color: #f7d70c;
 }
 
-input:checked ~ label {
+input:checked~label {
   color: #f7d70c;
 }
 
-input#rate-5:checked ~ label {
+input#rate-5:checked~label {
   color: #fff895;
   text-shadow: 0 0 20px rgb(255, 156, 81);
 }
 
-#rate-1:checked ~ header:before {
+#rate-1:checked~header:before {
   content: "This shouldn't even be served in a bar😠";
   text-transform: uppercase;
 }
 
-#rate-2:checked ~ header:before {
+#rate-2:checked~header:before {
   content: "Not a fan🙃";
   text-transform: uppercase;
 }
 
-#rate-3:checked ~ header:before {
+#rate-3:checked~header:before {
   content: "It was aight 👌";
   text-transform: uppercase;
 }
 
-#rate-4:checked ~ header:before {
+#rate-4:checked~header:before {
   content: "Imma have a good good night🥳";
   text-transform: uppercase;
 }
 
-#rate-5:checked ~ header:before {
+#rate-5:checked~header:before {
   content: "I'm not going to remember tonight...🖤";
   text-transform: uppercase;
 }

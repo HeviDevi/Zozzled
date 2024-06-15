@@ -72,7 +72,7 @@ app.use(
       secure: false,
       httpOnly: true, // Prevents client-side JavaScript from accessing the cookie
       sameSite: 'strict', // Ensures the cookie is sent only in requests from the same site
-      maxAge: 24 * 60 * 60 * 1000 
+      maxAge: 24 * 60 * 60 * 1000
     }
   })
 );

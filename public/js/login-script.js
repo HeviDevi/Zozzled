@@ -57,27 +57,27 @@ window.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(Object.fromEntries(formData)),
         })
-        .then((response) => response.json())
-        .then((result) => {
-            if (result.error) {
-                registerError.textContent = result.error;
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.error) {
+                    registerError.textContent = result.error;
+                    registerError.style.display = 'block';
+                } else {
+                    console.log("User registered successfully");
+                    loginForm.style.display = "block";
+                    registerForm.style.display = "none";
+                    modalTitle.textContent = "Login";
+                    showRegisterBtn.textContent = "Register";
+                    loginSuccessMessage.textContent = 'Registration successful, please login.'; // Show success message
+                    loginSuccessMessage.style.display = 'block'; // Show success message
+                    registerError.style.display = 'none';
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                registerError.textContent = 'An error occurred. Please try again.';
                 registerError.style.display = 'block';
-            } else {
-                console.log("User registered successfully");
-                loginForm.style.display = "block";
-                registerForm.style.display = "none";
-                modalTitle.textContent = "Login";
-                showRegisterBtn.textContent = "Register";
-                loginSuccessMessage.textContent = 'Registration successful, please login.'; // Show success message
-                loginSuccessMessage.style.display = 'block'; // Show success message
-                registerError.style.display = 'none';
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            registerError.textContent = 'An error occurred. Please try again.';
-            registerError.style.display = 'block';
-        });
+            });
     });
 
     loginForm.addEventListener("submit", (event) => {
@@ -91,26 +91,26 @@ window.addEventListener("DOMContentLoaded", () => {
             },
             body: JSON.stringify(Object.fromEntries(formData)),
         })
-        .then((response) => response.json())
-        .then((result) => {
-            if (result.error) {
-                loginError.textContent = result.error;
-                loginError.style.display = 'block';
-            } else {
-                console.log("User logged in successfully");
-                const myModalEl = document.querySelector(".modal");
-                if (myModalEl) {
-                    const modalInstance = bootstrap.Modal.getInstance(myModalEl);
-                    modalInstance.hide();
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.error) {
+                    loginError.textContent = result.error;
+                    loginError.style.display = 'block';
+                } else {
+                    console.log("User logged in successfully");
+                    const myModalEl = document.querySelector(".modal");
+                    if (myModalEl) {
+                        const modalInstance = bootstrap.Modal.getInstance(myModalEl);
+                        modalInstance.hide();
+                    }
+                    loginError.style.display = 'none';
+                    window.location.reload(); // Reload the page to update the nav-bar
                 }
-                loginError.style.display = 'none';
-                window.location.reload(); // Reload the page to update the nav-bar
-            }
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-            loginError.textContent = 'An error occurred. Please try again.';
-            loginError.style.display = 'block';
-        });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                loginError.textContent = 'An error occurred. Please try again.';
+                loginError.style.display = 'block';
+            });
     });
 });

@@ -1,3 +1,4 @@
+// function to seed the database with data from drinkData.json
 const sequelize = require('../config/database');
 const Drinks = require('../models/Drinks');
 const drinkData = require('./drinkData.json');
@@ -21,5 +22,5 @@ const seedDatabase = async () => {
         process.exit(0);
     }
 };
-
+// call the function to seed the database
 seedDatabase();
