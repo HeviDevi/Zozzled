@@ -55,6 +55,7 @@
       <ul>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#video-tour">Video Tour</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     <li><a href="#contributing">Contributing</a></li>
@@ -112,6 +113,7 @@ You can Add personalized drinks to your profile, simply include:<br>
 
 
 
+## Video Tour:
 
 https://github.com/EddieHinojosa/Cocktail-Directory/assets/161403923/6a7a3bcb-3799-47df-aad1-7176e62ba032
 
