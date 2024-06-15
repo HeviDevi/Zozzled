@@ -1,22 +1,23 @@
-<a href="https://github.com/EddieHinojosa/Cocktail-Directory/graphs/contributors">![Static Badge](https://img.shields.io/badge/Contributors-5-green)
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/EddieHinojosa/Cocktail-Directory/forks">![Static Badge](https://img.shields.io/badge/Forks-lightgreen)
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/EddieHinojosa/Cocktail-Directory/blob/main/LICENSE">![Static Badge](https://img.shields.io/badge/License-MIT-blue)
-</a>
-&nbsp;&nbsp;
-<a href="https://github.com/EddieHinojosa/Cocktail-Directory/issues/new?labels=bug&template=bug-report---.md">![Static Badge](https://img.shields.io/badge/Report_Bug-red)
-</a>
-&nbsp;&nbsp;
-[![Forks][forks-shield]][forks-url]
+<div align="center">
+
+  <a  href="https://github.com/EddieHinojosa/Cocktail-Directory/graphs/contributors">![Static Badge](https://img.shields.io/badge/Contributors-5-green)
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/EddieHinojosa/Cocktail-Directory/forks">![Static Badge](https://img.shields.io/badge/Forks-lightgreen)
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/EddieHinojosa/Cocktail-Directory/blob/main/LICENSE">![Static Badge](https://img.shields.io/badge/License-MIT-blue)
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://github.com/EddieHinojosa/Cocktail-Directory/issues/new?labels=bug&template=bug-report---.md">![Static Badge](https://img.shields.io/badge/Report_Bug-red)
+  </a>
+</div>
+
+<br>
+<br>
+<br>
 
 
-
-
-
-<br />
 <div align="center">
   <a href="https://github.com/EddieHinojosa/Cocktail-Directory">
     <div align="center">
