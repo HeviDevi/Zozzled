@@ -1,45 +1,45 @@
-<div class="container mt-5 p-5">
-  <div class="row align-items-center mt-5 p-5 overflow-auto drink-results">
+<div
+  class="container d-flex justify-content-center align-items-center min-vh-100 p-5"
+>
+  <div class="row align-items-center p-5 overflow-auto drink-results">
     {{#each drinks}}
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4 d-flex">
-        <div class="card drink-card">
-          <div class="card-body">
-            <a
-              href="/drink-details?id={{drink_id}}&name={{encodeURIComponent
-                drink_name
-              }}&spirit={{encodeURIComponent
-                spirit_type
-              }}&amount={{encodeURIComponent
-                spirit_amount
-              }}&ingredients={{encodeURIComponent
-                ingredients
-              }}&instructions={{encodeURIComponent
-                instructions
-              }}&image={{encodeURIComponent image_link}}"
-              class="image-link"
-            >
-              <img
-                src="{{image_link}}"
-                class="card-img-top card-img"
-                alt="The Cocktail of Choice"
-              />
-              <div class="overlay">
-                <div class="overlay-text">
-                  <h6>{{drink_name}}</h6>
-                  <p>Rating:
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                  </p>
-                </div>
+        <div class="card drink-card position-relative w-100">
+          <a
+            href="/drink-details?id={{drink_id}}&name={{encodeURIComponent
+              drink_name
+            }}&spirit={{encodeURIComponent
+              spirit_type
+            }}&amount={{encodeURIComponent
+              spirit_amount
+            }}&ingredients={{encodeURIComponent
+              ingredients
+            }}&instructions={{encodeURIComponent
+              instructions
+            }}&image={{encodeURIComponent image_link}}"
+            class="image-link d-block position-relative"
+          >
+            <img
+              src="{{image_link}}"
+              class="card-img-top card-img"
+              alt="The Cocktail of Choice"
+            />
+            <div class="overlay d-flex">
+              <div class="overlay-text text-center">
+                <h6>{{drink_name}}</h6>
+                <p>Rating:
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </p>
               </div>
-              <button class="heart-btn" data-drink-id="{{drink_id}}">
-                <i class="fa-regular fa-heart"></i>
-              </button>
-            </a>
-          </div>
+            </div>
+            <button class="heart-btn" data-drink-id="{{drink_id}}">
+              <i class="fa-regular fa-heart"></i>
+            </button>
+          </a>
         </div>
       </div>
     {{/each}}
@@ -47,5 +47,3 @@
 </div>
 
 <script src="/js/favorites.js"></script>
-
-{{! ⭐⭐⭐⭐⭐ }}
