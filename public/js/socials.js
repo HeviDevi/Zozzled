@@ -1,6 +1,6 @@
 // Tweet function
-function tweet(drinkDetails) {
-    const tweetText = `Check out this amazing drink! Name: ${drinkDetails.name}, Spirit: ${drinkDetails.spirit}, Ingredients: ${drinkDetails.ingredients}`;
+function tweet(drinkDetails, websiteName) {
+    const tweetText = `Check out this amazing drink I found on ${websiteName}! Name: ${drinkDetails.name}, Spirit: ${drinkDetails.spirit}, Ingredients: ${drinkDetails.ingredients}, https://zozzled-lk94.onrender.com/`;
     const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
     window.open(tweetUrl, "Tweet Window", "width=600, height=300");
 }
@@ -18,9 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
         twitterButton.addEventListener('click', function () {
             const drinkName = document.querySelector('.card-title').textContent.trim();
             const spiritType = document.querySelector('.card-text:nth-of-type(2)').textContent.replace('Spirit Type:', '').trim();
-            const ingredients = document.querySelector('.card-text:nth-of-type(5)').textContent.replace('Ingredients:', '').trim();
+            const ingredients = document.querySelector('.card-text:nth-of-type(4)').textContent.replace('Ingredients:', '').trim();
 
-            tweet({ name: drinkName, spirit: spiritType, ingredients: ingredients });
+            // Adjust websiteName to your actual website name
+            const websiteName = "Zozzled"; // Replace with your website name
+
+            tweet({ name: drinkName, spirit: spiritType, ingredients: ingredients }, websiteName);
         });
     }
 
