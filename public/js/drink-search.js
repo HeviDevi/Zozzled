@@ -1,3 +1,4 @@
+// event listeners for the search button, spirit filter, and spirit slider
 document.addEventListener('DOMContentLoaded', function () {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');

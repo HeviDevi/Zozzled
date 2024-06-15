@@ -1,5 +1,5 @@
 // // Animation
-for (let i=0; i<=6; i++) {
+for (let i = 0; i <= 6; i++) {
   let starShine = document.createElement('div');
   starShine.classList.add('star');
   let size = Math.random() * 50;
@@ -14,7 +14,6 @@ function animateStar() {
   let num = Math.floor(Math.random() * allStar.length);
   allStar[num].classList.toggle('animate');
 }
-
 setInterval(animateStar, 500);
 
 // Start button script
