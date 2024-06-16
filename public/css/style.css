@@ -42,6 +42,7 @@ p {
 
 .logo {
   width: 50%;
+  max-width: 350px; 
 }
 
 @media (min-width: 576px) {
