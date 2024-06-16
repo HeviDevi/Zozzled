@@ -48,6 +48,15 @@ p {
   }
 }
 
+@media (max-width: 576px) {
+  .logo-container {
+    left: 0;
+    top: 1%;
+  }
+  .logo {
+    width: 25%;
+  }
+}
 
 /* Navigation Bar */
 .nav {
