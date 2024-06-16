@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const db = require('../config/database');
 
 const Favorite = db.define('favorites', {
-    
+
     username: {
         type: Sequelize.INTEGER,
         allowNull: false,

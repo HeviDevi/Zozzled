@@ -1,38 +1,31 @@
 {{> art-deco}}
 {{> art-deco2}}
 
-        <div class="container detail-container">
-            <div class="row justify-content-center">
-            <div class="col-md-8">
-                {{#each users}}
-                <div class="card mb-4 drink-details">
+<div class="container detail-container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            {{#each users}}
+            <div class="card mb-4 drink-details">
                 <div class="row drink-details-container">
                     <div class="col-md-8">
-                    <div class="card-body drink-info">
-                        <h4 class="card-title">{{dataValues.drinkname}}</h4>
-                        <p class="card-text"><span class="bold-text">Spirit Type:</span> {{dataValues.spirittype}}</p>
-                        <p class="card-text"><span class="bold-text">Spirit Amount:</span> {{dataValues.spiritamount}} OZ</p>
-                        <p class="card-text"><span class="bold-text">Ingredients:</span> {{dataValues.ingredients}}</p>
-                        <p class="card-text"><span class="bold-text">Instructions:</span> {{dataValues.instructions}}</p>
-                    </div>
+                        <div class="card-body drink-info">
+                            <h4 class="card-title">{{dataValues.drinkname}}</h4>
+                            <p class="card-text"><span class="bold-text">Spirit Type:</span> {{dataValues.spirittype}}
+                            </p>
+                            <p class="card-text"><span class="bold-text">Spirit Amount:</span>
+                                {{dataValues.spiritamount}} OZ</p>
+                            <p class="card-text"><span class="bold-text">Ingredients:</span> {{dataValues.ingredients}}
+                            </p>
+                            <p class="card-text"><span class="bold-text">Instructions:</span>
+                                {{dataValues.instructions}}</p>
+                        </div>
                     </div>
                 </div>
-                </div>
-                {{/each}}
-                {{^each users}}
-                <p>No drinks found</p>
-                {{/each}}
             </div>
-            </div>
-        </div>
-
-{{!-- 
-        {{#each users}}
-        <h1>{{dataValues.drinkname}}</h1>
-        <ul>
-            <li>{{dataValues.spirittype}} - {{dataValues.spiritamount}}</li>
-            <p>{{dataValues.ingredients}}</p>
-            <p>{{dataValues.instructions}}</p>
-    {{else}}
+            {{/each}}
+            {{^each users}}
             <p>No drinks found</p>
-    {{/each}} --}}
+            {{/each}}
+        </div>
+    </div>
+</div>

@@ -4,34 +4,39 @@
 
 {{!-- Search Container --}}
 <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
-        <div class="search-container w-100" style="max-width: 500px;">
-            <div class="input-group mb-3">
-                <select class="form-select" id="spiritFilter" aria-label="Spirit filter">
-                    <option value="">All Spirits</option>
-                    <option value="Gin">Gin</option>
-                    <option value="Vodka">Vodka</option>
-                    <option value="Tequila">Tequila</option>
-                    <option value="Rum">Rum</option>
-                    <option value="Rye Whiskey">Whiskey</option>
-                    <option value="Brandy">Brandy</option>
-                    <option value="Bourbon">Bourbon</option>
-                </select>
-            </div>
-            <div class="input-group mb-3">
-                <input id="searchInput" type="text" class="form-control" placeholder="Ingredient" aria-label="Keyword" aria-describedby="basic-addon1">
-                <span class="input-group-text" id="basic-addon1">&#x1F50E;</span>
-            </div>
-            <input type="range" class="form-range mb-3" min="0" max="2" id="spiritSlider">
-            <div class="d-flex justify-content-between mb-3">
-                <span>Bitter</span>
-                <span>Sweet</span>
-            </div>        
-            <button id="searchButton" type="button" class="btn search-btn w-100"
-                style="--bs-btn-padding-y: .50rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
-                Shaken, Not Stirred
-            </button>
+    <div class="search-container w-100" style="max-width: 500px;">
+        {{!-- Input for spirit type dropdown --}}
+        <div class="input-group mb-3">
+            <select class="form-select" id="spiritFilter" aria-label="Spirit filter">
+                <option value="">All Spirits</option>
+                <option value="Gin">Gin</option>
+                <option value="Vodka">Vodka</option>
+                <option value="Tequila">Tequila</option>
+                <option value="Rum">Rum</option>
+                <option value="Rye Whiskey">Whiskey</option>
+                <option value="Brandy">Brandy</option>
+                <option value="Bourbon">Bourbon</option>
+            </select>
         </div>
+        {{!-- Search Word Input --}}
+        <div class="input-group mb-3">
+            <input id="searchInput" type="text" class="form-control" placeholder="Ingredient" aria-label="Keyword"
+                aria-describedby="basic-addon1">
+            <span class="input-group-text" id="basic-addon1">&#x1F50E;</span>
+        </div>
+        {{!-- Slider for Bitter/Sweet --}}
+        <input type="range" class="form-range mb-3" min="0" max="2" id="spiritSlider">
+        <div class="d-flex justify-content-between mb-3">
+            <span>Bitter</span>
+            <span>Sweet</span>
+        </div>
+        {{!-- Search Button - let' shake it --}}
+        <button id="searchButton" type="button" class="btn search-btn w-100"
+            style="--bs-btn-padding-y: .50rem; --bs-btn-font-size: 1rem; --bs-btn-bg: #822c1c; --bs-btn-color: #f8f4ea; --bs-btn-hover-color: #f8f4ea; --bs-btn-hover-bg: #ce7c6d;">
+            Shaken, Not Stirred
+        </button>
     </div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

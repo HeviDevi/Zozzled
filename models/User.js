@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class UserDrink extends Model {}
+class UserDrink extends Model { }
 
 UserDrink.init(
     {
@@ -33,11 +33,11 @@ UserDrink.init(
         },
     },
     {
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    timestamps: false,
-    modelName: 'userdrinks',
+        sequelize,
+        freezeTableName: true,
+        underscored: true,
+        timestamps: false,
+        modelName: 'userdrinks',
     }
 );
 

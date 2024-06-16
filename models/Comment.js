@@ -2,7 +2,7 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 const Drinks = require("./Drinks");
 
-class Comment extends Model {}
+class Comment extends Model { }
 
 Comment.init(
   {

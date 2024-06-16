@@ -55,6 +55,7 @@
       <ul>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#features">Features</a></li>
+        <li><a href="#video-tour">Video Tour</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     <li><a href="#contributing">Contributing</a></li>
@@ -109,8 +110,16 @@ You can Add personalized drinks to your profile, simply include:<br>
 <p>After giving a few of these cocktails a try, you have the ability to add them to your favorites by clicking the heart on each drink card, to view all your favorited cocktails, go to the Profile tab (must have login profile), and you can view all your favorite drinks.
 </p>
 
-<h4><strong>Share drinks via </strong><br></h4>
-<p>The drink's card, there will be a button to view the randomly generated quote pulled from the API that is linked to each corresponding mood that is selected in the main pag. </p>
+
+
+
+## Video Tour:
+
+https://github.com/EddieHinojosa/Cocktail-Directory/assets/161403923/6a7a3bcb-3799-47df-aad1-7176e62ba032
+
+
+
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
