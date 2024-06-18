@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const spiritType = document.querySelector('.card-text:nth-of-type(2)').textContent.replace('Spirit Type:', '').trim();
             const ingredients = document.querySelector('.card-text:nth-of-type(4)').textContent.replace('Ingredients:', '').trim();
 
-            // Adjust websiteName to your actual website name
-            const websiteName = "Zozzled"; // Replace with your website name
+           
+            const websiteName = "Zozzled"; 
 
             tweet({ name: drinkName, spirit: spiritType, ingredients: ingredients }, websiteName);
         });
